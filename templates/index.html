@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Sistema Académico - Arquitectura MVC{% endblock %}
+
+{% block content %}
+    <div class="container py-5 text-center vh-70">
+        <h1>Resumen Ejecutivo</h1>
+        <p>La estructura relacional del sistema soporta el registro y seguimiento de los siguientes activos académicos: </p>
+        <div class="row gap-4">
+            <div class="col p-4 card">
+                <h4> Profesores</h4>
+                <p> Actualmente hay </p>
+                <h1> {{ "{:,.0f}".format(stats.profesores).replace(',', '.') }} </h1>
+                <p> Profesores </p>
+            </div>
+            <div class="col p-4 card">
+                <h4> Alumnos </h4>
+                <p> Actualmente hay </p>
+                <h1> {{ "{:,.0f}".format(stats.alumnos).replace(',', '.') }} </h1>
+                <p> Alumnos </p>
+            </div>
+            <div class="col p-4 card">
+                <h4> Cursos </h4>
+                <p> Actualmente hay </p>
+                <h1> {{ "{:,.0f}".format(stats.cursos).replace(',', '.') }} </h1>
+                <p> Cursos </p>
+            </div>
+            <div class="col p-4 card">
+                <h4> Matrículas </h4>
+                <p> Actualmente hay </p>
+                <h1> {{ "{:,.0f}".format(stats.matriculas).replace(',', '.') }} </h1>
+                <p> Matrículas </p>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5 text-center">
+        <h1>Sistema Académico</h1>
+        <p> Este sistema ha sido desarrollado mediante una arquitectura MVC, empleando las siguientes herramientas:</p>
+            <div class="row mt-5 gap-4">
+                <div class="col card shadow-sm p-4 text-center"> 
+                    <div>
+                        <svg class="pb-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-database" viewBox="0 0 16 16">
+                            <path d="M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313M13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A5 5 0 0 0 13 5.698M14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A5 5 0 0 0 13 8.698m0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525"/>
+                        </svg>
+                        <h2>PostgreSQL</h2>
+                    </div>
+                    <p>Base de Datos Relacional que contiene la información de los alumnos y estudiantes.</p>
+                </div>
+                <div class="col card shadow-sm p-4 text-center"> 
+                    <div>
+                        <svg class="pb-4" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-filetype-py" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H7v-1h5a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM0 11.85h1.6q.434 0 .732.179.302.175.46.477t.158.677-.16.677q-.158.299-.464.474a1.45 1.45 0 0 1-.732.173H.79v1.342H0zm2.06 1.714a.8.8 0 0 0 .085-.381q0-.34-.185-.521-.185-.182-.513-.182H.788v1.406h.66a.8.8 0 0 0 .374-.082.57.57 0 0 0 .238-.24m2.963.75v1.535H4.23v-1.52L2.89 11.85h.876l.853 1.696h.032l.856-1.696h.855z"/>
+                        </svg>
+                        <h2>Python</h2>
+                    </div>
+                    <p>Empleado principalmente para realizar consultas a la base de datos, empleando Flask como micro-framework back-end.</p>
+                    </div>
+                <div class="col card shadow-sm p-4 text-center"> 
+                    <div>
+                        <svg class="pb-4"xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bootstrap" viewBox="0 0 16 16">
+                            <path d="M5.062 12h3.475c1.804 0 2.888-.908 2.888-2.396 0-1.102-.761-1.916-1.904-2.034v-.1c.832-.14 1.482-.93 1.482-1.816 0-1.3-.955-2.11-2.542-2.11H5.062zm1.313-4.875V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23zm0 3.762V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377z"/>
+                            <path d="M0 4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4zm4-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3z"/>
+                        </svg>
+                        <h2>Bootstrap</h2>
+                    </div>
+                    <p>Framework CSS empleado para los estilos de la página web.</p>
+                </div>
+            </div>
+    </div>
+{% endblock %}

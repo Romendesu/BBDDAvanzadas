@@ -3,8 +3,6 @@ import psycopg
 from .config import load_config
 from .querys import DDL
 
-
-
 def create_tables() -> None:
     """Create demo tables for the lab (idempotent)."""
     cfg = load_config()

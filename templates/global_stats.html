@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{title if title else "estadisticas generales"}}{% endblock %}
+<!-- Se ha pensado emplear la plantilla para todo tipo de ámbito, para agilizar el desarrollo -->
+{% block content %}
+<div class="container py-2 text-center mb-5">
+    <h1>Registro de {{context}}</h1>
+    <p>Pulse el botón de abajo para obtener un registro sobre {{"las" if context == "Matrículas" else "los"}} {{context.lower()}} disponibles.</p>
+    <button id="load-config" class="btn btn-success">Cargar Información</button>
+</div>
+<div id="render-area" class="container ">
+</div>
+
+<script src="{{ url_for('static', filename='js/load_info.js') }}""></script>
+{% endblock %}

@@ -54,7 +54,6 @@ DDL = (
     '''
 )
 # Consultas de Carga Masiva (COPY)
-# Nota: Si tus CSV NO tienen cabecera, elimina la palabra HEADER de los strings.
 
 COPY_PROFESORES = """
     COPY profesor (id_profesor, nombre, correo, especialidad, fecha_contratacion) 
@@ -78,4 +77,32 @@ COPY_MATRICULAS = """
     COPY matricula (id_curso, id_alumno, fecha_inscripcion, nota_final) 
     FROM STDIN 
     WITH (FORMAT CSV, DELIMITER ',');
+"""
+
+COUNT_PROFESORES = """
+    SELECT COUNT(*) FROM profesor;
+"""
+
+COUNT_ALUMNOS = """
+    SELECT COUNT(*) FROM alumno;
+"""
+
+COUNT_CURSOS = """
+    SELECT COUNT(*) FROM curso;
+"""
+
+COUNT_MATRICULAS = """
+    SELECT COUNT(*) FROM matricula;
+"""
+
+SELECT_TEACHERS = """
+    SELECT id_profesor, nombre, especialidad, correo, fecha_contratacion FROM profesor;
+"""
+
+SELECT_STUDENTS = """
+    SELECT id_alumno, nombre, correo, fecha_nacimiento FROM alumno;
+"""
+
+SELECT_GRADES = """
+    SELECT id_curso, nombre_curso, id_profesor FROM curso;
 """
