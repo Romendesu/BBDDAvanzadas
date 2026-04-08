@@ -75,8 +75,17 @@ cd ../fake
 python fake.py
 ```
 
+
 El script muestra:
 - **Locales** (idioma/cultura del dato generado)
 - **Semilla** para reproducibilidad
+
+## 3) Inicialización
+
+Para inicializar la base de datos, sigue las siguientes instrucciones:
+```bash
+cd /BBDDAvanzadas
+python -m database.databases
+```
 - **Generación por lotes** (no imprimir dentro de bucles grandes)
 
