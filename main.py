@@ -1,9 +1,9 @@
 from flask import Flask, redirect, url_for
-from config.utils import SERVER_IP, SERVER_PORT
+from config.utils import SERVER_IP, SERVER_PORT, TEMPLATE_DIR
 from routes import *
 
 def create_app() -> Flask:
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder=TEMPLATE_DIR)
 
     # Registro de blueprints
     app.register_blueprint(home_bp, name = "home")
