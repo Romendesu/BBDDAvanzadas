@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}} | Bases de Datos Avanzadas</title>
+    {# Estilos de tailwind + DaisyUI para agilizar el desarrollo CSS #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"> 
 </head>
 <body>
-    <header>  
+    <header>
+        <h1> Bases de Datos Avanzadas </h1>
+        <ul>
+            <li><a>Inicio</a></li>
+            <li><a>Profesores</a></li>
+            <li><a>Alumnos</a></li>
+            <li><a>Cursos</a></li>
+        </ul>
     </header>
-    <main>
+    <main class="bg-zinc-900 min-h-screen text-white pt-50 px-6">
         {% block content %}{% endblock %}
     </main>
 </body>

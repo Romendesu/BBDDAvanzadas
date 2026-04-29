@@ -1,0 +1,6 @@
+[postgresql]
+host=localhost
+database=nombre_base_datos
+user=usuario
+password=contraseña
+port=5432

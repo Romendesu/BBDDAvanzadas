@@ -1,0 +1,1 @@
+from config.load import SERVER_IP, SERVER_PORT, TEMPLATE_DIR
