@@ -9,7 +9,7 @@ def database_menu(pg: PostgreSQL):
         try:
             print("Seleccione una opción (1-2)")
             print("1. Obtener información de la base de datos")
-            print("2. Generar datos")
+            print("2. Crear contenido")
             print("3. Salir")
             user_input = int(input("> "))
 
@@ -22,7 +22,26 @@ def database_menu(pg: PostgreSQL):
                         print("Postgres:",get_version)
                     continue
                 case 2:
-                    print("Generando datos...")
+                    print("Ventana para la creacion de contenido, seleccione una opcion:")
+                    while True:
+                        print("1. Crear tablas")
+                        print("2. Crear contenido")
+                        print("3. Salir")
+                        content_option = int(input(">"))
+                        match content_option:
+                            case 1:
+                                pg.create_tables()
+                                continue_opt = input("Desea continuar: S/N\n>")
+                                if continue_opt.lower() == "n": 
+                                    break
+                                continue
+                            case 2:
+                                continue
+                            case 3:
+                                break
+                            case _:
+                                print("Opcion no disponible")
+                                continue
                     continue
                 case 3:
                     print("Saliendo de la interfaz")
@@ -32,7 +51,6 @@ def database_menu(pg: PostgreSQL):
                     continue
         except Exception as e:
             print("Error:", e)
-    ...
 
 def main():
     parser = argparse.ArgumentParser()
@@ -52,7 +70,7 @@ def main():
     postgres = PostgreSQL()
     args = parser.parse_args()
 
-    # Segun el argumento pasado, la función main ejecuta un parámetro u otro
+    # Segun el argumento pasado, la función main ejecutara un parámetro u otro
     if args.db:
         database_menu(pg = postgres)
     elif args.rs:

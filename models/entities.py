@@ -26,11 +26,11 @@ class Alumnos():
 class Cursos():
     id: UUID
     nombre: str
-    profesor_id: Profesores
+    profesor_id: UUID
 
 @dataclass
 class Matriculas():
-    alumno_id: Alumnos
-    curso_id: Cursos
+    alumno_id: UUID
+    curso_id: UUID
     created_at: datetime.datetime
 

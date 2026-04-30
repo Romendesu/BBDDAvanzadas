@@ -20,15 +20,33 @@ def with_cursor(f):
             
             cursor = conn.cursor()
             result = f(*args, cursor, **kwargs)
-            return result
-
+            print("Se ha realizado la siguiente operación:\n", result)
         except (Exception, psycopg2.DatabaseError) as e:
             print("Error:", e)
-        
+            conn.rollback()
         finally:
             if conn is not None: conn.close()
     return wrapper
 
 # Operaciones con transacciones -> Rollbacks / Commit
 def with_transactions(f):
-    ...
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        conn = None
+        try:
+            conn = psycopg2.connect(
+                host=PG_HOST,
+                database=PG_NAME,
+                user=PG_USER,
+                password=PG_PASSWORD,
+                port=PG_PORT,
+            )
+
+            cursor = conn.cursor()
+            result = f(*args, cursor, **kwargs)
+            conn.commit()
+        except (Exception, psycopg2.DatabaseError) as e:
+            print("Error:", e)
+        finally:
+            if conn is not None: conn.close()
+    return wrapper
