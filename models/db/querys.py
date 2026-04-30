@@ -1,5 +1,4 @@
-
-# Operaciones CRUD
+# Operaciones de la Base de Datos (CRUD)
 # CREATE
 CREATE_ALUMNOS = """
     CREATE TABLE IF NOT EXISTS alumnos (
@@ -39,6 +38,10 @@ CREATE_MATRICULAS = """
 """
 # READ
 SELECT_VERSION = "SELECT version();"
+COUNT_PROFESORES = "SELECT COUNT(*) FROM profesores;"
+COUNT_ALUMNOS = "SELECT COUNT(*) FROM alumnos;"
+COUNT_CURSOS = "SELECT COUNT(*) FROM cursos;"
+COUNT_MATRICULAS = "SELECT COUNT(*) FROM matriculas;"
 
 # UPDATE
 # DELETE

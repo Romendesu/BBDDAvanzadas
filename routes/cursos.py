@@ -4,13 +4,10 @@ from flask import (
 
 cursos_bp = Blueprint('cursos', __name__, url_prefix="/cursos")
 
-@cursos_bp.route('/', methods=('GET', 'POST'))
+@cursos_bp.route('/')
 def home():
-    match request.method:
-        case "GET":
-            title = "Cursos"
-            return f"<p> Renderizado la vista de {title}</p>"
-        
-        case "_":
-            return f"<p> Aun no se ha definido el comportamiento para el metodo {request.method}</p>"
-        
+    title = "Cursos"
+    return render_template(
+        "/home/stats.html",
+        title = title
+    )

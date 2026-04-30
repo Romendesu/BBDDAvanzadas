@@ -1,1 +1,1 @@
-from models.db.psql import PostgreSQL
+from models.db.psql import PostgreSQL, OperacionesAlumno, OperacionesCurso, OperacionesMatricula, OperacionesProfesor

@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{Title}} | Bases de Datos Avanzadas</title>
+    <title>{{ title }} | Bases de Datos Avanzadas</title>
     {# Estilos de tailwind + DaisyUI para agilizar el desarrollo CSS #}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"> 
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet" />
 </head>
-<body>
-    <header>
-        <h1> Bases de Datos Avanzadas </h1>
-        <ul>
-            <li><a>Inicio</a></li>
-            <li><a>Profesores</a></li>
-            <li><a>Alumnos</a></li>
-            <li><a>Cursos</a></li>
-        </ul>
+<body class="overflow-hidden">
+    <header class="w-screen py-6 px-12 navbar bg-base-300 flex flex-row justify-between align-center bg-white ">
+        <nav class="flex flex-row content-between gap-12">
+            <h1 class="text-base font-bold text-black"> Gestor Académico </h1>
+            {% set path = request.path %}
+            <ul class="flex flex-row align-center justify-center gap-4">
+                <li><a href="/home/"><button class="btn btn-sm {{ 'btn-neutral bg-black btn-active' if path == '/home/' else 'btn-ghost bg-white' }}"><p class="text-s font-medium {{ 'text-white' if path == '/home/' else 'text-black' }}">Inicio</p></button></a></li>
+                <li><a href="/profesores"><button class="btn btn-sm {{ 'btn-neutral bg-black btn-active' if path.startswith('/profesores') else 'btn-ghost bg-white' }}"><p class="text-s font-medium {{ 'text-white' if path.startswith('/profesores') else 'text-black' }}">Profesores</p></button></a></li>
+                <li><a href="/alumnos"><button class="btn btn-sm {{ 'btn-neutral bg-black btn-active' if path.startswith('/alumnos') else 'btn-ghost bg-white' }}"><p class="text-s font-medium {{ 'text-white' if path.startswith('/alumnos') else 'text-black' }}">Alumnos</p></button></a></li>
+                <li><a href="/cursos"><button class="btn btn-sm {{ 'btn-neutral bg-black btn-active' if path.startswith('/cursos') else 'btn-ghost bg-white' }}"><p class="text-s font-medium {{ 'text-white' if path.startswith('/cursos') else 'text-black' }}">Cursos</p></button></a></li>
+                <li><a href="/matriculas"><button class="btn btn-sm {{ 'btn-neutral bg-black btn-active' if path.startswith('/matriculas') else 'btn-ghost bg-white' }}"><p class="text-s font-medium {{ 'text-white' if path.startswith('/matriculas') else 'text-black' }}">Matrículas</p></button></a></li>
+            </ul>
+        </nav>
+        <p class="text-xs color-gray-900">Base de Datos Avanzadas</p>
     </header>
-    <main class="bg-zinc-900 min-h-screen text-white pt-50 px-6">
+    <hr>
+    <main class="bg-white min-h-screen py-12 px-24 w-full page-enter">
         {% block content %}{% endblock %}
     </main>
 </body>
