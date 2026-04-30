@@ -10,8 +10,8 @@ SERVER_PORT = server_values["SERVER_PORT"]
 TEMPLATE_DIR = server_values["TEMPLATE_DIR"]
 
 # Importar la configuración de la base de datos
-DATABASE_HOST = postgresql_values["DATABASE_HOST"]
-DATABASE_NAME = postgresql_values["DATABASE_NAME"]
-DATABASE_USER = postgresql_values["DATABASE_USER"]
-DATABASE_PASSWORD = postgresql_values["DATABASE_PASSWORD"]
-DATABASE_PORT = postgresql_values["DATABASE_PORT"]
+PG_HOST = postgresql_values["DATABASE_HOST"]
+PG_NAME = postgresql_values["DATABASE_NAME"]
+PG_USER = postgresql_values["DATABASE_USER"]
+PG_PASSWORD = postgresql_values["DATABASE_PASSWORD"]
+PG_PORT = postgresql_values["DATABASE_PORT"]

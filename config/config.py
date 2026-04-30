@@ -29,9 +29,3 @@ class Config():
             "SERVER_PORT": int(server_config['server_port']),
             "TEMPLATE_DIR": server_config['template_dir'],
         } 
-
-
-if __name__ == "__main__":
-    config = Config()
-    print(config.get_postgresql_values())
-    print(config.get_server_values())
