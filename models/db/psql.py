@@ -6,7 +6,7 @@ from .querys import (
     INSERT_ALUMNOS, INSERT_PROFESORES
 )
 from ..entities import Alumnos, Profesores
-
+from psycopg2 import Error
 # Funciones auxiliares
 def validate_email(email: str) -> bool:
     import re
@@ -42,8 +42,13 @@ class OperacionesProfesor():
     
     @with_cursor
     def get_all_teachers(self, cursor):
-        cursor.execute(SELECT_ALL_PROFESORES)
-        return cursor.fetchmany()
+        try:
+            cursor.execute(SELECT_ALL_PROFESORES)
+            return cursor.fetchall()
+        except (Exception, Error) as e:
+            print("Error al obtener los profesores:", e)
+            return []
+
     
     # Operaciones de escritura   
     @with_transactions
@@ -63,8 +68,13 @@ class OperacionesAlumno():
     
     @with_cursor
     def get_all_students(self, cursor):
-        cursor.execute(SELECT_ALL_ALUMNOS)
-        return cursor.fetchmany()
+        try:
+            cursor.execute(SELECT_ALL_ALUMNOS)
+            return cursor.fetchall()
+        except (Exception, Error) as e:
+            print("Error al obtener los estudiantes:", e)
+            return []
+
 
     # Operaciones de escritura   
     @with_transactions

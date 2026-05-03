@@ -88,38 +88,40 @@ def database_menu(
 
                                     gestor_profesor.insert_one_teacher(profesor=profesor)
                                     input("Presione Enter para continuar...")
-
                         case 3:
-                            print("Seleccione que categoría le gustaria consultar:")
-                            print("1. Alumnos")
-                            print("2. Profesores")
-
-                            try:
-                                user_select_input = int(input("> "))
-                            except ValueError:
-                                print("Opción no válida. Por favor, ingrese un número.")
-                                input("Presione Enter para continuar...")
-                                continue
-                            
-                            match(user_select_input):
-                                case 1:
-                                    alumnos = gestor_alumno.get_all_students()
-                                    for alumno in alumnos:
-                                        print(alumno)
-                                case 2:
-                                    profesores = gestor_profesor.get_all_teachers()
-                                    for alumno in profesores:
-                                        print(profesor)
-                                case _:
-                                    print("Opcion no implementada")
-                                    input("Presione Enter para continuar")
-                        case 4:
                             break
                         case _:
                             print("Opción no disponible.")
                             input("Presione Enter para continuar...")
             case 3:
-                print("Saliendo de la interfaz...")
+                print("Seleccione que categoría le gustaria consultar:")
+                print("1. Alumnos")
+                print("2. Profesores")
+
+                try:
+                    user_select_input = int(input("> "))
+                except ValueError:
+                    print("Opción no válida. Por favor, ingrese un número.")
+                    input("Presione Enter para continuar...")
+                    continue
+                            
+                match(user_select_input):
+                    case 1:
+                        alumnos = gestor_alumno.get_all_students()
+                        for alumno in alumnos:
+                            print(alumno)
+                        input("Presione Enter para continuar")
+
+                    case 2:
+                        profesores = gestor_profesor.get_all_teachers()
+                        for profesor in profesores:
+                            print(profesor)
+                        input("Presione Enter para continuar")
+
+                    case _:
+                        print("Opcion no implementada")
+                        input("Presione Enter para continuar")
+            case 4:
                 break
             case _:
                 print("Opción no válida.")

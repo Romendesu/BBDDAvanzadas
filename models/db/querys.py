@@ -107,7 +107,7 @@ SELECT_ALL_PROFESORES = """
     SELECT id, nombre FROM profesores;
 """
 SELECT_ALL_ALUMNOS = """
-    SELECT id, nombre, email FROM estudiantes;
+    SELECT id, nombre, email FROM alumnos;
 """
 # Seleccionar varios profesor y alumnos dado su nombre
 SELECT_PROFESORES_BY_NAME = """
