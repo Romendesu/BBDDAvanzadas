@@ -21,7 +21,8 @@ def database_menu(
         print("Seleccione una opción (1-3)")
         print("1. Obtener información de la base de datos")
         print("2. Añadir contenido a la base de datos")
-        print("3. Salir")
+        print("3. Consultar información")
+        print("4. Salir")
         
         try:
             user_input = int(input("> "))
@@ -89,6 +90,30 @@ def database_menu(
                                     input("Presione Enter para continuar...")
 
                         case 3:
+                            print("Seleccione que categoría le gustaria consultar:")
+                            print("1. Alumnos")
+                            print("2. Profesores")
+
+                            try:
+                                user_select_input = int(input("> "))
+                            except ValueError:
+                                print("Opción no válida. Por favor, ingrese un número.")
+                                input("Presione Enter para continuar...")
+                                continue
+                            
+                            match(user_select_input):
+                                case 1:
+                                    alumnos = gestor_alumno.get_all_students()
+                                    for alumno in alumnos:
+                                        print(alumno)
+                                case 2:
+                                    profesores = gestor_profesor.get_all_teachers()
+                                    for alumno in profesores:
+                                        print(profesor)
+                                case _:
+                                    print("Opcion no implementada")
+                                    input("Presione Enter para continuar")
+                        case 4:
                             break
                         case _:
                             print("Opción no disponible.")

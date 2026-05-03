@@ -1,6 +1,7 @@
 from .decorators import with_cursor, with_transactions
 from .querys import (
-    SELECT_VERSION, COUNT_PROFESORES, COUNT_ALUMNOS, COUNT_CURSOS, COUNT_MATRICULAS,
+    SELECT_VERSION, SELECT_ALL_PROFESORES, SELECT_ALL_ALUMNOS,
+    COUNT_PROFESORES, COUNT_ALUMNOS, COUNT_CURSOS, COUNT_MATRICULAS,
     CREATE_ALUMNOS, CREATE_CURSOS, CREATE_MATRICULAS, CREATE_PROFESORES,
     INSERT_ALUMNOS, INSERT_PROFESORES
 )
@@ -31,13 +32,20 @@ class PostgreSQL():
         cursor.execute(CREATE_MATRICULAS)
 
 # Operaciones del profesor
-class OperacionesProfesor():   
+class OperacionesProfesor():
+    # Operaciones de lectura   
     @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_PROFESORES)
         result = cursor.fetchone()
         return result[0] if result else 0
     
+    @with_cursor
+    def get_all_teachers(self, cursor):
+        cursor.execute(SELECT_ALL_PROFESORES)
+        return cursor.fetchmany()
+    
+    # Operaciones de escritura   
     @with_transactions
     def insert_one_teacher(self, cursor, profesor:Profesores):
         params = (profesor.id, profesor.nombre)
@@ -46,12 +54,19 @@ class OperacionesProfesor():
 
 # Operaciones del Alumno
 class OperacionesAlumno():   
+    # Operaciones de lectura   
     @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_ALUMNOS)
         result = cursor.fetchone()
         return result[0] if result else 0
     
+    @with_cursor
+    def get_all_students(self, cursor):
+        cursor.execute(SELECT_ALL_ALUMNOS)
+        return cursor.fetchmany()
+
+    # Operaciones de escritura   
     @with_transactions
     def insert_one_student(self, cursor, alumno:Alumnos):
         # Verificamos el formato del correo

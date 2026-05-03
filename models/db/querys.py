@@ -93,12 +93,37 @@ INSERT_MATRICULAS = """
             2. Contar cuantas instancias existen dentro de una determinada tabla
 
 """
-
+# Seleccionar la version de la base de datos
 SELECT_VERSION = "SELECT version();"
+
+# Contar el numero de elementos de una base de datos
 COUNT_PROFESORES = "SELECT COUNT(*) FROM profesores;"
 COUNT_ALUMNOS = "SELECT COUNT(*) FROM alumnos;"
 COUNT_CURSOS = "SELECT COUNT(*) FROM cursos;"
 COUNT_MATRICULAS = "SELECT COUNT(*) FROM matriculas;"
+
+# Seleccionar todos los profesores y alumnos disponibles
+SELECT_ALL_PROFESORES = """
+    SELECT id, nombre FROM profesores;
+"""
+SELECT_ALL_ALUMNOS = """
+    SELECT id, nombre, email FROM estudiantes;
+"""
+# Seleccionar varios profesor y alumnos dado su nombre
+SELECT_PROFESORES_BY_NAME = """
+    SELECT id, nombre FROM profesores WHERE nombre = %s;
+"""
+SELECT_ALUMNOS_BY_NAME = """
+    SELECT id, nombre, email FROM alumnos WHERE nombre = %s;
+"""
+
+# Seleccionar un alumno y profesor dados su id
+SELECT_PROFESORES_BY_ID = """
+    SELECT id, nombre FROM profesores WHERE id = %s;
+"""
+SELECT_ALUMNOS_BY_NAME = """
+    SELECT id, nombre, email FROM alumnos WHERE id = %s;
+"""
 
 """
     Operaciones UPDATE:
