@@ -3,6 +3,7 @@ import psycopg2
 from config import (
     PG_HOST, PG_NAME, PG_PASSWORD, PG_PORT, PG_USER
 )
+
 # Operaciones de lectura
 def with_cursor(f):
     @wraps(f)
@@ -20,7 +21,7 @@ def with_cursor(f):
             
             cursor = conn.cursor()
             result = f(*args, cursor, **kwargs)
-            print("Se ha realizado la siguiente operación:\n", result)
+            return(result)
         except (Exception, psycopg2.DatabaseError) as e:
             print("Error:", e)
             conn.rollback()
@@ -28,7 +29,6 @@ def with_cursor(f):
             if conn is not None: conn.close()
     return wrapper
 
-# Operaciones con transacciones -> Rollbacks / Commit
 def with_transactions(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
@@ -41,12 +41,16 @@ def with_transactions(f):
                 password=PG_PASSWORD,
                 port=PG_PORT,
             )
-
             cursor = conn.cursor()
             result = f(*args, cursor, **kwargs)
             conn.commit()
+            return result
         except (Exception, psycopg2.DatabaseError) as e:
-            print("Error:", e)
+            if conn:
+                conn.rollback()
+            raise e
         finally:
-            if conn is not None: conn.close()
+            if conn is not None:
+                cursor.close()
+                conn.close()
     return wrapper

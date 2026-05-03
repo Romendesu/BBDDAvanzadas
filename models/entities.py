@@ -16,17 +16,23 @@ class Profesores():
     id: UUID
     nombre: str
 
+    def __str__(self):
+        return f"ID: {self.id} - NOMBRE: {self.nombre}"
 @dataclass
 class Alumnos():
     id: UUID
     nombre: str
     email: str
 
+    def __str__(self):
+        return f"ID: {self.id} - NOMBRE: {self.nombre} - CORREO: {self.email}"
+
 @dataclass
 class Cursos():
     id: UUID
     nombre: str
     profesor_id: UUID
+
 
 @dataclass
 class Matriculas():

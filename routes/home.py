@@ -3,23 +3,17 @@ from flask import (
 )
 from models import OperacionesAlumno, OperacionesCurso, OperacionesMatricula, OperacionesProfesor
 
-tabla_alumno = OperacionesAlumno()
-tabla_profesor = OperacionesProfesor()
-tabla_curso = OperacionesCurso()
-tabla_matricula = OperacionesMatricula()
-
 home_bp = Blueprint('home', __name__, url_prefix="/home")
 
 @home_bp.route('/')
 def home():
-    global tabla_alumno
-
     title = "Inicio"
-    count_alumnos = 0 if not tabla_alumno.get_count() else tabla_alumno.get_count()
-    count_profesores = 0 if not tabla_profesor.get_count() else tabla_profesor.get_count()
-    count_curso = 0 if not tabla_curso.get_count() else tabla_curso.get_count()
-    count_matricula = 0 if not tabla_matricula.get_count() else tabla_matricula.get_count()
+    count_alumnos = OperacionesAlumno().get_count() 
+    count_profesores = OperacionesProfesor().get_count()
+    count_curso = OperacionesCurso().get_count()
+    count_matricula = OperacionesMatricula().get_count()
 
+    print(count_alumnos, count_profesores, count_curso, count_matricula)
     return render_template(
         "/home/home.html", 
         title = title, 

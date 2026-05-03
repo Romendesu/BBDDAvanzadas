@@ -9,7 +9,11 @@ alumnos_bp = Blueprint('students', __name__, url_prefix="/alumnos")
 @alumnos_bp.route('/')
 def home():
     title = "Alumnos"
+    count_alumnos = OperacionesAlumno().get_count() 
+
+
     return render_template(
         "/home/stats.html",
-        title = title
+        title = title,
+        n_elements = count_alumnos
     )

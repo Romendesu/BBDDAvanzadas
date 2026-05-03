@@ -1,5 +1,17 @@
 # Operaciones de la Base de Datos (CRUD)
-# CREATE
+
+"""
+OPERACIONES CREATE: 
+    En este apartado nos encontraremos con las operaciones que involucren la creación de nuevos 
+    registros o entidades dentro de la base de datos.
+
+    Consultas disponibles:
+        1. Creación de tablas dentro de la base de datos
+        2. Creación de indices para la base de datos
+        3. Ingresar elementos dentro de la base de datos
+"""
+
+
 CREATE_ALUMNOS = """
     CREATE TABLE IF NOT EXISTS alumnos (
         id UUID PRIMARY KEY, 
@@ -36,12 +48,72 @@ CREATE_MATRICULAS = """
         FOREIGN KEY (curso_id)  REFERENCES cursos(id)  ON DELETE CASCADE
     );
 """
-# READ
+
+# Generación de Indices
+CREATE_INDEX_CURSOS_PROFESOR_ID = """
+    CREATE INDEX idx_cursos_profesor_id ON cursos (profesor_id);
+"""
+
+CREATE_INDEX_MATRICULAS_CURSO_ID = """
+    CREATE INDEX idx_matriculas_curso_id ON matriculas (curso_id);
+"""
+
+CREATE_INDEX_ALUMNOS_EMAIL = """      
+    CREATE INDEX idx_alumnos_email ON alumnos (email);
+"""
+
+# Ingresar elementos dentro de la BB.DD
+INSERT_ALUMNOS = """
+    INSERT INTO alumnos (id, nombre, email) 
+    VALUES (%s, %s, %s)
+"""
+
+INSERT_PROFESORES = """
+    INSERT INTO profesores (id, nombre) 
+    VALUES (%s, %s)
+"""
+
+INSERT_CURSOS = """
+    INSERT INTO cursos (id, nombre, profesor_id) 
+    VALUES (%s, %s, %s)
+"""
+
+INSERT_MATRICULAS = """
+    INSERT INTO matriculas (alumno_id, curso_id, created_at) 
+    VALUES (%s, %s, %s)
+"""
+
+"""
+    OPERACIONES CREATE: 
+        En este apartado nos encontraremos con las operaciones que involucren la lectura o la 
+        consulta de registros de datos existentes dentro de una base de datos.
+
+        Operaciones disponibles:
+            1. Consultar información dentro de la propia base de datos
+            2. Contar cuantas instancias existen dentro de una determinada tabla
+
+"""
+
 SELECT_VERSION = "SELECT version();"
 COUNT_PROFESORES = "SELECT COUNT(*) FROM profesores;"
 COUNT_ALUMNOS = "SELECT COUNT(*) FROM alumnos;"
 COUNT_CURSOS = "SELECT COUNT(*) FROM cursos;"
 COUNT_MATRICULAS = "SELECT COUNT(*) FROM matriculas;"
 
-# UPDATE
-# DELETE
+"""
+    Operaciones UPDATE:
+        En este apartado, nos encontramos con las operaciones que involucran la modificación o 
+        actualización de datos existentes dentro de la base de datos.
+
+        Operaciones disponibles:
+            Ninguna por el momento
+"""
+
+"""
+    Operaciones DELETE:
+        En este apartado, nos encontramos con las operaciones que involucran la eliminación de 
+        registros o entidades existentes dentro de la base de datos.
+
+        Operaciones disponibles:
+            Ninguna por el momento
+"""

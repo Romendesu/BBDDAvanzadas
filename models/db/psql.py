@@ -2,7 +2,17 @@ from .decorators import with_cursor, with_transactions
 from .querys import (
     SELECT_VERSION, COUNT_PROFESORES, COUNT_ALUMNOS, COUNT_CURSOS, COUNT_MATRICULAS,
     CREATE_ALUMNOS, CREATE_CURSOS, CREATE_MATRICULAS, CREATE_PROFESORES,
+    INSERT_ALUMNOS, INSERT_PROFESORES
 )
+from ..entities import Alumnos, Profesores
+
+# Funciones auxiliares
+def validate_email(email: str) -> bool:
+    import re
+    REGEX_PATTERN = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+    if re.match(REGEX_PATTERN, email):
+        return True   
+    return False
 
 # Operaciones principales de PostgreSQL
 class PostgreSQL():
@@ -25,26 +35,46 @@ class OperacionesProfesor():
     @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_PROFESORES)
-        return cursor.fetchone()
+        result = cursor.fetchone()
+        return result[0] if result else 0
+    
+    @with_transactions
+    def insert_one_teacher(self, cursor, profesor:Profesores):
+        params = (profesor.id, profesor.nombre)
+        cursor.execute(INSERT_PROFESORES, params)
+        print(f"Se ha ingresado el profesor: {profesor} dentro de la base de datos")
 
 # Operaciones del Alumno
 class OperacionesAlumno():   
     @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_ALUMNOS)
-        return cursor.fetchone()
-   
+        result = cursor.fetchone()
+        return result[0] if result else 0
+    
+    @with_transactions
+    def insert_one_student(self, cursor, alumno:Alumnos):
+        # Verificamos el formato del correo
+        if not alumno.email or not validate_email(alumno.email):
+            raise Exception("Hay un error procesando el correo electrónico.")
+
+        params = (alumno.id, alumno.nombre, alumno.email)
+        cursor.execute(INSERT_ALUMNOS, params)
+        print(f"Se ha ingresado el alumno: {alumno} dentro de la base de datos")
+
 # Operaciones del Curso
 class OperacionesCurso():   
     @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_CURSOS)
-        return cursor.fetchone()
+        result = cursor.fetchone()
+        return result[0] if result else 0
 # Operaciones de la matricula
 class OperacionesMatricula():   
     @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_MATRICULAS)
-        return cursor.fetchone()
+        result = cursor.fetchone()
+        return result[0] if result else 0
     
 
