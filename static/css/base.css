@@ -43,3 +43,8 @@ p {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
     transform: translateY(-2px);
 }
+
+.input-text{
+    font-family: var(--body);
+    font-weight: 400px;
+}
