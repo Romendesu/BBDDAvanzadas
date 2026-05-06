@@ -3,6 +3,7 @@ from config.config import Config
 config = Config()
 server_values = config.get_server_values()
 postgresql_values = config.get_postgresql_values()
+app_values = config.get_app_values()
 
 # Importar la configuración del servidor
 SERVER_IP = server_values["SERVER_IP"]
@@ -15,3 +16,6 @@ PG_NAME = postgresql_values["DATABASE_NAME"]
 PG_USER = postgresql_values["DATABASE_USER"]
 PG_PASSWORD = postgresql_values["DATABASE_PASSWORD"]
 PG_PORT = postgresql_values["DATABASE_PORT"]
+
+# Importar la configuración de la aplicación
+PAGE_SIZE = app_values["PAGE_SIZE"]

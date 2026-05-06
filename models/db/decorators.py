@@ -20,11 +20,11 @@ def with_cursor(f):
             conn.autocommit = True
             
             cursor = conn.cursor()
-            result = f(*args, cursor, **kwargs)
+            result = f(args[0], cursor, *args[1:], **kwargs)
             return(result)
         except (Exception, psycopg2.DatabaseError) as e:
             print("Error:", e)
-            conn.rollback()
+            if conn: conn.rollback()
         finally:
             if conn is not None: conn.close()
     return wrapper
@@ -42,7 +42,7 @@ def with_transactions(f):
                 port=PG_PORT,
             )
             cursor = conn.cursor()
-            result = f(*args, cursor, **kwargs)
+            result = f(args[0], cursor, *args[1:], **kwargs)
             conn.commit()
             return result
         except (Exception, psycopg2.DatabaseError) as e:

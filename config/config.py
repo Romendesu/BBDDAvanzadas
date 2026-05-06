@@ -28,4 +28,12 @@ class Config():
             "SERVER_IP": server_config['server_ip'],
             "SERVER_PORT": int(server_config['server_port']),
             "TEMPLATE_DIR": server_config['template_dir'],
-        } 
+        }
+
+    # Obtener valores para la configuración de la aplicación
+    def get_app_values(self) -> dict:
+        app_config = self.config["app"]
+
+        return {
+            "PAGE_SIZE": int(app_config['page_size']),
+        }

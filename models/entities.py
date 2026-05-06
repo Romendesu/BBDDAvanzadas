@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from uuid import UUID
 import datetime
 
 # ----------------------------------------
@@ -13,14 +12,15 @@ import datetime
 
 @dataclass
 class Profesores():
-    id: UUID
+    id: str
     nombre: str
 
     def __str__(self):
         return f"ID: {self.id} - NOMBRE: {self.nombre}"
+
 @dataclass
 class Alumnos():
-    id: UUID
+    id: str
     nombre: str
     email: str
 
@@ -29,14 +29,16 @@ class Alumnos():
 
 @dataclass
 class Cursos():
-    id: UUID
+    id: str
     nombre: str
-    profesor_id: UUID
+    profesor_id: str
 
+    def __str__(self):
+        return f"ID: {self.id} - NOMBRE: {self.nombre} - PROFESOR_ID: {self.profesor_id}"
 
 @dataclass
 class Matriculas():
-    alumno_id: UUID
-    curso_id: UUID
+    alumno_id: str
+    curso_id: str
     created_at: datetime.datetime
 
