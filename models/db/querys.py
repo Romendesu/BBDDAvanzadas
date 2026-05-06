@@ -1,5 +1,3 @@
-# Operaciones de la Base de Datos (CRUD)
-
 """
 OPERACIONES CREATE:
     Consultas para la creación de tablas, índices e inserción de nuevos registros.
@@ -43,15 +41,15 @@ CREATE_MATRICULAS = """
 """
 
 CREATE_INDEX_CURSOS_PROFESOR_ID = """
-    CREATE INDEX idx_cursos_profesor_id ON cursos (profesor_id);
+    CREATE INDEX IF NOT EXISTS idx_cursos_profesor_id ON cursos (profesor_id);
 """
 
 CREATE_INDEX_MATRICULAS_CURSO_ID = """
-    CREATE INDEX idx_matriculas_curso_id ON matriculas (curso_id);
+    CREATE INDEX IF NOT EXISTS idx_matriculas_curso_id ON matriculas (curso_id);
 """
 
 CREATE_INDEX_ALUMNOS_EMAIL = """
-    CREATE INDEX idx_alumnos_email ON alumnos (email);
+    CREATE INDEX IF NOT EXISTS idx_alumnos_email ON alumnos (email);
 """
 
 INSERT_ALUMNOS = """
