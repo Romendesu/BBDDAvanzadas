@@ -40,6 +40,7 @@ CREATE_MATRICULAS = """
     );
 """
 
+
 CREATE_INDEX_CURSOS_PROFESOR_ID = """
     CREATE INDEX IF NOT EXISTS idx_cursos_profesor_id ON cursos (profesor_id);
 """
@@ -51,6 +52,7 @@ CREATE_INDEX_MATRICULAS_CURSO_ID = """
 CREATE_INDEX_ALUMNOS_EMAIL = """
     CREATE INDEX IF NOT EXISTS idx_alumnos_email ON alumnos (email);
 """
+
 
 INSERT_ALUMNOS = """
     INSERT INTO alumnos (id, nombre, email)

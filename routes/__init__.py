@@ -1,5 +1,7 @@
 
 from routes.alumnos import alumnos_bp
+from routes.asignaturas import asignaturas_bp
+from routes.auth import auth_bp
 from routes.cursos import cursos_bp
 from routes.home import home_bp
 from routes.matriculas import matriculas_bp
