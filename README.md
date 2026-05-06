@@ -277,13 +277,23 @@ PostgreSQL crea automáticamente un índice B-tree único sobre cada clave prima
 
 Estos índices aceleran los `JOIN` entre tablas y las búsquedas por ID en las páginas de detalle.
 
-### 7.2 Índices adicionales definidos en el proyecto
+### 7.2 Índices adicionales aplicados en el proyecto
+
+Las tres constantes están definidas en `models/db/querys.py` y se ejecutan automáticamente en `create_tables()` de `models/db/psql.py`, usando `IF NOT EXISTS` para que la operación sea idempotente:
 
 ```sql
-CREATE INDEX idx_cursos_profesor_id  ON cursos    (profesor_id);
-CREATE INDEX idx_matriculas_curso_id ON matriculas (curso_id);
-CREATE INDEX idx_alumnos_email       ON alumnos    (email);
+CREATE INDEX IF NOT EXISTS idx_cursos_profesor_id  ON cursos    (profesor_id);
+CREATE INDEX IF NOT EXISTS idx_matriculas_curso_id ON matriculas (curso_id);
+CREATE INDEX IF NOT EXISTS idx_alumnos_email       ON alumnos    (email);
 ```
+
+Estado actual de la base de datos (verificado con `pg_indexes`):
+
+| Índice                    | Tabla        | Columna(s)              | Tipo         |
+|---------------------------|--------------|-------------------------|--------------|
+| `idx_cursos_profesor_id`  | `cursos`     | `profesor_id`           | B-tree       |
+| `idx_matriculas_curso_id` | `matriculas` | `curso_id`              | B-tree       |
+| `idx_alumnos_email`       | `alumnos`    | `email`                 | B-tree       |
 
 **`idx_cursos_profesor_id`**
 La consulta más frecuente en la vista de detalle de un profesor recupera todos sus cursos filtrando por `cursos.profesor_id`. Sin índice, PostgreSQL realiza un *sequential scan* sobre toda la tabla. Con el índice, el coste se reduce a `O(log n)`.
