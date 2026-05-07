@@ -20,7 +20,19 @@ from .querys import (
     SELECT_ALUMNO_FOR_ENROLL, SELECT_CURSO_FOR_ENROLL,
     UPDATE_ALUMNO_SALDO, UPDATE_CURSO_SETTINGS, UPDATE_ALUMNO_RECHARGE,
     CREATE_VISTA_MATRICULAS, SELECT_VISTA_MATRICULAS, COUNT_VISTA_MATRICULAS,
+    CREATE_INDEX_ALUMNOS_NOMBRE, CREATE_INDEX_ALUMNOS_SALDO,
+    CREATE_INDEX_CURSOS_NOMBRE, CREATE_INDEX_CURSOS_PRECIO, CREATE_INDEX_CURSOS_MAX_ALUMNOS,
+    CREATE_INDEX_PROFESORES_NOMBRE,
+    CREATE_INDEX_MATRICULAS_DATE,
+    CREATE_INDEX_AUDITORIA_DATE, CREATE_INDEX_AUDITORIA_ACCION, CREATE_INDEX_AUDITORIA_USUARIO,
+    SELECT_ALUMNOS_FILTER_BASE, SELECT_ALUMNOS_FILTER_TAIL,
+    SELECT_CURSOS_FILTER_BASE, SELECT_CURSOS_FILTER_TAIL,
+    SELECT_PROFESORES_FILTER_BASE, SELECT_PROFESORES_FILTER_GROUP, SELECT_PROFESORES_FILTER_ORDER,
+    SELECT_MATRICULAS_FILTER_BASE, SELECT_MATRICULAS_FILTER_TAIL,
+    SELECT_VISTA_FILTER_BASE, SELECT_VISTA_FILTER_TAIL,
+    SELECT_AUDITORIA_FILTER_BASE, SELECT_AUDITORIA_FILTER_TAIL,
 )
+from .filters import FilterBuilder
 from ..entities import Alumnos, Profesores, Cursos, Matriculas
 from psycopg2 import Error
 # Funciones auxiliares
@@ -57,6 +69,17 @@ class PostgreSQL():
         cursor.execute(ALTER_CURSOS_MAX_ALUMNOS)
         # Vista: alumno / profesor / asignatura
         cursor.execute(CREATE_VISTA_MATRICULAS)
+        # Índices para filtros rápidos
+        cursor.execute(CREATE_INDEX_ALUMNOS_NOMBRE)
+        cursor.execute(CREATE_INDEX_ALUMNOS_SALDO)
+        cursor.execute(CREATE_INDEX_CURSOS_NOMBRE)
+        cursor.execute(CREATE_INDEX_CURSOS_PRECIO)
+        cursor.execute(CREATE_INDEX_CURSOS_MAX_ALUMNOS)
+        cursor.execute(CREATE_INDEX_PROFESORES_NOMBRE)
+        cursor.execute(CREATE_INDEX_MATRICULAS_DATE)
+        cursor.execute(CREATE_INDEX_AUDITORIA_DATE)
+        cursor.execute(CREATE_INDEX_AUDITORIA_ACCION)
+        cursor.execute(CREATE_INDEX_AUDITORIA_USUARIO)
 
 # Operaciones del profesor
 class OperacionesProfesor():
@@ -104,6 +127,37 @@ class OperacionesProfesor():
             return []
 
     
+    @with_cursor
+    def get_filtered(self, cursor, q=None, cursos_min=None, cursos_max=None,
+                     limit=20, offset=0):
+        f_where = FilterBuilder()
+        f_where.ilike("p.nombre", q)
+        where, w_params = f_where.where()
+        f_hav = FilterBuilder()
+        f_hav.gte("COUNT(DISTINCT c.id)", cursos_min)
+        f_hav.lte("COUNT(DISTINCT c.id)", cursos_max)
+        having, h_params = f_hav.having()
+        sql = (SELECT_PROFESORES_FILTER_BASE + where
+               + SELECT_PROFESORES_FILTER_GROUP + having
+               + SELECT_PROFESORES_FILTER_ORDER + " LIMIT %s OFFSET %s")
+        cursor.execute(sql, w_params + h_params + [limit, offset])
+        return cursor.fetchall()
+
+    @with_cursor
+    def count_filtered(self, cursor, q=None, cursos_min=None, cursos_max=None):
+        f_where = FilterBuilder()
+        f_where.ilike("p.nombre", q)
+        where, w_params = f_where.where()
+        f_hav = FilterBuilder()
+        f_hav.gte("COUNT(DISTINCT c.id)", cursos_min)
+        f_hav.lte("COUNT(DISTINCT c.id)", cursos_max)
+        having, h_params = f_hav.having()
+        inner = (SELECT_PROFESORES_FILTER_BASE + where
+                 + SELECT_PROFESORES_FILTER_GROUP + having)
+        cursor.execute(f"SELECT COUNT(*) FROM ({inner}) sub", w_params + h_params)
+        row = cursor.fetchone()
+        return row[0] if row else 0
+
     # Operaciones de escritura
     @with_transactions
     def insert_one_teacher(self, cursor, profesor:Profesores):
@@ -160,6 +214,30 @@ class OperacionesAlumno():
             print("Error al obtener los cursos del alumno:", e)
             return []
 
+
+    @with_cursor
+    def get_filtered(self, cursor, q=None, saldo_min=None, saldo_max=None,
+                     limit=20, offset=0):
+        f = FilterBuilder()
+        f.ilike_any(["a.nombre", "a.email"], q)
+        f.gte("a.saldo", saldo_min)
+        f.lte("a.saldo", saldo_max)
+        where, params = f.where()
+        sql = SELECT_ALUMNOS_FILTER_BASE + where + SELECT_ALUMNOS_FILTER_TAIL + " LIMIT %s OFFSET %s"
+        cursor.execute(sql, params + [limit, offset])
+        return cursor.fetchall()
+
+    @with_cursor
+    def count_filtered(self, cursor, q=None, saldo_min=None, saldo_max=None):
+        f = FilterBuilder()
+        f.ilike_any(["a.nombre", "a.email"], q)
+        f.gte("a.saldo", saldo_min)
+        f.lte("a.saldo", saldo_max)
+        where, params = f.where()
+        sql = "SELECT COUNT(*) FROM (SELECT a.id FROM alumnos a LEFT JOIN matriculas m ON a.id = m.alumno_id" + where + " GROUP BY a.id) sub"
+        cursor.execute(sql, params)
+        row = cursor.fetchone()
+        return row[0] if row else 0
 
     # Operaciones de escritura
     @with_transactions
@@ -222,6 +300,35 @@ class OperacionesCurso():
             print("Error al obtener los alumnos del curso:", e)
             return []
 
+    @with_cursor
+    def get_filtered(self, cursor, q=None, precio_min=None, precio_max=None,
+                     max_min=None, max_max=None, limit=20, offset=0):
+        f = FilterBuilder()
+        f.ilike("c.nombre", q)
+        f.gte("c.precio", precio_min)
+        f.lte("c.precio", precio_max)
+        f.gte("c.max_alumnos", max_min)
+        f.lte("c.max_alumnos", max_max)
+        where, params = f.where()
+        sql = SELECT_CURSOS_FILTER_BASE + where + SELECT_CURSOS_FILTER_TAIL + " LIMIT %s OFFSET %s"
+        cursor.execute(sql, params + [limit, offset])
+        return cursor.fetchall()
+
+    @with_cursor
+    def count_filtered(self, cursor, q=None, precio_min=None, precio_max=None,
+                       max_min=None, max_max=None):
+        f = FilterBuilder()
+        f.ilike("c.nombre", q)
+        f.gte("c.precio", precio_min)
+        f.lte("c.precio", precio_max)
+        f.gte("c.max_alumnos", max_min)
+        f.lte("c.max_alumnos", max_max)
+        where, params = f.where()
+        inner = "SELECT c.id FROM cursos c JOIN profesores p ON c.profesor_id=p.id LEFT JOIN matriculas m ON m.curso_id=c.id" + where + " GROUP BY c.id"
+        cursor.execute(f"SELECT COUNT(*) FROM ({inner}) sub", params)
+        row = cursor.fetchone()
+        return row[0] if row else 0
+
     @with_transactions
     def insert_one_course(self, cursor, curso: Cursos):
         params = (curso.id, curso.nombre, curso.profesor_id, curso.precio, curso.max_alumnos)
@@ -275,6 +382,32 @@ class OperacionesMatricula():
     def insert_one_enrollment(self, cursor, matricula: Matriculas):
         params = (matricula.alumno_id, matricula.curso_id, matricula.created_at)
         cursor.execute(INSERT_MATRICULAS, params)
+
+    @with_cursor
+    def get_filtered(self, cursor, q=None, fecha_desde=None, fecha_hasta=None,
+                     limit=20, offset=0):
+        f = FilterBuilder()
+        f.ilike_any(["a.nombre", "c.nombre"], q)
+        f.gte("DATE(m.created_at)", fecha_desde)
+        f.lte("DATE(m.created_at)", fecha_hasta)
+        where, params = f.where()
+        sql = SELECT_MATRICULAS_FILTER_BASE + where + SELECT_MATRICULAS_FILTER_TAIL + " LIMIT %s OFFSET %s"
+        cursor.execute(sql, params + [limit, offset])
+        return cursor.fetchall()
+
+    @with_cursor
+    def count_filtered(self, cursor, q=None, fecha_desde=None, fecha_hasta=None):
+        f = FilterBuilder()
+        f.ilike_any(["a.nombre", "c.nombre"], q)
+        f.gte("DATE(m.created_at)", fecha_desde)
+        f.lte("DATE(m.created_at)", fecha_hasta)
+        where, params = f.where()
+        inner = ("SELECT m.alumno_id FROM matriculas m "
+                 "JOIN alumnos a ON m.alumno_id=a.id "
+                 "JOIN cursos c ON m.curso_id=c.id " + where)
+        cursor.execute(f"SELECT COUNT(*) FROM ({inner}) sub", params)
+        row = cursor.fetchone()
+        return row[0] if row else 0
 
     @with_transactions
     def delete_enrollment(self, cursor, alumno_id: str, curso_id: str):
@@ -377,6 +510,34 @@ class OperacionesAuditoria():
             return []
 
     @with_cursor
+    def get_filtered(self, cursor, q=None, accion=None, entidad=None,
+                     fecha_desde=None, fecha_hasta=None, limit=20, offset=0):
+        f = FilterBuilder()
+        f.ilike_any(["usuario", "detalle"], q)
+        f.eq("accion", accion)
+        f.eq("entidad", entidad)
+        f.gte("DATE(created_at)", fecha_desde)
+        f.lte("DATE(created_at)", fecha_hasta)
+        where, params = f.where()
+        sql = SELECT_AUDITORIA_FILTER_BASE + where + SELECT_AUDITORIA_FILTER_TAIL + " LIMIT %s OFFSET %s"
+        cursor.execute(sql, params + [limit, offset])
+        return cursor.fetchall()
+
+    @with_cursor
+    def count_filtered(self, cursor, q=None, accion=None, entidad=None,
+                       fecha_desde=None, fecha_hasta=None):
+        f = FilterBuilder()
+        f.ilike_any(["usuario", "detalle"], q)
+        f.eq("accion", accion)
+        f.eq("entidad", entidad)
+        f.gte("DATE(created_at)", fecha_desde)
+        f.lte("DATE(created_at)", fecha_hasta)
+        where, params = f.where()
+        cursor.execute("SELECT COUNT(*) FROM auditoria" + where, params)
+        row = cursor.fetchone()
+        return row[0] if row else 0
+
+    @with_cursor
     def get_count(self, cursor):
         cursor.execute(COUNT_AUDITORIA)
         result = cursor.fetchone()
@@ -413,4 +574,27 @@ class OperacionesVista():
         cursor.execute(COUNT_VISTA_MATRICULAS)
         result = cursor.fetchone()
         return result[0] if result else 0
+
+    @with_cursor
+    def get_filtered(self, cursor, q=None, fecha_desde=None, fecha_hasta=None,
+                     limit=20, offset=0):
+        f = FilterBuilder()
+        f.ilike_any(["alumno", "profesor", "asignatura"], q)
+        f.gte("DATE(created_at)", fecha_desde)
+        f.lte("DATE(created_at)", fecha_hasta)
+        where, params = f.where()
+        sql = SELECT_VISTA_FILTER_BASE + where + " " + SELECT_VISTA_FILTER_TAIL + " LIMIT %s OFFSET %s"
+        cursor.execute(sql, params + [limit, offset])
+        return cursor.fetchall()
+
+    @with_cursor
+    def count_filtered(self, cursor, q=None, fecha_desde=None, fecha_hasta=None):
+        f = FilterBuilder()
+        f.ilike_any(["alumno", "profesor", "asignatura"], q)
+        f.gte("DATE(created_at)", fecha_desde)
+        f.lte("DATE(created_at)", fecha_hasta)
+        where, params = f.where()
+        cursor.execute("SELECT COUNT(*) FROM vista_matriculas_detalle" + where, params)
+        row = cursor.fetchone()
+        return row[0] if row else 0
 

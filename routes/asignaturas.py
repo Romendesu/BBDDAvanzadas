@@ -2,47 +2,39 @@ import uuid
 from flask import Blueprint, request, render_template, jsonify, abort, session
 from models import OperacionesCurso, OperacionesProfesor, OperacionesAuditoria
 from models import Cursos
-from config import PAGE_SIZE
+from ._helpers import _str, _float, _int, paginate
 
 asignaturas_bp = Blueprint('asignaturas', __name__, url_prefix="/asignaturas")
 
 
 @asignaturas_bp.route('/')
 def home():
-    q    = request.args.get('q', '').strip()
-    page = max(1, request.args.get('page', 1, type=int))
+    q          = _str('q')
+    precio_min = _float('precio_min')
+    precio_max = _float('precio_max')
+    max_min    = _int('max_min')
+    max_max    = _int('max_max')
 
-    all_rows = OperacionesCurso().get_all_courses_with_count()
-
-    if q:
-        ql = q.lower()
-        all_rows = [r for r in all_rows if ql in r[1].lower() or ql in r[2].lower()]
-
-    filtered    = len(all_rows)
-    total       = OperacionesCurso().get_count()
-    total_pages = max(1, -(-filtered // PAGE_SIZE))
-    page        = min(page, total_pages)
-
-    start = (page - 1) * PAGE_SIZE
-    rows  = all_rows[start:start + PAGE_SIZE]
-
-    p_start = max(1, page - 2)
-    p_end   = min(total_pages, p_start + 4)
-    pages   = list(range(p_start, p_end + 1))
-
+    gestor   = OperacionesCurso()
+    filtered = gestor.count_filtered(q=q, precio_min=precio_min, precio_max=precio_max,
+                                      max_min=max_min, max_max=max_max)
+    total      = gestor.get_count()
+    pg         = paginate(filtered)
     profesores = OperacionesProfesor().get_all_teachers()
+
+    rows = gestor.get_filtered(
+        q=q, precio_min=precio_min, precio_max=precio_max,
+        max_min=max_min, max_max=max_max,
+        limit=pg['limit'], offset=pg['offset'],
+    )
 
     return render_template(
         "asignaturas/list.html",
         title="Asignaturas",
-        rows=rows,
-        total=total,
-        filtered=filtered,
-        q=q,
-        page=page,
-        total_pages=total_pages,
-        pages=pages,
-        profesores=profesores,
+        rows=rows, total=total, filtered=filtered, profesores=profesores,
+        q=q or '', precio_min=precio_min, precio_max=precio_max,
+        max_min=max_min, max_max=max_max,
+        **pg,
     )
 
 

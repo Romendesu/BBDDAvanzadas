@@ -36,13 +36,29 @@ JOIN profesores p ON c.profesor_id = p.id;</pre>
 
   <!-- Tabla con los resultados de la vista -->
   <div class="table-wrap" style="margin-top: 28px;">
+    <form method="get" class="filter-bar" id="filter-form">
+      <div class="filter-group">
+        <label class="filter-label">Buscar</label>
+        <input class="filter-input filter-input-wide" name="q" value="{{ q }}"
+               placeholder="Alumno, profesor o asignatura…" autocomplete="off" />
+      </div>
+      <div class="filter-sep"></div>
+      <div class="filter-group">
+        <label class="filter-label">Desde</label>
+        <input class="filter-input" name="fecha_desde" type="date" value="{{ fecha_desde or '' }}" />
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Hasta</label>
+        <input class="filter-input" name="fecha_hasta" type="date" value="{{ fecha_hasta or '' }}" />
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left:auto;">Filtrar</button>
+      <a href="/vista/" class="btn">Limpiar</a>
+    </form>
+
     <div class="table-toolbar">
-      <form method="get" style="display:contents;">
-        <input class="search-input" name="q" value="{{ q }}"
-               placeholder="Buscar alumno, profesor o asignatura…" autocomplete="off" />
-      </form>
+      <span class="pagination-info">{{ filtered }} de {{ total }} filas</span>
       <div class="toolbar-spacer"></div>
-      <span class="nav-count">{{ filtered }} filas · vista en vivo</span>
+      <span class="nav-count">vista en vivo</span>
     </div>
 
     {% if rows %}
@@ -70,11 +86,11 @@ JOIN profesores p ON c.profesor_id = p.id;</pre>
     <div class="pagination">
       <span class="pagination-info">{{ filtered }} registros</span>
       <div class="pagination-btns">
-        <a href="?q={{ q }}&page={{ page - 1 }}" class="pg-btn {{ 'disabled' if page == 1 }}">‹</a>
+        <a href="?q={{ q }}&fecha_desde={{ fecha_desde or '' }}&fecha_hasta={{ fecha_hasta or '' }}&page={{ page - 1 }}" class="pg-btn {{ 'disabled' if page == 1 }}">‹</a>
         {% for p in pages %}
-          <a href="?q={{ q }}&page={{ p }}" class="pg-btn {{ 'active' if p == page }}">{{ p }}</a>
+          <a href="?q={{ q }}&fecha_desde={{ fecha_desde or '' }}&fecha_hasta={{ fecha_hasta or '' }}&page={{ p }}" class="pg-btn {{ 'active' if p == page }}">{{ p }}</a>
         {% endfor %}
-        <a href="?q={{ q }}&page={{ page + 1 }}" class="pg-btn {{ 'disabled' if page == total_pages }}">›</a>
+        <a href="?q={{ q }}&fecha_desde={{ fecha_desde or '' }}&fecha_hasta={{ fecha_hasta or '' }}&page={{ page + 1 }}" class="pg-btn {{ 'disabled' if page == total_pages }}">›</a>
       </div>
     </div>
 

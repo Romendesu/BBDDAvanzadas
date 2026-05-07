@@ -1,17 +1,8 @@
 from flask import Blueprint, request, render_template, jsonify, session, redirect, url_for
 from models import OperacionesAuditoria
-from config import PAGE_SIZE
+from ._helpers import _str, _date, paginate
 
 auditoria_bp = Blueprint('auditoria', __name__, url_prefix="/auditoria")
-
-
-def _require_admin():
-    user = session.get('user')
-    if not user:
-        return redirect(url_for('auth.login'))
-    if user.get('rol') != 'admin':
-        return None, True
-    return user, False
 
 
 @auditoria_bp.route('/')
@@ -20,48 +11,32 @@ def home():
     if not user:
         return redirect(url_for('auth.login'))
 
-    q    = request.args.get('q', '').strip()
-    filtro_entidad = request.args.get('entidad', '').strip()
-    filtro_accion  = request.args.get('accion', '').strip()
-    page = max(1, request.args.get('page', 1, type=int))
+    q           = _str('q')
+    accion      = _str('accion')
+    entidad     = _str('entidad')
+    fecha_desde = _date('fecha_desde')
+    fecha_hasta = _date('fecha_hasta')
 
-    all_rows = OperacionesAuditoria().get_all()
-    total    = OperacionesAuditoria().get_count()
+    gestor   = OperacionesAuditoria()
+    filtered = gestor.count_filtered(q=q, accion=accion, entidad=entidad,
+                                      fecha_desde=fecha_desde, fecha_hasta=fecha_hasta)
+    total    = gestor.get_count()
+    pg       = paginate(filtered)
 
-    if q:
-        ql = q.lower()
-        all_rows = [r for r in all_rows if ql in (r[1] or '').lower() or ql in (r[4] or '').lower() or ql in (r[5] or '').lower()]
-    if filtro_entidad:
-        all_rows = [r for r in all_rows if r[3] == filtro_entidad]
-    if filtro_accion:
-        all_rows = [r for r in all_rows if r[2] == filtro_accion]
-
-    filtered    = len(all_rows)
-    total_pages = max(1, -(-filtered // PAGE_SIZE))
-    page        = min(page, total_pages)
-
-    start = (page - 1) * PAGE_SIZE
-    rows  = all_rows[start:start + PAGE_SIZE]
-
-    p_start = max(1, page - 2)
-    p_end   = min(total_pages, p_start + 4)
-    pages   = list(range(p_start, p_end + 1))
-
-    is_admin = user.get('rol') == 'admin'
+    rows = gestor.get_filtered(
+        q=q, accion=accion, entidad=entidad,
+        fecha_desde=fecha_desde, fecha_hasta=fecha_hasta,
+        limit=pg['limit'], offset=pg['offset'],
+    )
 
     return render_template(
         "auditoria/list.html",
         title="Auditoría",
-        rows=rows,
-        total=total,
-        filtered=filtered,
-        q=q,
-        filtro_entidad=filtro_entidad,
-        filtro_accion=filtro_accion,
-        page=page,
-        total_pages=total_pages,
-        pages=pages,
-        is_admin=is_admin,
+        rows=rows, total=total, filtered=filtered,
+        q=q or '', accion=accion or '', entidad=entidad or '',
+        fecha_desde=fecha_desde or '', fecha_hasta=fecha_hasta or '',
+        is_admin=(user.get('rol') == 'admin'),
+        **pg,
     )
 
 

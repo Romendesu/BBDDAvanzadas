@@ -7,22 +7,45 @@
   </div>
 
   <div class="table-wrap">
+    <form method="get" class="filter-bar" id="filter-form">
+      <div class="filter-group">
+        <label class="filter-label">Buscar</label>
+        <input class="filter-input filter-input-wide" name="q" value="{{ q }}" placeholder="Usuario, ID o detalle…" autocomplete="off" />
+      </div>
+      <div class="filter-sep"></div>
+      <div class="filter-group">
+        <label class="filter-label">Entidad</label>
+        <select class="filter-select" name="entidad">
+          <option value="">Todas</option>
+          <option value="profesor"   {{ 'selected' if entidad == 'profesor' }}>Profesor</option>
+          <option value="alumno"     {{ 'selected' if entidad == 'alumno' }}>Alumno</option>
+          <option value="asignatura" {{ 'selected' if entidad == 'asignatura' }}>Asignatura</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Acción</label>
+        <select class="filter-select" name="accion">
+          <option value="">Todas</option>
+          <option value="CREATE" {{ 'selected' if accion == 'CREATE' }}>CREATE</option>
+          <option value="UPDATE" {{ 'selected' if accion == 'UPDATE' }}>UPDATE</option>
+          <option value="DELETE" {{ 'selected' if accion == 'DELETE' }}>DELETE</option>
+        </select>
+      </div>
+      <div class="filter-sep"></div>
+      <div class="filter-group">
+        <label class="filter-label">Desde</label>
+        <input class="filter-input" name="fecha_desde" type="date" value="{{ fecha_desde or '' }}" />
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Hasta</label>
+        <input class="filter-input" name="fecha_hasta" type="date" value="{{ fecha_hasta or '' }}" />
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left:auto;">Filtrar</button>
+      <a href="/auditoria/" class="btn">Limpiar</a>
+    </form>
+
     <div class="table-toolbar">
-      <form method="get" style="display:contents;">
-        <input class="search-input" name="q" value="{{ q }}" placeholder="Buscar usuario, id o detalle…" autocomplete="off" />
-        <select name="entidad" class="search-input" style="max-width:140px;" onchange="this.form.submit()">
-          <option value="">Todas las entidades</option>
-          <option value="profesor"   {{ 'selected' if filtro_entidad == 'profesor' }}>Profesor</option>
-          <option value="alumno"     {{ 'selected' if filtro_entidad == 'alumno' }}>Alumno</option>
-          <option value="asignatura" {{ 'selected' if filtro_entidad == 'asignatura' }}>Asignatura</option>
-        </select>
-        <select name="accion" class="search-input" style="max-width:130px;" onchange="this.form.submit()">
-          <option value="">Todas las acciones</option>
-          <option value="CREATE" {{ 'selected' if filtro_accion == 'CREATE' }}>CREATE</option>
-          <option value="UPDATE" {{ 'selected' if filtro_accion == 'UPDATE' }}>UPDATE</option>
-          <option value="DELETE" {{ 'selected' if filtro_accion == 'DELETE' }}>DELETE</option>
-        </select>
-      </form>
+      <span class="pagination-info">{{ filtered }} de {{ total }} registros</span>
       <div class="toolbar-spacer"></div>
       {% if is_admin %}
       <button class="btn btn-danger" onclick="confirmLimpiarTodo()">🗑 Limpiar todo</button>
@@ -75,16 +98,18 @@
     <div class="pagination">
       <span class="pagination-info">{{ filtered }} registros</span>
       <div class="pagination-btns">
-        <a href="?q={{ q }}&entidad={{ filtro_entidad }}&accion={{ filtro_accion }}&page={{ page - 1 }}" class="pg-btn {{ 'disabled' if page == 1 }}">‹</a>
+        <a href="?q={{ q }}&entidad={{ entidad }}&accion={{ accion }}&fecha_desde={{ fecha_desde or '' }}&fecha_hasta={{ fecha_hasta or '' }}&page={{ page - 1 }}" class="pg-btn {{ 'disabled' if page == 1 }}">‹</a>
         {% for p in pages %}
-          <a href="?q={{ q }}&entidad={{ filtro_entidad }}&accion={{ filtro_accion }}&page={{ p }}" class="pg-btn {{ 'active' if p == page }}">{{ p }}</a>
+          <a href="?q={{ q }}&entidad={{ entidad }}&accion={{ accion }}&fecha_desde={{ fecha_desde or '' }}&fecha_hasta={{ fecha_hasta or '' }}&page={{ p }}" class="pg-btn {{ 'active' if p == page }}">{{ p }}</a>
         {% endfor %}
-        <a href="?q={{ q }}&entidad={{ filtro_entidad }}&accion={{ filtro_accion }}&page={{ page + 1 }}" class="pg-btn {{ 'disabled' if page == total_pages }}">›</a>
+        <a href="?q={{ q }}&entidad={{ entidad }}&accion={{ accion }}&fecha_desde={{ fecha_desde or '' }}&fecha_hasta={{ fecha_hasta or '' }}&page={{ page + 1 }}" class="pg-btn {{ 'disabled' if page == total_pages }}">›</a>
       </div>
     </div>
     {% else %}
     <div class="empty">
-      <div class="empty-icon">🔍</div>
+      <div class="empty-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+      </div>
       No hay registros de auditoría{% if q %} para "{{ q }}"{% endif %}.
     </div>
     {% endif %}

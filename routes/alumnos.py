@@ -3,7 +3,7 @@ import re
 from flask import Blueprint, request, render_template, jsonify, abort, session
 from models import OperacionesAlumno, OperacionesAuditoria
 from models import Alumnos
-from config import PAGE_SIZE
+from ._helpers import _str, _float, paginate
 
 alumnos_bp = Blueprint('students', __name__, url_prefix="/alumnos")
 
@@ -12,37 +12,26 @@ _EMAIL_RE = re.compile(r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
 
 @alumnos_bp.route('/')
 def home():
-    q    = request.args.get('q', '').strip()
-    page = max(1, request.args.get('page', 1, type=int))
+    q         = _str('q')
+    saldo_min = _float('saldo_min')
+    saldo_max = _float('saldo_max')
 
-    all_rows = OperacionesAlumno().get_all_students_with_count()
+    gestor   = OperacionesAlumno()
+    filtered = gestor.count_filtered(q=q, saldo_min=saldo_min, saldo_max=saldo_max)
+    total    = gestor.get_count()
+    pg       = paginate(filtered)
 
-    if q:
-        ql = q.lower()
-        all_rows = [r for r in all_rows if ql in r[1].lower() or ql in r[2].lower()]
-
-    filtered    = len(all_rows)
-    total       = OperacionesAlumno().get_count()
-    total_pages = max(1, -(-filtered // PAGE_SIZE))
-    page        = min(page, total_pages)
-
-    start = (page - 1) * PAGE_SIZE
-    rows  = all_rows[start:start + PAGE_SIZE]
-
-    p_start = max(1, page - 2)
-    p_end   = min(total_pages, p_start + 4)
-    pages   = list(range(p_start, p_end + 1))
+    rows = gestor.get_filtered(
+        q=q, saldo_min=saldo_min, saldo_max=saldo_max,
+        limit=pg['limit'], offset=pg['offset'],
+    )
 
     return render_template(
         "alumnos/list.html",
         title="Alumnos",
-        rows=rows,
-        total=total,
-        filtered=filtered,
-        q=q,
-        page=page,
-        total_pages=total_pages,
-        pages=pages,
+        rows=rows, total=total, filtered=filtered,
+        q=q or '', saldo_min=saldo_min, saldo_max=saldo_max,
+        **pg,
     )
 
 

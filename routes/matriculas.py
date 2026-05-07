@@ -3,49 +3,34 @@ import datetime
 from flask import Blueprint, request, render_template, jsonify
 from models import OperacionesMatricula, OperacionesAlumno, OperacionesCurso
 from models import Matriculas
-from config import PAGE_SIZE
+from ._helpers import _str, _date, paginate
 
 matriculas_bp = Blueprint('matriculas', __name__, url_prefix="/matriculas")
 
 
 @matriculas_bp.route('/')
 def home():
-    q    = request.args.get('q', '').strip()
-    page = max(1, request.args.get('page', 1, type=int))
+    q           = _str('q')
+    fecha_desde = _date('fecha_desde')
+    fecha_hasta = _date('fecha_hasta')
 
-    all_rows = OperacionesMatricula().get_all_enrollments_full()
+    gestor   = OperacionesMatricula()
+    filtered = gestor.count_filtered(q=q, fecha_desde=fecha_desde, fecha_hasta=fecha_hasta)
+    total    = gestor.get_count()
+    pg       = paginate(filtered)
 
-    if q:
-        ql = q.lower()
-        all_rows = [r for r in all_rows if ql in r[0].lower() or ql in r[1].lower()]
-
-    filtered    = len(all_rows)
-    total       = OperacionesMatricula().get_count()
-    total_pages = max(1, -(-filtered // PAGE_SIZE))
-    page        = min(page, total_pages)
-
-    start = (page - 1) * PAGE_SIZE
-    rows  = all_rows[start:start + PAGE_SIZE]
-
-    p_start = max(1, page - 2)
-    p_end   = min(total_pages, p_start + 4)
-    pages   = list(range(p_start, p_end + 1))
-
+    rows    = gestor.get_filtered(q=q, fecha_desde=fecha_desde, fecha_hasta=fecha_hasta,
+                                   limit=pg['limit'], offset=pg['offset'])
     alumnos = OperacionesAlumno().get_all_students()
     cursos  = OperacionesCurso().get_all_courses()
 
     return render_template(
         "matriculas/list.html",
         title="Matrículas",
-        rows=rows,
-        total=total,
-        filtered=filtered,
-        q=q,
-        page=page,
-        total_pages=total_pages,
-        pages=pages,
-        alumnos=alumnos,
-        cursos=cursos,
+        rows=rows, total=total, filtered=filtered,
+        q=q or '', fecha_desde=fecha_desde or '', fecha_hasta=fecha_hasta or '',
+        alumnos=alumnos, cursos=cursos,
+        **pg,
     )
 
 

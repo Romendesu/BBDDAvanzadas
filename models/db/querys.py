@@ -104,6 +104,18 @@ CREATE_INDEX_ALUMNOS_EMAIL = """
     CREATE INDEX IF NOT EXISTS idx_alumnos_email ON alumnos (email);
 """
 
+# Índices para acelerar las búsquedas por filtro
+CREATE_INDEX_ALUMNOS_NOMBRE     = "CREATE INDEX IF NOT EXISTS idx_alumnos_nombre      ON alumnos (nombre);"
+CREATE_INDEX_ALUMNOS_SALDO      = "CREATE INDEX IF NOT EXISTS idx_alumnos_saldo       ON alumnos (saldo);"
+CREATE_INDEX_CURSOS_NOMBRE      = "CREATE INDEX IF NOT EXISTS idx_cursos_nombre       ON cursos  (nombre);"
+CREATE_INDEX_CURSOS_PRECIO      = "CREATE INDEX IF NOT EXISTS idx_cursos_precio       ON cursos  (precio);"
+CREATE_INDEX_CURSOS_MAX_ALUMNOS = "CREATE INDEX IF NOT EXISTS idx_cursos_max_alumnos  ON cursos  (max_alumnos);"
+CREATE_INDEX_PROFESORES_NOMBRE  = "CREATE INDEX IF NOT EXISTS idx_profesores_nombre   ON profesores (nombre);"
+CREATE_INDEX_MATRICULAS_DATE    = "CREATE INDEX IF NOT EXISTS idx_matriculas_date     ON matriculas (created_at);"
+CREATE_INDEX_AUDITORIA_DATE     = "CREATE INDEX IF NOT EXISTS idx_auditoria_date      ON auditoria (created_at);"
+CREATE_INDEX_AUDITORIA_ACCION   = "CREATE INDEX IF NOT EXISTS idx_auditoria_accion    ON auditoria (accion);"
+CREATE_INDEX_AUDITORIA_USUARIO  = "CREATE INDEX IF NOT EXISTS idx_auditoria_usuario   ON auditoria (usuario);"
+
 
 INSERT_ALUMNOS = """
     INSERT INTO alumnos (id, nombre, email, saldo)
@@ -382,3 +394,62 @@ SELECT_VISTA_MATRICULAS = """
 COUNT_VISTA_MATRICULAS = """
     SELECT COUNT(*) FROM vista_matriculas_detalle;
 """
+
+"""
+BASES PARA FILTROS DINÁMICOS (WHERE/HAVING + LIMIT/OFFSET ensamblado en Python)
+    Cada BASE incluye SELECT+FROM+JOIN.
+    Cada TAIL incluye GROUP BY+ORDER BY.
+    El método Python añade WHERE, HAVING, LIMIT y OFFSET.
+"""
+
+# Alumnos  — filtros: nombre/email (ILIKE), saldo (>=, <=)
+SELECT_ALUMNOS_FILTER_BASE = """
+    SELECT a.id, a.nombre, a.email, a.saldo, COUNT(m.curso_id) AS n_matriculas
+    FROM alumnos a
+    LEFT JOIN matriculas m ON a.id = m.alumno_id
+"""
+SELECT_ALUMNOS_FILTER_TAIL = "    GROUP BY a.id, a.nombre, a.email, a.saldo ORDER BY a.nombre"
+
+# Asignaturas — filtros: nombre (ILIKE), precio (>=,<=), max_alumnos (>=,<=)
+SELECT_CURSOS_FILTER_BASE = """
+    SELECT c.id, c.nombre, p.nombre AS profesor,
+           COUNT(m.alumno_id) AS n_alumnos, c.precio, c.max_alumnos
+    FROM cursos c
+    JOIN  profesores p    ON c.profesor_id = p.id
+    LEFT JOIN matriculas m ON m.curso_id = c.id
+"""
+SELECT_CURSOS_FILTER_TAIL = "    GROUP BY c.id, c.nombre, p.nombre, c.precio, c.max_alumnos ORDER BY c.nombre"
+
+# Profesores — filtros: nombre (ILIKE), n_cursos (HAVING >=,<=)
+SELECT_PROFESORES_FILTER_BASE = """
+    SELECT p.id, p.nombre,
+           COUNT(DISTINCT c.id)        AS n_cursos,
+           COUNT(DISTINCT m.alumno_id) AS n_alumnos
+    FROM profesores p
+    LEFT JOIN cursos     c ON c.profesor_id = p.id
+    LEFT JOIN matriculas m ON m.curso_id    = c.id
+"""
+SELECT_PROFESORES_FILTER_GROUP = "    GROUP BY p.id, p.nombre"
+SELECT_PROFESORES_FILTER_ORDER = "    ORDER BY p.nombre"
+
+# Matrículas — filtros: alumno/curso (ILIKE), fecha (>=,<=)
+SELECT_MATRICULAS_FILTER_BASE = """
+    SELECT a.nombre AS alumno, c.nombre AS curso, p.nombre AS profesor,
+           m.created_at, m.alumno_id, m.curso_id
+    FROM matriculas m
+    JOIN alumnos    a ON m.alumno_id   = a.id
+    JOIN cursos     c ON m.curso_id    = c.id
+    JOIN profesores p ON c.profesor_id = p.id
+"""
+SELECT_MATRICULAS_FILTER_TAIL = "    ORDER BY m.created_at DESC"
+
+# Vista — filtros: alumno/profesor/asignatura (ILIKE), fecha (>=,<=)
+SELECT_VISTA_FILTER_BASE = "    SELECT alumno, profesor, asignatura, created_at FROM vista_matriculas_detalle"
+SELECT_VISTA_FILTER_TAIL = "    ORDER BY created_at DESC"
+
+# Auditoría — filtros: usuario/detalle (ILIKE), accion/entidad (=), fecha (>=,<=)
+SELECT_AUDITORIA_FILTER_BASE = """
+    SELECT id, usuario, accion, entidad, entidad_id, detalle, created_at
+    FROM auditoria
+"""
+SELECT_AUDITORIA_FILTER_TAIL = "    ORDER BY created_at DESC"

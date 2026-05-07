@@ -57,6 +57,14 @@
     function openModal(id)  { document.getElementById(id).classList.remove('hidden'); }
     function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
     </script>
+    <script>
+    // Mark filter inputs that have a value so CSS can highlight them
+    document.querySelectorAll('.filter-bar .filter-input, .filter-bar .filter-select').forEach(el => {
+        if (el.value && el.value.trim()) el.classList.add('has-value');
+        el.addEventListener('input', () => el.value.trim() ? el.classList.add('has-value') : el.classList.remove('has-value'));
+        el.addEventListener('change', () => el.value.trim() ? el.classList.add('has-value') : el.classList.remove('has-value'));
+    });
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

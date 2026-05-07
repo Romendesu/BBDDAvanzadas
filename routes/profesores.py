@@ -2,44 +2,33 @@ import uuid
 from flask import Blueprint, request, render_template, jsonify, abort, session
 from models import OperacionesProfesor, OperacionesAuditoria
 from models import Profesores
-from config import PAGE_SIZE
+from ._helpers import _str, _int, paginate
 
 profesores_bp = Blueprint('profesores', __name__, url_prefix="/profesores")
 
 
 @profesores_bp.route('/')
 def home():
-    q    = request.args.get('q', '').strip()
-    page = max(1, request.args.get('page', 1, type=int))
+    q          = _str('q')
+    cursos_min = _int('cursos_min')
+    cursos_max = _int('cursos_max')
 
-    all_rows = OperacionesProfesor().get_all_teachers_with_count()
+    gestor   = OperacionesProfesor()
+    filtered = gestor.count_filtered(q=q, cursos_min=cursos_min, cursos_max=cursos_max)
+    total    = gestor.get_count()
+    pg       = paginate(filtered)
 
-    if q:
-        ql = q.lower()
-        all_rows = [r for r in all_rows if ql in r[1].lower()]
-
-    filtered    = len(all_rows)
-    total       = OperacionesProfesor().get_count()
-    total_pages = max(1, -(-filtered // PAGE_SIZE))
-    page        = min(page, total_pages)
-
-    start = (page - 1) * PAGE_SIZE
-    rows  = all_rows[start:start + PAGE_SIZE]
-
-    p_start = max(1, page - 2)
-    p_end   = min(total_pages, p_start + 4)
-    pages   = list(range(p_start, p_end + 1))
+    rows = gestor.get_filtered(
+        q=q, cursos_min=cursos_min, cursos_max=cursos_max,
+        limit=pg['limit'], offset=pg['offset'],
+    )
 
     return render_template(
         "profesores/list.html",
         title="Profesores",
-        rows=rows,
-        total=total,
-        filtered=filtered,
-        q=q,
-        page=page,
-        total_pages=total_pages,
-        pages=pages,
+        rows=rows, total=total, filtered=filtered,
+        q=q or '', cursos_min=cursos_min, cursos_max=cursos_max,
+        **pg,
     )
 
 
