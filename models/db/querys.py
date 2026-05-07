@@ -245,6 +245,44 @@ SELECT_ALUMNOS_BY_ID = """
 
 
 """
+TABLA DE AUDITORÍA:
+    Registro de todas las operaciones CREATE/UPDATE/DELETE sobre las entidades principales.
+"""
+
+CREATE_AUDITORIA = """
+    CREATE TABLE IF NOT EXISTS auditoria (
+        id          SERIAL PRIMARY KEY,
+        usuario     VARCHAR(100) NOT NULL,
+        accion      VARCHAR(20)  NOT NULL CHECK (accion IN ('CREATE', 'UPDATE', 'DELETE')),
+        entidad     VARCHAR(50)  NOT NULL,
+        entidad_id  VARCHAR(100),
+        detalle     TEXT,
+        created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
+    );
+"""
+
+CREATE_INDEX_AUDITORIA_ENTIDAD = """
+    CREATE INDEX IF NOT EXISTS idx_auditoria_entidad ON auditoria (entidad);
+"""
+
+INSERT_AUDITORIA = """
+    INSERT INTO auditoria (usuario, accion, entidad, entidad_id, detalle)
+    VALUES (%s, %s, %s, %s, %s);
+"""
+
+SELECT_ALL_AUDITORIA = """
+    SELECT id, usuario, accion, entidad, entidad_id, detalle, created_at
+    FROM auditoria
+    ORDER BY created_at DESC;
+"""
+
+COUNT_AUDITORIA = "SELECT COUNT(*) FROM auditoria;"
+
+DELETE_AUDITORIA = "DELETE FROM auditoria WHERE id = %s;"
+
+DELETE_ALL_AUDITORIA = "DELETE FROM auditoria;"
+
+"""
 OPERACIONES UPDATE:
     Consultas para la modificación o actualización de registros existentes.
 

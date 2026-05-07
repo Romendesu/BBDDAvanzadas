@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page-enter">
+  <div class="page-header">
+    <h1>Auditoría</h1>
+    <p>GET /auditoria — {{ total }} registros totales</p>
+  </div>
+
+  <div class="table-wrap">
+    <div class="table-toolbar">
+      <form method="get" style="display:contents;">
+        <input class="search-input" name="q" value="{{ q }}" placeholder="Buscar usuario, id o detalle…" autocomplete="off" />
+        <select name="entidad" class="search-input" style="max-width:140px;" onchange="this.form.submit()">
+          <option value="">Todas las entidades</option>
+          <option value="profesor"   {{ 'selected' if filtro_entidad == 'profesor' }}>Profesor</option>
+          <option value="alumno"     {{ 'selected' if filtro_entidad == 'alumno' }}>Alumno</option>
+          <option value="asignatura" {{ 'selected' if filtro_entidad == 'asignatura' }}>Asignatura</option>
+        </select>
+        <select name="accion" class="search-input" style="max-width:130px;" onchange="this.form.submit()">
+          <option value="">Todas las acciones</option>
+          <option value="CREATE" {{ 'selected' if filtro_accion == 'CREATE' }}>CREATE</option>
+          <option value="UPDATE" {{ 'selected' if filtro_accion == 'UPDATE' }}>UPDATE</option>
+          <option value="DELETE" {{ 'selected' if filtro_accion == 'DELETE' }}>DELETE</option>
+        </select>
+      </form>
+      <div class="toolbar-spacer"></div>
+      {% if is_admin %}
+      <button class="btn btn-danger" onclick="confirmLimpiarTodo()">🗑 Limpiar todo</button>
+      {% endif %}
+    </div>
+
+    {% if rows %}
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Usuario</th>
+          <th>Acción</th>
+          <th>Entidad</th>
+          <th>ID entidad</th>
+          <th>Detalle</th>
+          <th>Fecha</th>
+          {% if is_admin %}<th></th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for id, usuario, accion, entidad, entidad_id, detalle, created_at in rows %}
+        <tr>
+          <td class="td-muted td-mono">{{ id }}</td>
+          <td><strong>{{ usuario }}</strong></td>
+          <td>
+            {% if accion == 'CREATE' %}
+              <span class="badge badge-green">CREATE</span>
+            {% elif accion == 'DELETE' %}
+              <span class="badge badge-red">DELETE</span>
+            {% else %}
+              <span class="badge badge-dark">{{ accion }}</span>
+            {% endif %}
+          </td>
+          <td><span class="badge">{{ entidad }}</span></td>
+          <td class="td-muted td-mono" style="font-size:11px;">{{ (entidad_id or '')[:12] }}{% if entidad_id and entidad_id|length > 12 %}…{% endif %}</td>
+          <td>{{ detalle or '—' }}</td>
+          <td class="td-muted" style="white-space:nowrap;font-size:12px;">{{ created_at.strftime('%d/%m/%Y %H:%M') if created_at else '—' }}</td>
+          {% if is_admin %}
+          <td style="width:40px;">
+            <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;"
+                    onclick="confirmDeleteAuditoria({{ id }})">✕</button>
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <span class="pagination-info">{{ filtered }} registros</span>
+      <div class="pagination-btns">
+        <a href="?q={{ q }}&entidad={{ filtro_entidad }}&accion={{ filtro_accion }}&page={{ page - 1 }}" class="pg-btn {{ 'disabled' if page == 1 }}">‹</a>
+        {% for p in pages %}
+          <a href="?q={{ q }}&entidad={{ filtro_entidad }}&accion={{ filtro_accion }}&page={{ p }}" class="pg-btn {{ 'active' if p == page }}">{{ p }}</a>
+        {% endfor %}
+        <a href="?q={{ q }}&entidad={{ filtro_entidad }}&accion={{ filtro_accion }}&page={{ page + 1 }}" class="pg-btn {{ 'disabled' if page == total_pages }}">›</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="empty">
+      <div class="empty-icon">🔍</div>
+      No hay registros de auditoría{% if q %} para "{{ q }}"{% endif %}.
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% if is_admin %}
+<!-- Modal: Confirmar eliminación individual -->
+<div id="modal-confirmar-eliminar" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-confirmar-eliminar')">
+  <div class="modal modal-enter">
+    <h2>Eliminar registro</h2>
+    <p class="modal-sub">Esta acción no se puede deshacer.</p>
+    <p style="margin:16px 0;">¿Eliminar este registro de auditoría?</p>
+    <div class="form-actions">
+      <button type="button" class="btn" onclick="closeModal('modal-confirmar-eliminar')">Cancelar</button>
+      <button type="button" class="btn btn-danger" onclick="executeDelete()">Sí, eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Limpiar todo -->
+<div id="modal-limpiar-todo" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-limpiar-todo')">
+  <div class="modal modal-enter">
+    <h2>Limpiar historial</h2>
+    <p class="modal-sub">Esta acción no se puede deshacer.</p>
+    <p style="margin:16px 0;">Se eliminarán <strong>todos</strong> los registros de auditoría.</p>
+    <div class="form-actions">
+      <button type="button" class="btn" onclick="closeModal('modal-limpiar-todo')">Cancelar</button>
+      <button type="button" class="btn btn-danger" onclick="executeLimpiar()">Sí, limpiar todo</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/auditoria.js') }}"></script>
+{% endblock %}

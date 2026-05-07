@@ -1,2 +1,2 @@
-from models.db.psql import PostgreSQL, OperacionesAlumno, OperacionesCurso, OperacionesMatricula, OperacionesProfesor
+from models.db.psql import PostgreSQL, OperacionesAlumno, OperacionesCurso, OperacionesMatricula, OperacionesProfesor, OperacionesAuditoria
 from models.entities import Alumnos, Profesores, Cursos, Matriculas

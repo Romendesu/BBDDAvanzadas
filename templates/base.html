@@ -18,6 +18,9 @@
             <a href="/asignaturas"  class="nav-link {{ 'active' if path.startswith('/asignaturas') }}">Asignaturas</a>
 <a href="/matriculas"   class="nav-link {{ 'active' if path.startswith('/matriculas') }}">Matrículas</a>
             <a href="/transacciones" class="nav-link {{ 'active' if path.startswith('/transacciones') }}">Transacciones</a>
+            {% if session.get('user') and session.user.rol == 'admin' %}
+            <a href="/auditoria" class="nav-link {{ 'active' if path.startswith('/auditoria') }}">Auditoría</a>
+            {% endif %}
         </div>
         <div class="nav-spacer"></div>
         {% if session.get('user') %}

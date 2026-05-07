@@ -186,7 +186,9 @@ tbody td {
   border: 1px solid var(--border); background: var(--bg); color: var(--fg-muted);
   white-space: nowrap;
 }
-.badge-dark { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.badge-dark  { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.badge-green { background: #e6f9f0; color: #1a7a4a; border-color: #a3d9be; }
+.badge-red   { background: #fdecea; color: #b91c1c; border-color: #f5b4b4; }
 
 /* ── Pagination ── */
 .pagination {

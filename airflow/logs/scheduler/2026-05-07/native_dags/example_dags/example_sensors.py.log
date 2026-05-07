@@ -90,3 +90,108 @@
 [2026-05-07T19:51:37.364+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:37.364+0200] {dag.py:3239} INFO - Sync 1 DAGs
 [2026-05-07T19:51:37.372+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:37.372+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
 [2026-05-07T19:51:37.386+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.053 seconds
+[2026-05-07T19:52:47.458+0200] {processor.py:186} INFO - Started process (PID=16646) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:52:47.465+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T19:52:47.470+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:47.469+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:52:47.479+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:52:47.504+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:47.504+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:52:47.544+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:47.543+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T19:52:47.598+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.144 seconds
+[2026-05-07T19:53:59.403+0200] {processor.py:186} INFO - Started process (PID=16801) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:53:59.407+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T19:53:59.409+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:59.409+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:53:59.443+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:53:59.473+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:59.472+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:53:59.493+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:59.493+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T19:53:59.608+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.212 seconds
+[2026-05-07T19:55:10.019+0200] {processor.py:186} INFO - Started process (PID=16954) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:55:10.021+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T19:55:10.022+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:55:10.022+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:55:10.031+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:55:10.045+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:55:10.045+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:55:10.053+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:55:10.053+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T19:55:10.070+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.056 seconds
+[2026-05-07T19:57:12.070+0200] {processor.py:186} INFO - Started process (PID=17048) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:57:12.071+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T19:57:12.073+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:57:12.072+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:57:12.080+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:57:12.094+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:57:12.093+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:57:12.101+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:57:12.101+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T19:57:12.118+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.051 seconds
+[2026-05-07T19:59:15.702+0200] {processor.py:186} INFO - Started process (PID=17152) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:59:15.703+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T19:59:15.704+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:59:15.704+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:59:15.712+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T19:59:15.725+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:59:15.725+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:59:15.733+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:59:15.733+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T19:59:15.749+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.051 seconds
+[2026-05-07T20:00:58.032+0200] {processor.py:186} INFO - Started process (PID=17369) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:00:58.041+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:00:58.046+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:58.046+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:00:58.082+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:00:58.097+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:58.097+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:00:58.105+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:58.104+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:00:58.120+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.096 seconds
+[2026-05-07T20:02:02.030+0200] {processor.py:186} INFO - Started process (PID=17536) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:02:02.037+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:02:02.041+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:02.040+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:02:02.057+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:02:02.120+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:02.120+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:02:02.132+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:02.131+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:02:02.149+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.137 seconds
+[2026-05-07T20:03:01.942+0200] {processor.py:186} INFO - Started process (PID=17683) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:03:01.943+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:03:01.944+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:01.944+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:03:01.952+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:03:01.967+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:01.967+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:03:01.975+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:01.975+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:03:01.992+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.055 seconds
+[2026-05-07T20:03:59.194+0200] {processor.py:186} INFO - Started process (PID=17808) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:03:59.195+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:03:59.197+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:59.196+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:03:59.205+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:03:59.224+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:59.222+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:03:59.234+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:59.234+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:03:59.253+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.063 seconds
+[2026-05-07T20:05:03.963+0200] {processor.py:186} INFO - Started process (PID=17933) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:05:03.964+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:05:03.965+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:03.965+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:05:03.973+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:05:03.986+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:03.986+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:05:03.994+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:03.994+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:05:04.011+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.052 seconds
+[2026-05-07T20:06:04.944+0200] {processor.py:186} INFO - Started process (PID=18052) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:06:04.959+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:06:04.961+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:04.961+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:06:04.971+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:06:04.997+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:04.997+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:06:05.009+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:05.008+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:06:05.049+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.122 seconds
+[2026-05-07T20:07:04.182+0200] {processor.py:186} INFO - Started process (PID=18172) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:07:04.183+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:07:04.185+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:04.184+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:07:04.193+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:07:04.211+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:04.211+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:07:04.221+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:04.221+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:07:04.256+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.079 seconds
+[2026-05-07T20:08:02.482+0200] {processor.py:186} INFO - Started process (PID=18304) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:08:02.484+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:08:02.485+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:02.485+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:08:02.492+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:08:02.506+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:02.506+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:08:02.513+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:02.513+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:08:02.529+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.051 seconds
+[2026-05-07T20:09:14.008+0200] {processor.py:186} INFO - Started process (PID=18500) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:09:14.009+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:09:14.011+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:14.011+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:09:14.019+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:09:14.033+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:14.032+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:09:14.040+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:14.040+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:09:14.056+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.052 seconds
+[2026-05-07T20:10:23.487+0200] {processor.py:186} INFO - Started process (PID=18628) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:10:23.490+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py for tasks to queue
+[2026-05-07T20:10:23.491+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:10:23.491+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:10:23.499+0200] {processor.py:925} INFO - DAG(s) 'example_sensors' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py
+[2026-05-07T20:10:23.513+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:10:23.513+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:10:23.520+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:10:23.520+0200] {dag.py:4180} INFO - Setting next_dagrun for example_sensors to None, run_after=None
+[2026-05-07T20:10:23.535+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_sensors.py took 0.052 seconds

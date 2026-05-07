@@ -12,7 +12,10 @@ from .querys import (
     COUNT_PROFESORES, COUNT_ALUMNOS, COUNT_CURSOS, COUNT_MATRICULAS,
     CREATE_ALUMNOS, CREATE_CURSOS, CREATE_MATRICULAS, CREATE_PROFESORES,
     CREATE_INDEX_CURSOS_PROFESOR_ID, CREATE_INDEX_MATRICULAS_CURSO_ID, CREATE_INDEX_ALUMNOS_EMAIL,
-    INSERT_ALUMNOS, INSERT_PROFESORES, INSERT_CURSOS, INSERT_MATRICULAS
+    INSERT_ALUMNOS, INSERT_PROFESORES, INSERT_CURSOS, INSERT_MATRICULAS,
+    CREATE_AUDITORIA, CREATE_INDEX_AUDITORIA_ENTIDAD,
+    INSERT_AUDITORIA, SELECT_ALL_AUDITORIA, COUNT_AUDITORIA,
+    DELETE_AUDITORIA, DELETE_ALL_AUDITORIA,
 )
 from ..entities import Alumnos, Profesores, Cursos, Matriculas
 from psycopg2 import Error
@@ -42,6 +45,8 @@ class PostgreSQL():
         cursor.execute(CREATE_INDEX_CURSOS_PROFESOR_ID)
         cursor.execute(CREATE_INDEX_MATRICULAS_CURSO_ID)
         cursor.execute(CREATE_INDEX_ALUMNOS_EMAIL)
+        cursor.execute(CREATE_AUDITORIA)
+        cursor.execute(CREATE_INDEX_AUDITORIA_ENTIDAD)
 
 # Operaciones del profesor
 class OperacionesProfesor():
@@ -259,4 +264,38 @@ class OperacionesMatricula():
     def delete_enrollment(self, cursor, alumno_id: str, curso_id: str):
         cursor.execute(DELETE_MATRICULA, (alumno_id, curso_id))
 
+
+# Operaciones de Auditoría
+class OperacionesAuditoria():
+    @with_transactions
+    def registrar(self, cursor, usuario: str, accion: str, entidad: str, entidad_id: str, detalle: str):
+        cursor.execute(INSERT_AUDITORIA, (usuario, accion, entidad, entidad_id, detalle))
+
+    @with_cursor
+    def get_all(self, cursor):
+        try:
+            cursor.execute(SELECT_ALL_AUDITORIA)
+            return cursor.fetchall()
+        except (Exception, Error) as e:
+            print("Error al obtener auditoría:", e)
+            return []
+
+    @with_cursor
+    def get_count(self, cursor):
+        cursor.execute(COUNT_AUDITORIA)
+        result = cursor.fetchone()
+        return result[0] if result else 0
+
+    @with_transactions
+    def delete_by_id(self, cursor, audit_id: int):
+        cursor.execute(DELETE_AUDITORIA, (audit_id,))
+
+    @with_transactions
+    def delete_all(self, cursor):
+        cursor.execute(DELETE_ALL_AUDITORIA)
+
+    @with_transactions
+    def create_table(self, cursor):
+        cursor.execute(CREATE_AUDITORIA)
+        cursor.execute(CREATE_INDEX_AUDITORIA_ENTIDAD)
 

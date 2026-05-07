@@ -188,3 +188,178 @@
 [2026-05-07T19:51:12.402+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:12.402+0200] {dag.py:3239} INFO - Sync 1 DAGs
 [2026-05-07T19:51:12.409+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:12.409+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
 [2026-05-07T19:51:12.426+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.050 seconds
+[2026-05-07T19:51:55.578+0200] {processor.py:186} INFO - Started process (PID=16425) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:51:55.579+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:51:55.581+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:55.581+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:51:55.590+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:51:55.600+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:55.599+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:51:55.607+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:55.607+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:51:55.625+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.051 seconds
+[2026-05-07T19:52:30.917+0200] {processor.py:186} INFO - Started process (PID=16600) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:52:30.925+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:52:30.929+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:30.929+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:52:30.948+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:52:30.998+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:30.997+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:52:31.012+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:31.012+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:52:31.113+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.221 seconds
+[2026-05-07T19:53:05.036+0200] {processor.py:186} INFO - Started process (PID=16705) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:53:05.037+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:53:05.039+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:05.039+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:53:05.063+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:53:05.082+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:05.082+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:53:05.101+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:05.101+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:53:05.140+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.108 seconds
+[2026-05-07T19:53:42.506+0200] {processor.py:186} INFO - Started process (PID=16783) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:53:42.507+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:53:42.510+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:42.510+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:53:42.529+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:53:42.553+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:42.553+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:53:42.563+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:42.563+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:53:42.640+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.150 seconds
+[2026-05-07T19:54:17.603+0200] {processor.py:186} INFO - Started process (PID=16823) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:54:17.604+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:54:17.606+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:17.606+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:54:17.616+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:54:17.626+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:17.626+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:54:17.634+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:17.634+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:54:17.652+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.053 seconds
+[2026-05-07T19:54:54.122+0200] {processor.py:186} INFO - Started process (PID=16899) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:54:54.127+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:54:54.129+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:54.129+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:54:54.155+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:54:54.168+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:54.168+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:54:54.185+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:54.185+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:54:54.248+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.131 seconds
+[2026-05-07T19:55:37.031+0200] {processor.py:186} INFO - Started process (PID=16975) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:55:37.032+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:55:37.034+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:55:37.033+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:55:37.042+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:55:37.053+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:55:37.053+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:55:37.060+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:55:37.060+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:55:37.077+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.050 seconds
+[2026-05-07T19:56:29.083+0200] {processor.py:186} INFO - Started process (PID=17021) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:56:29.084+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:56:29.086+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:56:29.085+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:56:29.095+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:56:29.105+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:56:29.105+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:56:29.112+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:56:29.112+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:56:29.127+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.048 seconds
+[2026-05-07T19:57:34.839+0200] {processor.py:186} INFO - Started process (PID=17069) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:57:34.840+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:57:34.841+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:57:34.841+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:57:34.851+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:57:34.861+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:57:34.861+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:57:34.869+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:57:34.869+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:57:34.888+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.053 seconds
+[2026-05-07T19:58:39.240+0200] {processor.py:186} INFO - Started process (PID=17115) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:58:39.241+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:58:39.243+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:58:39.242+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:58:39.256+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:58:39.270+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:58:39.270+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:58:39.284+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:58:39.284+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:58:39.313+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.079 seconds
+[2026-05-07T19:59:41.764+0200] {processor.py:186} INFO - Started process (PID=17173) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:59:41.765+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T19:59:41.767+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:59:41.766+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:59:41.776+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T19:59:41.786+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:59:41.786+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:59:41.794+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:59:41.794+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T19:59:41.811+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.051 seconds
+[2026-05-07T20:00:34.513+0200] {processor.py:186} INFO - Started process (PID=17248) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:00:34.514+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:00:34.515+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:34.515+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:00:34.524+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:00:34.534+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:34.533+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:00:34.541+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:34.541+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:00:34.557+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.049 seconds
+[2026-05-07T20:01:16.303+0200] {processor.py:186} INFO - Started process (PID=17411) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:01:16.304+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:01:16.305+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:16.305+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:01:16.315+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:01:16.327+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:16.326+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:01:16.334+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:16.334+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:01:16.350+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.051 seconds
+[2026-05-07T20:01:49.340+0200] {processor.py:186} INFO - Started process (PID=17507) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:01:49.341+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:01:49.342+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:49.342+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:01:49.352+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:01:49.363+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:49.363+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:01:49.372+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:49.371+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:01:49.387+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.051 seconds
+[2026-05-07T20:02:48.249+0200] {processor.py:186} INFO - Started process (PID=17661) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:02:48.252+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:02:48.254+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:48.253+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:02:48.264+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:02:48.274+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:48.274+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:02:48.283+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:48.283+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:02:48.298+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.056 seconds
+[2026-05-07T20:03:46.246+0200] {processor.py:186} INFO - Started process (PID=17781) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:03:46.248+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:03:46.249+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:46.249+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:03:46.291+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:03:46.322+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:46.322+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:03:46.336+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:46.336+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:03:46.373+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.132 seconds
+[2026-05-07T20:04:17.713+0200] {processor.py:186} INFO - Started process (PID=17844) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:04:17.714+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:04:17.716+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:17.715+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:04:17.727+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:04:17.740+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:17.740+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:04:17.756+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:17.756+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:04:17.772+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.063 seconds
+[2026-05-07T20:04:49.659+0200] {processor.py:186} INFO - Started process (PID=17905) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:04:49.675+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:04:49.678+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:49.678+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:04:49.687+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:04:49.698+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:49.698+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:04:49.706+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:49.706+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:04:49.729+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.075 seconds
+[2026-05-07T20:05:22.288+0200] {processor.py:186} INFO - Started process (PID=17972) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:05:22.289+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:05:22.290+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:22.290+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:05:22.300+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:05:22.311+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:22.311+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:05:22.319+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:22.319+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:05:22.350+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.066 seconds
+[2026-05-07T20:06:23.661+0200] {processor.py:186} INFO - Started process (PID=18090) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:06:23.666+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:06:23.669+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:23.668+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:06:23.687+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:06:23.702+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:23.702+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:06:23.710+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:23.710+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:06:23.728+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.073 seconds
+[2026-05-07T20:07:21.897+0200] {processor.py:186} INFO - Started process (PID=18210) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:07:21.899+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:07:21.900+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:21.900+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:07:21.910+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:07:21.921+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:21.921+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:07:21.930+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:21.929+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:07:21.946+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.053 seconds
+[2026-05-07T20:08:21.864+0200] {processor.py:186} INFO - Started process (PID=18341) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:08:21.865+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:08:21.867+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:21.866+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:08:21.876+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:08:21.887+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:21.887+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:08:21.895+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:21.895+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:08:21.910+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.051 seconds
+[2026-05-07T20:08:57.937+0200] {processor.py:186} INFO - Started process (PID=18460) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:08:57.938+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:08:57.940+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:57.940+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:08:57.954+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:08:57.989+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:57.989+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:08:58.016+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:58.016+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:08:58.085+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.155 seconds
+[2026-05-07T20:09:31.809+0200] {processor.py:186} INFO - Started process (PID=18545) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:09:31.816+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:09:31.822+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:31.817+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:09:31.837+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:09:31.872+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:31.872+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:09:31.903+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:31.900+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:09:31.984+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.181 seconds
+[2026-05-07T20:10:04.955+0200] {processor.py:186} INFO - Started process (PID=18607) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:10:04.956+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py for tasks to queue
+[2026-05-07T20:10:04.957+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:10:04.957+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:10:04.966+0200] {processor.py:925} INFO - DAG(s) 'dag_academico_postgresql' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py
+[2026-05-07T20:10:04.977+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:10:04.977+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:10:04.985+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:10:04.985+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_academico_postgresql to None, run_after=None
+[2026-05-07T20:10:05.000+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_psql.py took 0.050 seconds

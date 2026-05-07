@@ -97,3 +97,108 @@
 [2026-05-07T19:50:49.332+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:49.332+0200] {dag.py:3239} INFO - Sync 1 DAGs
 [2026-05-07T19:50:49.341+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:49.341+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
 [2026-05-07T19:50:49.358+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.068 seconds
+[2026-05-07T19:52:10.015+0200] {processor.py:186} INFO - Started process (PID=16439) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:52:10.017+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T19:52:10.018+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:10.018+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:52:10.025+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:52:10.036+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:10.036+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:52:10.044+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:52:10.044+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T19:52:10.059+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.048 seconds
+[2026-05-07T19:53:21.724+0200] {processor.py:186} INFO - Started process (PID=16752) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:53:21.726+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T19:53:21.728+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:21.727+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:53:21.736+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:53:21.759+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:21.759+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:53:21.771+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:53:21.771+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T19:53:21.898+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.181 seconds
+[2026-05-07T19:54:32.997+0200] {processor.py:186} INFO - Started process (PID=16839) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:54:33.001+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T19:54:33.003+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:33.003+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:54:33.012+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:54:33.056+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:33.056+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:54:33.067+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:54:33.066+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T19:54:33.135+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.171 seconds
+[2026-05-07T19:56:00.712+0200] {processor.py:186} INFO - Started process (PID=16998) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:56:00.714+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T19:56:00.716+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:56:00.716+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:56:00.722+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:56:00.732+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:56:00.732+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:56:00.739+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:56:00.739+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T19:56:00.754+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.045 seconds
+[2026-05-07T19:58:07.271+0200] {processor.py:186} INFO - Started process (PID=17091) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:58:07.274+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T19:58:07.276+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:58:07.276+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:58:07.284+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T19:58:07.297+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:58:07.297+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:58:07.307+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:58:07.307+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T19:58:07.322+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.056 seconds
+[2026-05-07T20:00:03.717+0200] {processor.py:186} INFO - Started process (PID=17213) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:00:03.719+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:00:03.724+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:03.723+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:00:03.744+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:00:03.780+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:03.780+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:00:03.793+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:00:03.793+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:00:03.871+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.160 seconds
+[2026-05-07T20:01:26.641+0200] {processor.py:186} INFO - Started process (PID=17426) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:01:26.644+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:01:26.646+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:26.646+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:01:26.653+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:01:26.665+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:26.664+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:01:26.673+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:01:26.673+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:01:26.690+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.057 seconds
+[2026-05-07T20:02:27.771+0200] {processor.py:186} INFO - Started process (PID=17621) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:02:27.774+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:02:27.775+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:27.775+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:02:27.787+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:02:27.800+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:27.800+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:02:27.815+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:02:27.815+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:02:27.865+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.098 seconds
+[2026-05-07T20:03:26.588+0200] {processor.py:186} INFO - Started process (PID=17742) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:03:26.589+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:03:26.590+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:26.590+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:03:26.597+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:03:26.608+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:26.607+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:03:26.616+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:03:26.616+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:03:26.635+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.052 seconds
+[2026-05-07T20:04:28.533+0200] {processor.py:186} INFO - Started process (PID=17866) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:04:28.534+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:04:28.535+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:28.535+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:04:28.542+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:04:28.556+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:28.556+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:04:28.580+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:04:28.579+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:04:28.605+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.076 seconds
+[2026-05-07T20:05:31.198+0200] {processor.py:186} INFO - Started process (PID=17990) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:05:31.199+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:05:31.201+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:31.200+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:05:31.207+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:05:31.218+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:31.218+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:05:31.225+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:05:31.225+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:05:31.241+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.048 seconds
+[2026-05-07T20:06:31.657+0200] {processor.py:186} INFO - Started process (PID=18108) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:06:31.658+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:06:31.660+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:31.660+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:06:31.667+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:06:31.684+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:31.684+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:06:31.693+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:06:31.693+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:06:31.710+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.057 seconds
+[2026-05-07T20:07:30.515+0200] {processor.py:186} INFO - Started process (PID=18224) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:07:30.516+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:07:30.518+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:30.517+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:07:30.525+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:07:30.539+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:30.538+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:07:30.547+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:07:30.547+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:07:30.564+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.053 seconds
+[2026-05-07T20:08:33.164+0200] {processor.py:186} INFO - Started process (PID=18364) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:08:33.166+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:08:33.172+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:33.172+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:08:33.198+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:08:33.241+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:33.240+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:08:33.277+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:08:33.277+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:08:33.357+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.199 seconds
+[2026-05-07T20:09:42.105+0200] {processor.py:186} INFO - Started process (PID=18566) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:09:42.106+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2026-05-07T20:09:42.110+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:42.109+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:09:42.117+0200] {processor.py:925} INFO - DAG(s) 'example_task_group' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py
+[2026-05-07T20:09:42.129+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:42.129+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T20:09:42.139+0200] {logging_mixin.py:190} INFO - [2026-05-07T20:09:42.138+0200] {dag.py:4180} INFO - Setting next_dagrun for example_task_group to None, run_after=None
+[2026-05-07T20:09:42.158+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_task_group.py took 0.059 seconds

@@ -1,6 +1,6 @@
 import uuid
-from flask import Blueprint, request, render_template, jsonify, abort
-from models import OperacionesCurso, OperacionesProfesor
+from flask import Blueprint, request, render_template, jsonify, abort, session
+from models import OperacionesCurso, OperacionesProfesor, OperacionesAuditoria
 from models import Cursos
 from config import PAGE_SIZE
 
@@ -74,6 +74,8 @@ def new():
     try:
         curso = Cursos(id=str(uuid.uuid4()), nombre=nombre, profesor_id=profesor_id)
         OperacionesCurso().insert_one_course(curso=curso)
+        usuario = session.get('user', {}).get('username', 'anónimo')
+        OperacionesAuditoria().registrar(usuario, 'CREATE', 'asignatura', curso.id, f'Creada: {nombre}')
         return jsonify(ok=True, message=f'Asignatura "{nombre}" creada correctamente.')
     except Exception as e:
         return jsonify(ok=False, error=str(e))
@@ -82,7 +84,11 @@ def new():
 @asignaturas_bp.route('/delete/<curso_id>', methods=['POST'])
 def delete(curso_id):
     try:
+        curso = OperacionesCurso().get_by_id(curso_id)
+        nombre = curso[1] if curso else curso_id
         OperacionesCurso().delete_by_id(curso_id)
+        usuario = session.get('user', {}).get('username', 'anónimo')
+        OperacionesAuditoria().registrar(usuario, 'DELETE', 'asignatura', curso_id, f'Eliminada: {nombre}')
         return jsonify(ok=True, message='Asignatura eliminada correctamente.')
     except Exception as e:
         return jsonify(ok=False, error=str(e))

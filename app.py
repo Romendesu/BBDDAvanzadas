@@ -10,6 +10,7 @@ def create_app() -> Flask:
     # Registro de blueprints
     app.register_blueprint(alumnos_bp,      name="alumnos")
     app.register_blueprint(asignaturas_bp,  name="asignaturas")
+    app.register_blueprint(auditoria_bp,    name="auditoria")
     app.register_blueprint(auth_bp,         name="auth")
     app.register_blueprint(home_bp,         name="home")
     app.register_blueprint(matriculas_bp,   name="matriculas")
