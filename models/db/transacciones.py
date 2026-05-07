@@ -7,6 +7,11 @@ import uuid
 import psycopg2
 import psycopg2.errors
 from config import PG_HOST, PG_NAME, PG_USER, PG_PASSWORD, PG_PORT
+from .querys import (
+    DEMO_SELECT_ALUMNO_LIMIT1, DEMO_SELECT_MATRICULA_LIMIT1,
+    DEMO_INSERT_MATRICULA_RAW, DEMO_COUNT_MATRICULAS_CURSO,
+    DEMO_INSERT_ALUMNO_TEMP, DEMO_SELECT_ALUMNO_BY_ID, DEMO_DELETE_ALUMNO_BY_ID,
+)
 
 
 def _connect():
@@ -36,8 +41,7 @@ def demo_fk_violation():
     fake_curso_id = str(uuid.uuid4())
 
     try:
-        # Obtener un alumno real
-        cur.execute("SELECT id FROM alumnos LIMIT 1;")
+        cur.execute(DEMO_SELECT_ALUMNO_LIMIT1)
         row = cur.fetchone()
         if not row:
             return [_step("error", "No hay alumnos en la base de datos. Ejecuta el seed primero.")]
@@ -49,10 +53,7 @@ def demo_fk_violation():
         steps.append(_step("info",  "  INSERT INTO matriculas (alumno_id, curso_id, created_at)"))
         steps.append(_step("info",  f"  VALUES ('{alumno_id[:8]}…', '{fake_curso_id[:8]}…', NOW());"))
 
-        cur.execute(
-            "INSERT INTO matriculas (alumno_id, curso_id, created_at) VALUES (%s, %s, NOW());",
-            (alumno_id, fake_curso_id),
-        )
+        cur.execute(DEMO_INSERT_MATRICULA_RAW, (alumno_id, fake_curso_id))
         # Si llega aquí (no debería), hacemos rollback igualmente
         conn.rollback()
         steps.append(_step("error", "  -- INSERT completado (inesperado — revisar constraints)"))
@@ -67,7 +68,7 @@ def demo_fk_violation():
         # Verificación post-rollback
         conn.autocommit = True
         cur2 = conn.cursor()
-        cur2.execute("SELECT COUNT(*) FROM matriculas WHERE curso_id = %s;", (fake_curso_id,))
+        cur2.execute(DEMO_COUNT_MATRICULAS_CURSO, (fake_curso_id,))
         count = cur2.fetchone()[0]
         cur2.close()
         steps.append(_step("ok", f"  -- Verificación: {count} filas con curso_id falso. Integridad conservada. ✓"))
@@ -94,8 +95,7 @@ def demo_pk_duplicate():
     cur   = conn.cursor()
 
     try:
-        # Obtener una matrícula existente
-        cur.execute("SELECT alumno_id, curso_id FROM matriculas LIMIT 1;")
+        cur.execute(DEMO_SELECT_MATRICULA_LIMIT1)
         row = cur.fetchone()
         if not row:
             return [_step("error", "No hay matrículas en la base de datos. Ejecuta el seed primero.")]
@@ -108,10 +108,7 @@ def demo_pk_duplicate():
         steps.append(_step("info", "  INSERT INTO matriculas (alumno_id, curso_id, created_at)"))
         steps.append(_step("info", f"  VALUES ('{alumno_id[:8]}…', '{curso_id[:8]}…', NOW());"))
 
-        cur.execute(
-            "INSERT INTO matriculas (alumno_id, curso_id, created_at) VALUES (%s, %s, NOW());",
-            (alumno_id, curso_id),
-        )
+        cur.execute(DEMO_INSERT_MATRICULA_RAW, (alumno_id, curso_id))
         conn.rollback()
         steps.append(_step("error", "  -- INSERT completado (inesperado)"))
 
@@ -153,13 +150,9 @@ def demo_commit_exitoso():
         steps.append(_step("info", "  INSERT INTO alumnos (id, nombre, email)"))
         steps.append(_step("info", f"  VALUES ('{new_id[:8]}…', '{nombre}', '{email}');"))
 
-        cur.execute(
-            "INSERT INTO alumnos (id, nombre, email) VALUES (%s, %s, %s);",
-            (new_id, nombre, email),
-        )
+        cur.execute(DEMO_INSERT_ALUMNO_TEMP, (new_id, nombre, email, 0.00))
 
-        # Verificar dentro de la misma transacción (dirty read propio)
-        cur.execute("SELECT id, nombre FROM alumnos WHERE id = %s;", (new_id,))
+        cur.execute(DEMO_SELECT_ALUMNO_BY_ID, (new_id,))
         found = cur.fetchone()
         steps.append(_step("ok", f"  -- Dentro de TX: SELECT devuelve '{found[1]}' ✓"))
         steps.append(_step("ok", "  -- Otros clientes NO ven este registro aún (aislamiento) ✓"))
@@ -171,7 +164,7 @@ def demo_commit_exitoso():
         # Limpieza: eliminar el alumno de demo
         conn.autocommit = True
         cur2 = conn.cursor()
-        cur2.execute("DELETE FROM alumnos WHERE id = %s;", (new_id,))
+        cur2.execute(DEMO_DELETE_ALUMNO_BY_ID, (new_id,))
         cur2.close()
         steps.append(_step("info", f"  -- [Limpieza] DELETE alumno demo → datos de prueba eliminados."))
 

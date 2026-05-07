@@ -40,3 +40,33 @@ async function submitCurso(e) {
     else        { showToast(json.error, true); }
   }
 }
+
+function openEditCurso(id, nombre, precio, maxAlumnos) {
+  const idEl = document.getElementById('ec-id');
+  const nombreEl = document.getElementById('ec-nombre');
+  const precioEl = document.getElementById('ec-precio');
+  const maxEl    = document.getElementById('ec-max');
+  if (idEl)     idEl.value          = id;
+  if (nombreEl) nombreEl.textContent = nombre;
+  if (precioEl) precioEl.value       = precio;
+  if (maxEl)    maxEl.value          = maxAlumnos;
+  openModal('modal-edit-curso');
+}
+
+async function submitEditCurso(e) {
+  e.preventDefault();
+  document.querySelectorAll('#form-edit-curso .form-error').forEach(el => el.style.display = 'none');
+
+  const id  = document.getElementById('ec-id').value;
+  const fd  = new FormData(e.target);
+  const res = await fetch(`/asignaturas/update/${id}`, { method: 'POST', body: fd });
+  const json = await res.json();
+
+  if (json.ok) {
+    closeModal('modal-edit-curso');
+    showToast(json.message);
+    setTimeout(() => location.reload(), 1200);
+  } else {
+    showToast(json.error, true);
+  }
+}

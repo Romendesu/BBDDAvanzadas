@@ -86,3 +86,20 @@ def new():
         return jsonify(ok=True, message='Matrícula registrada correctamente.')
     except Exception as e:
         return jsonify(ok=False, error=str(e))
+
+
+@matriculas_bp.route('/enroll', methods=['POST'])
+def enroll():
+    """Proceso de matriculación transaccional con log visual de pasos."""
+    alumno_id = request.form.get('alumno_id', '').strip()
+    curso_id  = request.form.get('curso_id', '').strip()
+
+    if not alumno_id:
+        return jsonify(ok=False, error='Selecciona un alumno.')
+    if not curso_id:
+        return jsonify(ok=False, error='Selecciona una asignatura.')
+
+    from flask import session
+    usuario = session.get('user', {}).get('username', 'anónimo')
+    result = OperacionesMatricula().matricular_transaccional(alumno_id, curso_id, usuario)
+    return jsonify(result)

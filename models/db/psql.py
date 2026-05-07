@@ -1,4 +1,4 @@
-from .decorators import with_cursor, with_transactions
+from .decorators import with_cursor, with_transactions, with_connection
 from .querys import (
     SELECT_VERSION, SELECT_ALL_PROFESORES, SELECT_ALL_ALUMNOS,
     SELECT_ALL_CURSOS, SELECT_ALL_MATRICULAS,
@@ -16,6 +16,9 @@ from .querys import (
     CREATE_AUDITORIA, CREATE_INDEX_AUDITORIA_ENTIDAD,
     INSERT_AUDITORIA, SELECT_ALL_AUDITORIA, COUNT_AUDITORIA,
     DELETE_AUDITORIA, DELETE_ALL_AUDITORIA,
+    ALTER_ALUMNOS_SALDO, ALTER_CURSOS_PRECIO, ALTER_CURSOS_MAX_ALUMNOS,
+    SELECT_ALUMNO_FOR_ENROLL, SELECT_CURSO_FOR_ENROLL,
+    UPDATE_ALUMNO_SALDO, UPDATE_CURSO_SETTINGS, UPDATE_ALUMNO_RECHARGE,
 )
 from ..entities import Alumnos, Profesores, Cursos, Matriculas
 from psycopg2 import Error
@@ -47,6 +50,10 @@ class PostgreSQL():
         cursor.execute(CREATE_INDEX_ALUMNOS_EMAIL)
         cursor.execute(CREATE_AUDITORIA)
         cursor.execute(CREATE_INDEX_AUDITORIA_ENTIDAD)
+        # Migraciones: añadir columnas nuevas si no existen
+        cursor.execute(ALTER_ALUMNOS_SALDO)
+        cursor.execute(ALTER_CURSOS_PRECIO)
+        cursor.execute(ALTER_CURSOS_MAX_ALUMNOS)
 
 # Operaciones del profesor
 class OperacionesProfesor():
@@ -154,13 +161,15 @@ class OperacionesAlumno():
     # Operaciones de escritura
     @with_transactions
     def insert_one_student(self, cursor, alumno:Alumnos):
-        # Verificamos el formato del correo
         if not alumno.email or not validate_email(alumno.email):
             raise Exception("Hay un error procesando el correo electrónico.")
-
-        params = (alumno.id, alumno.nombre, alumno.email)
+        params = (alumno.id, alumno.nombre, alumno.email, alumno.saldo)
         cursor.execute(INSERT_ALUMNOS, params)
         print(f"Se ha ingresado el alumno: {alumno} dentro de la base de datos")
+
+    @with_transactions
+    def recharge_saldo(self, cursor, alumno_id: str, cantidad: float):
+        cursor.execute(UPDATE_ALUMNO_RECHARGE, (cantidad, alumno_id))
 
     @with_transactions
     def delete_by_id(self, cursor, alumno_id: str):
@@ -212,9 +221,13 @@ class OperacionesCurso():
 
     @with_transactions
     def insert_one_course(self, cursor, curso: Cursos):
-        params = (curso.id, curso.nombre, curso.profesor_id)
+        params = (curso.id, curso.nombre, curso.profesor_id, curso.precio, curso.max_alumnos)
         cursor.execute(INSERT_CURSOS, params)
         print(f"Se ha ingresado el curso: {curso} dentro de la base de datos")
+
+    @with_transactions
+    def update_settings(self, cursor, curso_id: str, precio: float, max_alumnos: int):
+        cursor.execute(UPDATE_CURSO_SETTINGS, (precio, max_alumnos, curso_id))
 
     @with_transactions
     def delete_by_id(self, cursor, curso_id: str):
@@ -263,6 +276,86 @@ class OperacionesMatricula():
     @with_transactions
     def delete_enrollment(self, cursor, alumno_id: str, curso_id: str):
         cursor.execute(DELETE_MATRICULA, (alumno_id, curso_id))
+
+    @with_connection
+    def matricular_transaccional(self, conn, cur, alumno_id: str, curso_id: str, usuario: str = "anónimo"):
+        """
+        Proceso de matriculación completo en una única transacción ACID.
+        Usa el decorador @with_connection para obtener conn+cursor con autocommit=False.
+        Comprueba saldo, plazas y duplicados con bloqueo FOR UPDATE.
+        Devuelve dict con 'ok', 'steps' y datos resultado.
+        """
+        import datetime
+
+        def step(kind, text):
+            return {"type": kind, "text": text}
+
+        steps = []
+        try:
+            steps.append(step("info", "BEGIN;"))
+
+            cur.execute(SELECT_ALUMNO_FOR_ENROLL, (alumno_id,))
+            alumno = cur.fetchone()
+            if not alumno:
+                raise Exception("Alumno no encontrado en la base de datos.")
+            a_id, a_nombre, a_saldo = alumno
+            steps.append(step("ok", f"  SELECT … FROM alumnos WHERE id='{str(a_id)[:8]}…' FOR UPDATE;"))
+            steps.append(step("ok", f"  -- {a_nombre}: saldo actual = {float(a_saldo):.2f} €"))
+
+            cur.execute(SELECT_CURSO_FOR_ENROLL, (curso_id,))
+            curso = cur.fetchone()
+            if not curso:
+                raise Exception("Asignatura no encontrada en la base de datos.")
+            c_id, c_nombre, c_precio, c_max, c_inscritos = curso
+            c_precio    = float(c_precio)
+            c_inscritos = int(c_inscritos)
+            steps.append(step("ok", f"  SELECT … FROM cursos WHERE id='{str(c_id)[:8]}…' FOR UPDATE;"))
+            steps.append(step("ok", f"  -- {c_nombre}: precio={c_precio:.2f} €, plazas={c_inscritos}/{c_max}"))
+
+            cur.execute(CHECK_MATRICULA_EXISTS, (alumno_id, curso_id))
+            if cur.fetchone():
+                raise Exception(f"ERROR 23505: El alumno ya está matriculado en «{c_nombre}» (PK duplicada).")
+
+            if c_inscritos >= c_max:
+                raise Exception(f"Sin plazas disponibles: {c_inscritos}/{c_max} ocupadas.")
+
+            a_saldo = float(a_saldo)
+            if a_saldo < c_precio:
+                raise Exception(f"Saldo insuficiente: {a_saldo:.2f} € < {c_precio:.2f} € (precio asignatura).")
+
+            steps.append(step("info", f"  UPDATE alumnos SET saldo = saldo - {c_precio:.2f} WHERE id = '…';"))
+            cur.execute(UPDATE_ALUMNO_SALDO, (-c_precio, alumno_id))
+            nuevo_saldo = a_saldo - c_precio
+            steps.append(step("ok", f"  -- Saldo actualizado: {a_saldo:.2f} → {nuevo_saldo:.2f} €  ✓"))
+
+            now = datetime.datetime.now(datetime.timezone.utc)
+            steps.append(step("info", "  INSERT INTO matriculas (alumno_id, curso_id, created_at) VALUES (…);"))
+            cur.execute(INSERT_MATRICULAS, (alumno_id, curso_id, now))
+            steps.append(step("ok", f"  -- Matrícula registrada en {now.strftime('%Y-%m-%d %H:%M:%S UTC')}  ✓"))
+
+            cur.execute(INSERT_AUDITORIA, (usuario, "CREATE", "matricula", str(alumno_id),
+                                           f"Matrícula transaccional: {a_nombre} → {c_nombre}"))
+
+            conn.commit()
+            steps.append(step("ok", "COMMIT;"))
+            steps.append(step("ok", f"  -- Transacción completada con éxito. Nuevo saldo: {nuevo_saldo:.2f} €  ✓"))
+
+            return {
+                "ok": True,
+                "steps": steps,
+                "alumno": a_nombre,
+                "curso": c_nombre,
+                "precio": c_precio,
+                "saldo_anterior": a_saldo,
+                "saldo_nuevo": nuevo_saldo,
+            }
+
+        except Exception as e:
+            conn.rollback()
+            steps.append(step("error", f"  {e}"))
+            steps.append(step("warn",  "ROLLBACK;"))
+            steps.append(step("warn",  "  -- Ningún cambio fue persistido. Integridad conservada.  ✓"))
+            return {"ok": False, "steps": steps, "error": str(e)}
 
 
 # Operaciones de Auditoría

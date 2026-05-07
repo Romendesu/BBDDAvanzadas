@@ -12,7 +12,8 @@
         <input class="search-input" name="q" value="{{ q }}" placeholder="Buscar alumno o curso…" autocomplete="off" />
       </form>
       <div class="toolbar-spacer"></div>
-      <button class="btn btn-primary" onclick="openModal('modal-nueva-matricula')">+ Matricular alumno</button>
+      <button class="btn" onclick="openModal('modal-nueva-matricula')" style="margin-right:8px;">Matricular (simple)</button>
+      <button class="btn btn-primary" onclick="openModal('modal-enroll-tx')">⚡ Matricular (transaccional)</button>
     </div>
 
     {% if rows %}
@@ -55,13 +56,85 @@
   </div>
 </div>
 
-<!-- Modal: Nueva Matrícula -->
+<!-- ═══════════════════════════════════════════════════════════
+     Modal: Matriculación Transaccional (visual + ACID)
+     ═══════════════════════════════════════════════════════════ -->
+<div id="modal-enroll-tx" class="modal-overlay hidden" onclick="if(event.target===this) resetEnrollModal()">
+  <div class="modal modal-enter" style="max-width:620px;width:100%;">
+    <h2>Matriculación transaccional</h2>
+    <p class="modal-sub">POST /matriculas/enroll — BEGIN / verificaciones / COMMIT o ROLLBACK</p>
+
+    <!-- Paso 1: Selección -->
+    <div id="enroll-form-section">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
+        <!-- Alumno -->
+        <div class="form-group" style="margin:0;">
+          <label class="form-label">Alumno</label>
+          <input class="form-input" id="et-alumno-q" placeholder="Buscar alumno…" autocomplete="off"
+                 oninput="etFilterAlumnos(this.value)" />
+          <input type="hidden" id="et-alumno-id" />
+          <div class="autocomplete-list" id="et-alumno-list" style="display:none;"></div>
+          <p class="form-error" id="et-alumno-err" style="display:none;"></p>
+        </div>
+        <!-- Asignatura -->
+        <div class="form-group" style="margin:0;">
+          <label class="form-label">Asignatura</label>
+          <input class="form-input" id="et-curso-q" placeholder="Buscar asignatura…" autocomplete="off"
+                 oninput="etFilterCursos(this.value)" />
+          <input type="hidden" id="et-curso-id" />
+          <div class="autocomplete-list" id="et-curso-list" style="display:none;"></div>
+          <p class="form-error" id="et-curso-err" style="display:none;"></p>
+        </div>
+      </div>
+
+      <!-- Preview card (aparece al seleccionar ambos) -->
+      <div id="enroll-preview" style="display:none;margin-top:16px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);">
+        <div style="font-family:var(--font-secondary);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--fg-muted);margin-bottom:10px;">Vista previa de la transacción</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+          <div style="text-align:center;">
+            <div style="font-family:var(--font-secondary);font-size:10px;color:var(--fg-muted);margin-bottom:4px;">SALDO ALUMNO</div>
+            <div id="prev-saldo" style="font-size:18px;font-weight:700;letter-spacing:-0.3px;"></div>
+          </div>
+          <div style="text-align:center;border-left:1px solid var(--border);border-right:1px solid var(--border);">
+            <div style="font-family:var(--font-secondary);font-size:10px;color:var(--fg-muted);margin-bottom:4px;">PRECIO</div>
+            <div id="prev-precio" style="font-size:18px;font-weight:700;letter-spacing:-0.3px;"></div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--font-secondary);font-size:10px;color:var(--fg-muted);margin-bottom:4px;">PLAZAS</div>
+            <div id="prev-plazas" style="font-size:18px;font-weight:700;letter-spacing:-0.3px;"></div>
+          </div>
+        </div>
+        <div id="prev-warning" style="display:none;margin-top:10px;font-family:var(--font-secondary);font-size:12px;color:#b91c1c;padding:8px 10px;background:#fdecea;border-radius:6px;"></div>
+      </div>
+
+      <div class="form-actions" style="margin-top:20px;">
+        <button type="button" class="btn" onclick="resetEnrollModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btn-run-enroll" onclick="runEnrollTransaction()">
+          ▶ Ejecutar transacción
+        </button>
+      </div>
+    </div>
+
+    <!-- Paso 2: Log de la transacción (aparece tras enviar) -->
+    <div id="enroll-log-section" style="display:none;">
+      <div class="tx-log" id="enroll-tx-log" style="display:block;margin-top:16px;"></div>
+      <div id="enroll-result-card" style="display:none;margin-top:16px;padding:16px;border-radius:var(--radius);"></div>
+      <div class="form-actions" style="margin-top:16px;">
+        <button type="button" class="btn" onclick="resetEnrollModal()">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btn-enroll-again" style="display:none;" onclick="resetEnrollForm()">
+          + Nueva matrícula
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Matricula simple -->
 <div id="modal-nueva-matricula" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-nueva-matricula')">
   <div class="modal modal-enter">
     <h2>Matricular alumno</h2>
     <p class="modal-sub">POST /matriculas/new</p>
     <form id="form-matricula" onsubmit="submitMatricula(event)">
-      <!-- Alumno autocomplete -->
       <div class="form-group">
         <label class="form-label">Alumno</label>
         <input class="form-input" id="m-alumno-q" placeholder="Buscar alumno…" autocomplete="off"
@@ -70,7 +143,6 @@
         <div class="autocomplete-list" id="m-alumno-list" style="display:none;"></div>
         <p class="form-error" id="m-alumno_id-err" style="display:none;"></p>
       </div>
-      <!-- Curso autocomplete -->
       <div class="form-group">
         <label class="form-label">Curso</label>
         <input class="form-input" id="m-curso-q" placeholder="Buscar curso…" autocomplete="off"

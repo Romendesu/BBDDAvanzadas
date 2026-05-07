@@ -18,10 +18,18 @@
           </div>
           <div class="kpi">
             <span class="kpi-value">{{ profesores_distintos }}</span>
-            <span class="kpi-label">Profesores distintos</span>
+            <span class="kpi-label">Profesores</span>
           </div>
         </div>
-        <button class="btn btn-danger" style="width:100%;margin-top:20px;"
+        <div style="margin-top:16px;padding:14px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);">
+          <div style="font-family:var(--font-secondary);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--fg-muted);margin-bottom:6px;">Saldo disponible</div>
+          <div id="detail-saldo" style="font-size:24px;font-weight:700;letter-spacing:-0.5px;color:{{ '#1a7a4a' if alumno[4] >= 100 else '#b91c1c' }};">
+            {{ "%.2f"|format(alumno[4]) }} €
+          </div>
+        </div>
+        <button class="btn" style="width:100%;margin-top:12px;"
+                onclick="openRechargeDetail('{{ alumno[0] }}','{{ alumno[1] }}','{{ '%.2f'|format(alumno[4]) }}')">+ Recargar saldo</button>
+        <button class="btn btn-danger" style="width:100%;margin-top:8px;"
                 onclick="openModal('modal-confirmar-eliminar')">Eliminar alumno</button>
       </div>
     </div>
@@ -69,6 +77,29 @@
       <button type="button" class="btn" onclick="closeModal('modal-confirmar-eliminar')">Cancelar</button>
       <button type="button" class="btn btn-danger" onclick="deleteAlumno('{{ alumno[0] }}')">Sí, eliminar</button>
     </div>
+  </div>
+</div>
+<!-- Modal: Recargar saldo (detail) -->
+<div id="modal-recharge" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-recharge')">
+  <div class="modal modal-enter">
+    <h2>Recargar saldo</h2>
+    <p class="modal-sub">POST /alumnos/recharge</p>
+    <form id="form-recharge" onsubmit="submitRechargeDetail(event)">
+      <input type="hidden" id="r-alumno-id" name="alumno_id" value="{{ alumno[0] }}" />
+      <div class="form-group">
+        <label class="form-label">Saldo actual</label>
+        <p style="font-family:var(--font-secondary);font-size:13px;color:var(--fg);margin-top:4px;" id="r-saldo-actual">{{ "%.2f"|format(alumno[4]) }} €</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Cantidad a añadir (€)</label>
+        <input class="form-input" id="r-cantidad" name="cantidad" type="number" min="1" max="9999" step="0.01" placeholder="Ej: 250.00" />
+        <p class="form-error" id="r-cantidad-err" style="display:none;"></p>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn" onclick="closeModal('modal-recharge')">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Recargar</button>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}

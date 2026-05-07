@@ -18,16 +18,26 @@
     {% if rows %}
     <table>
       <thead>
-        <tr><th>#</th><th>Nombre</th><th>Profesor</th><th>Alumnos</th><th></th></tr>
+        <tr><th>#</th><th>Nombre</th><th>Profesor</th><th>Precio</th><th>Plazas</th><th>Alumnos</th><th></th></tr>
       </thead>
       <tbody>
-        {% for id, nombre, profesor, n_alumnos in rows %}
+        {% for id, nombre, profesor, n_alumnos, precio, max_alumnos in rows %}
+        {% set libres = max_alumnos - n_alumnos %}
         <tr onclick="location.href='/asignaturas/{{ id }}'">
           <td class="td-muted td-mono">{{ id[:8] }}…</td>
           <td><strong>{{ nombre }}</strong></td>
           <td class="td-muted">{{ profesor }}</td>
+          <td class="td-mono"><span class="badge">{{ "%.2f"|format(precio) }} €</span></td>
+          <td>
+            <span class="badge {{ 'badge-green' if libres > 0 else 'badge-red' }}">
+              {{ n_alumnos }}/{{ max_alumnos }}
+            </span>
+          </td>
           <td><span class="badge badge-dark">{{ n_alumnos }}</span></td>
-          <td style="width:40px;">
+          <td style="width:80px; white-space:nowrap;">
+            <button class="btn" style="padding:4px 8px;font-size:11px;margin-right:4px;"
+                    title="Editar precio y capacidad"
+                    onclick="event.stopPropagation(); openEditCurso('{{ id }}','{{ nombre }}','{{ '%.2f'|format(precio) }}','{{ max_alumnos }}')">✎</button>
             <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;"
                     onclick="event.stopPropagation(); confirmDeleteCurso('{{ id }}','{{ nombre }}')">✕</button>
           </td>
@@ -72,7 +82,36 @@
   </div>
 </div>
 
-<!-- Modal: Nueva Asignatura (reutiliza endpoint de cursos) -->
+<!-- Modal: Editar precio y capacidad -->
+<div id="modal-edit-curso" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-edit-curso')">
+  <div class="modal modal-enter">
+    <h2>Editar asignatura</h2>
+    <p class="modal-sub">POST /asignaturas/update/&lt;id&gt;</p>
+    <form id="form-edit-curso" onsubmit="submitEditCurso(event)">
+      <input type="hidden" id="ec-id" name="curso_id" />
+      <div class="form-group">
+        <label class="form-label">Asignatura</label>
+        <p id="ec-nombre" style="font-family:var(--font-secondary);font-size:13px;color:var(--fg);margin-top:4px;"></p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Precio (€)</label>
+        <input class="form-input" id="ec-precio" name="precio" type="number" min="0" step="0.01" placeholder="100.00" />
+        <p class="form-error" id="ec-precio-err" style="display:none;"></p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Límite de alumnos</label>
+        <input class="form-input" id="ec-max" name="max_alumnos" type="number" min="1" step="1" placeholder="30" />
+        <p class="form-error" id="ec-max-err" style="display:none;"></p>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn" onclick="closeModal('modal-edit-curso')">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: Nueva Asignatura -->
 <div id="modal-nuevo-curso" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-nuevo-curso')">
   <div class="modal modal-enter">
     <h2>Nueva asignatura</h2>
@@ -92,6 +131,18 @@
           {% endfor %}
         </select>
         <p class="form-error" id="c-profesor_id-err" style="display:none;"></p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form-group">
+          <label class="form-label">Precio (€)</label>
+          <input class="form-input" id="c-precio" name="precio" type="number" min="0" step="0.01" value="100" placeholder="100.00" />
+          <p class="form-error" id="c-precio-err" style="display:none;"></p>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Límite alumnos</label>
+          <input class="form-input" id="c-max" name="max_alumnos" type="number" min="1" step="1" value="30" placeholder="30" />
+          <p class="form-error" id="c-max_alumnos-err" style="display:none;"></p>
+        </div>
       </div>
       <div class="form-actions">
         <button type="button" class="btn" onclick="closeModal('modal-nuevo-curso')">Cancelar</button>

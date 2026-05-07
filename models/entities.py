@@ -23,6 +23,7 @@ class Alumnos():
     id: str
     nombre: str
     email: str
+    saldo: float = 500.00
 
     def __str__(self):
         return f"ID: {self.id} - NOMBRE: {self.nombre} - CORREO: {self.email}"
@@ -32,6 +33,8 @@ class Cursos():
     id: str
     nombre: str
     profesor_id: str
+    precio: float = 100.00
+    max_alumnos: int = 30
 
     def __str__(self):
         return f"ID: {self.id} - NOMBRE: {self.nombre} - PROFESOR_ID: {self.profesor_id}"

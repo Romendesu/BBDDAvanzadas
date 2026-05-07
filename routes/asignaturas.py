@@ -65,18 +65,51 @@ def detail(curso_id):
 def new():
     nombre      = request.form.get('nombre', '').strip()
     profesor_id = request.form.get('profesor_id', '').strip()
+    try:
+        precio      = float(request.form.get('precio', '100') or '100')
+        max_alumnos = int(request.form.get('max_alumnos', '30') or '30')
+    except ValueError:
+        return jsonify(ok=False, error='Precio o capacidad inválidos.')
 
     if not nombre:
         return jsonify(ok=False, field='nombre', error='El nombre es obligatorio.')
     if not profesor_id:
         return jsonify(ok=False, field='profesor_id', error='Selecciona un profesor.')
+    if precio < 0:
+        return jsonify(ok=False, field='precio', error='El precio no puede ser negativo.')
+    if max_alumnos < 1:
+        return jsonify(ok=False, field='max_alumnos', error='La capacidad mínima es 1.')
 
     try:
-        curso = Cursos(id=str(uuid.uuid4()), nombre=nombre, profesor_id=profesor_id)
+        curso = Cursos(id=str(uuid.uuid4()), nombre=nombre, profesor_id=profesor_id,
+                       precio=precio, max_alumnos=max_alumnos)
         OperacionesCurso().insert_one_course(curso=curso)
         usuario = session.get('user', {}).get('username', 'anónimo')
         OperacionesAuditoria().registrar(usuario, 'CREATE', 'asignatura', curso.id, f'Creada: {nombre}')
         return jsonify(ok=True, message=f'Asignatura "{nombre}" creada correctamente.')
+    except Exception as e:
+        return jsonify(ok=False, error=str(e))
+
+
+@asignaturas_bp.route('/update/<curso_id>', methods=['POST'])
+def update(curso_id):
+    try:
+        precio      = float(request.form.get('precio', '100') or '100')
+        max_alumnos = int(request.form.get('max_alumnos', '30') or '30')
+    except ValueError:
+        return jsonify(ok=False, error='Precio o capacidad inválidos.')
+
+    if precio < 0:
+        return jsonify(ok=False, error='El precio no puede ser negativo.')
+    if max_alumnos < 1:
+        return jsonify(ok=False, error='La capacidad mínima es 1.')
+
+    try:
+        OperacionesCurso().update_settings(curso_id, precio, max_alumnos)
+        usuario = session.get('user', {}).get('username', 'anónimo')
+        OperacionesAuditoria().registrar(usuario, 'UPDATE', 'asignatura', curso_id,
+                                          f'Actualizada: precio={precio:.2f}€, max_alumnos={max_alumnos}')
+        return jsonify(ok=True, message='Asignatura actualizada correctamente.')
     except Exception as e:
         return jsonify(ok=False, error=str(e))
 
