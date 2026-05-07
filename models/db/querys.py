@@ -1,4 +1,44 @@
 """
+OPERACIONES SQLITE:
+    Consultas sobre la base de datos de autenticación (auth.db).
+"""
+
+SELECT_USUARIO_BY_USERNAME = """
+    SELECT * FROM usuarios WHERE username = ? AND is_active = 1;
+"""
+
+SELECT_USUARIO_EXISTS = """
+    SELECT id FROM usuarios WHERE username = ?;
+"""
+
+CREATE_SQLITE_USUARIOS = """
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id            INTEGER PRIMARY KEY AUTOINCREMENT,
+        username      TEXT    NOT NULL UNIQUE,
+        email         TEXT    NOT NULL UNIQUE,
+        password_hash TEXT    NOT NULL,
+        nombre        TEXT    NOT NULL,
+        rol           TEXT    NOT NULL DEFAULT 'alumno'
+                              CHECK (rol IN ('admin', 'profesor', 'alumno')),
+        is_active     INTEGER NOT NULL DEFAULT 1,
+        created_at    TEXT    NOT NULL
+    );
+"""
+
+CREATE_SQLITE_INDEX_USERNAME = """
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_usuarios_username ON usuarios (username);
+"""
+
+CREATE_SQLITE_INDEX_EMAIL = """
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_usuarios_email ON usuarios (email);
+"""
+
+INSERT_USUARIO = """
+    INSERT INTO usuarios (username, email, password_hash, nombre, rol, is_active, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?);
+"""
+
+"""
 OPERACIONES CREATE:
     Consultas para la creación de tablas, índices e inserción de nuevos registros.
 """

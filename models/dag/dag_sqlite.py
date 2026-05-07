@@ -12,73 +12,21 @@ Usuarios insertados:
 from __future__ import annotations
 
 import sqlite3
-import os
 from datetime import datetime, timedelta
 
 from werkzeug.security import generate_password_hash
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-# ── Ruta de la base de datos SQLite ──────────────────────────────────────────
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SQLITE_PATH = os.path.join(BASE_DIR, "auth.db")
-
-# ── Usuarios a insertar ───────────────────────────────────────────────────────
-
-USUARIOS = [
-    {
-        "username":    "admin",
-        "email":       "admin@academico.es",
-        "password":    "Admin1234!",
-        "nombre":      "Administrador del Sistema",
-        "rol":         "admin",
-        "is_active":   1,
-    },
-    {
-        "username":    "profesor",
-        "email":       "profesor@academico.es",
-        "password":    "Profesor1234!",
-        "nombre":      "Profesor Demo",
-        "rol":         "profesor",
-        "is_active":   1,
-    },
-    {
-        "username":    "alumno",
-        "email":       "alumno@academico.es",
-        "password":    "Alumno1234!",
-        "nombre":      "Alumno Demo",
-        "rol":         "alumno",
-        "is_active":   1,
-    },
-]
-
-# ── DDL ───────────────────────────────────────────────────────────────────────
-
-DDL_USUARIOS = """
-    CREATE TABLE IF NOT EXISTS usuarios (
-        id           INTEGER PRIMARY KEY AUTOINCREMENT,
-        username     TEXT    NOT NULL UNIQUE,
-        email        TEXT    NOT NULL UNIQUE,
-        password_hash TEXT   NOT NULL,
-        nombre       TEXT    NOT NULL,
-        rol          TEXT    NOT NULL DEFAULT 'alumno'
-                             CHECK (rol IN ('admin', 'profesor', 'alumno')),
-        is_active    INTEGER NOT NULL DEFAULT 1,
-        created_at   TEXT    NOT NULL
-    );
-"""
-
-DDL_INDEX_USERNAME = """
-    CREATE UNIQUE INDEX IF NOT EXISTS idx_usuarios_username ON usuarios (username);
-"""
-
-DDL_INDEX_EMAIL = """
-    CREATE UNIQUE INDEX IF NOT EXISTS idx_usuarios_email ON usuarios (email);
-"""
+from models.db.querys import (
+    CREATE_SQLITE_USUARIOS, CREATE_SQLITE_INDEX_USERNAME, CREATE_SQLITE_INDEX_EMAIL,
+    SELECT_USUARIO_EXISTS, INSERT_USUARIO,
+)
+from models.dag.utils import USUARIOS
+from config import SQLITE_PATH
 
 
-# ── Tarea 1: comprobar / crear base de datos ──────────────────────────────────
+# Tarea 1: comprobar conexión con SQLite
 
 def check_sqlite():
     conn = sqlite3.connect(SQLITE_PATH)
@@ -89,15 +37,15 @@ def check_sqlite():
     print(f"[OK] SQLite {version} — base de datos en: {SQLITE_PATH}")
 
 
-# ── Tarea 2: crear tabla de usuarios ─────────────────────────────────────────
+# Tarea 2: crear tabla de usuarios e índices en SQLite
 
 def create_users_table():
     conn = sqlite3.connect(SQLITE_PATH)
     cur  = conn.cursor()
     try:
-        cur.execute(DDL_USUARIOS)
-        cur.execute(DDL_INDEX_USERNAME)
-        cur.execute(DDL_INDEX_EMAIL)
+        cur.execute(CREATE_SQLITE_USUARIOS)
+        cur.execute(CREATE_SQLITE_INDEX_USERNAME)
+        cur.execute(CREATE_SQLITE_INDEX_EMAIL)
         conn.commit()
         print("[OK] Tabla 'usuarios' creada / verificada.")
     except Exception as e:
@@ -107,7 +55,7 @@ def create_users_table():
         conn.close()
 
 
-# ── Tarea 3: insertar usuarios con contraseñas cifradas ──────────────────────
+# Tarea 3: insertar usuarios con contraseñas cifradas
 
 def insert_users():
     conn = sqlite3.connect(SQLITE_PATH)
@@ -118,7 +66,7 @@ def insert_users():
         skipped  = 0
 
         for u in USUARIOS:
-            cur.execute("SELECT id FROM usuarios WHERE username = ?;", (u["username"],))
+            cur.execute(SELECT_USUARIO_EXISTS, (u["username"],))
             if cur.fetchone():
                 print(f"[SKIP] Usuario '{u['username']}' ya existe.")
                 skipped += 1
@@ -126,8 +74,7 @@ def insert_users():
 
             password_hash = generate_password_hash(u["password"], method="pbkdf2:sha256")
             cur.execute(
-                """INSERT INTO usuarios (username, email, password_hash, nombre, rol, is_active, created_at)
-                   VALUES (?, ?, ?, ?, ?, ?, ?);""",
+                INSERT_USUARIO,
                 (
                     u["username"],
                     u["email"],
@@ -151,7 +98,7 @@ def insert_users():
         conn.close()
 
 
-# ── Definición del DAG ────────────────────────────────────────────────────────
+# Definición del DAG y dependencias entre tareas
 
 default_args = {
     "owner":            "academico",

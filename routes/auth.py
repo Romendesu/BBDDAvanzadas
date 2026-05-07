@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, redirect, url_for, session, flash
-from models.db.auth import get_user_by_username, verify_password
+from models.db.sqlite import Sqlite
 
 auth_bp = Blueprint('auth', __name__, url_prefix="/auth")
 
@@ -24,12 +24,13 @@ def login():
         username = request.form.get('username', '').strip()
         password = request.form.get('password', '')
 
+        db = Sqlite()
         if not username or not password:
             error = 'Introduce usuario y contraseña.'
-        elif not verify_password(username, password):
+        elif not db.verify_password(username, password):
             error = 'Usuario o contraseña incorrectos.'
         else:
-            user = get_user_by_username(username)
+            user = db.get_user_by_username(username)
             session['user'] = {
                 'username': user['username'],
                 'nombre':   user['nombre'],

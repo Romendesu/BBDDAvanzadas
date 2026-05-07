@@ -16,34 +16,19 @@ import uuid
 import random
 from datetime import datetime, timezone, timedelta
 
-import psycopg2
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from config import PG_HOST, PG_NAME, PG_USER, PG_PASSWORD, PG_PORT
 from models.db.querys import (
     CREATE_PROFESORES, CREATE_ALUMNOS, CREATE_CURSOS, CREATE_MATRICULAS,
     CREATE_INDEX_CURSOS_PROFESOR_ID, CREATE_INDEX_MATRICULAS_CURSO_ID, CREATE_INDEX_ALUMNOS_EMAIL,
 )
-
-# Conexión a PostgreSQL
-
-PG_CONN = {
-    "host":     PG_HOST,
-    "database": PG_NAME,
-    "user":     PG_USER,
-    "password": PG_PASSWORD,
-    "port":     PG_PORT,
-}
-
-
-def _get_conn():
-    return psycopg2.connect(**PG_CONN)
+from models.dag.utils import get_pg_conn, already_seeded, PROFESORES_NOMBRES, CURSOS_NOMBRES
 
 
 # Tarea 1: comprobar conexión con PostgreSQL
 
 def check_connection():
-    conn = _get_conn()
+    conn = get_pg_conn()
     cur  = conn.cursor()
     cur.execute("SELECT version();")
     version = cur.fetchone()[0]
@@ -62,7 +47,7 @@ DDL_INDEXES = [
 
 
 def create_schema():
-    conn = _get_conn()
+    conn = get_pg_conn()
     cur  = conn.cursor()
     try:
         cur.execute(CREATE_PROFESORES)
@@ -83,39 +68,13 @@ def create_schema():
 
 # Tarea 3: insertar dataset mínimo de prueba
 
-PROFESORES_NOMBRES = [
-    "Ana García López",      "Carlos Martínez Ruiz",  "Elena Sánchez Pérez",
-    "Fernando Torres Alba",  "Isabel Romero Díaz",     "Javier Moreno Castro",
-    "Laura Jiménez Vega",    "Miguel Hernández Gil",   "Natalia Flores Reyes",
-    "Pablo Navarro Serrano",
-]
-
-CURSOS_NOMBRES = [
-    "Álgebra Lineal",                    "Cálculo Diferencial",
-    "Bases de Datos Avanzadas",          "Estructuras de Datos",
-    "Sistemas Operativos",               "Redes de Computadores",
-    "Inteligencia Artificial",           "Programación Funcional",
-    "Arquitectura de Software",          "Seguridad Informática",
-    "Computación en la Nube",            "Machine Learning",
-    "Diseño de Interfaces",              "Ingeniería de Software",
-    "Matemáticas Discretas",             "Compiladores",
-    "Visión por Computador",             "Criptografía",
-    "Procesamiento de Lenguaje Natural", "Robótica",
-]
-
-
-def _already_seeded(cur, table: str, min_rows: int) -> bool:
-    cur.execute(f"SELECT COUNT(*) FROM {table};")
-    return cur.fetchone()[0] >= min_rows
-
-
 def insert_data():
-    conn = _get_conn()
+    conn = get_pg_conn()
     cur  = conn.cursor()
 
     try:
         # Tarea 3a: insertar 10 profesores
-        if _already_seeded(cur, "profesores", 10):
+        if already_seeded(cur, "profesores", 10):
             print("[SKIP] profesores — ya contiene datos suficientes.")
             cur.execute("SELECT id FROM profesores LIMIT 10;")
             profesor_ids = [str(r[0]) for r in cur.fetchall()]
@@ -131,7 +90,7 @@ def insert_data():
             print(f"[OK] {len(profesor_ids)} profesores insertados.")
 
         # Tarea 3b: insertar 100 alumnos
-        if _already_seeded(cur, "alumnos", 100):
+        if already_seeded(cur, "alumnos", 100):
             print("[SKIP] alumnos — ya contiene datos suficientes.")
             cur.execute("SELECT id FROM alumnos LIMIT 100;")
             alumno_ids = [str(r[0]) for r in cur.fetchall()]
@@ -149,7 +108,7 @@ def insert_data():
             print(f"[OK] {len(alumno_ids)} alumnos insertados.")
 
         # Tarea 3c: insertar 20 cursos
-        if _already_seeded(cur, "cursos", 20):
+        if already_seeded(cur, "cursos", 20):
             print("[SKIP] cursos — ya contiene datos suficientes.")
             cur.execute("SELECT id FROM cursos LIMIT 20;")
             curso_ids = [str(r[0]) for r in cur.fetchall()]
@@ -166,7 +125,7 @@ def insert_data():
             print(f"[OK] {len(curso_ids)} cursos insertados.")
 
         # Tarea 3d: insertar 200 matrículas
-        if _already_seeded(cur, "matriculas", 200):
+        if already_seeded(cur, "matriculas", 200):
             print("[SKIP] matriculas — ya contiene datos suficientes.")
         else:
             inserted  = 0

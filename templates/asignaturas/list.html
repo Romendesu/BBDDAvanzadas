@@ -18,7 +18,7 @@
     {% if rows %}
     <table>
       <thead>
-        <tr><th>#</th><th>Nombre</th><th>Profesor</th><th>Alumnos</th></tr>
+        <tr><th>#</th><th>Nombre</th><th>Profesor</th><th>Alumnos</th><th></th></tr>
       </thead>
       <tbody>
         {% for id, nombre, profesor, n_alumnos in rows %}
@@ -27,6 +27,10 @@
           <td><strong>{{ nombre }}</strong></td>
           <td class="td-muted">{{ profesor }}</td>
           <td><span class="badge badge-dark">{{ n_alumnos }}</span></td>
+          <td style="width:40px;">
+            <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;"
+                    onclick="event.stopPropagation(); confirmDeleteCurso('{{ id }}','{{ nombre }}')">✕</button>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
@@ -55,11 +59,24 @@
   </div>
 </div>
 
+<!-- Modal: Confirmar eliminación -->
+<div id="modal-confirmar-eliminar" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-confirmar-eliminar')">
+  <div class="modal modal-enter">
+    <h2>Eliminar asignatura</h2>
+    <p class="modal-sub">Esta acción no se puede deshacer.</p>
+    <p id="confirm-delete-msg" style="margin:16px 0;"></p>
+    <div class="form-actions">
+      <button type="button" class="btn" onclick="closeModal('modal-confirmar-eliminar')">Cancelar</button>
+      <button type="button" class="btn btn-danger" onclick="executeDeleteCurso()">Sí, eliminar</button>
+    </div>
+  </div>
+</div>
+
 <!-- Modal: Nueva Asignatura (reutiliza endpoint de cursos) -->
 <div id="modal-nuevo-curso" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-nuevo-curso')">
   <div class="modal modal-enter">
     <h2>Nueva asignatura</h2>
-    <p class="modal-sub">POST /cursos/new</p>
+    <p class="modal-sub">POST /asignaturas/new</p>
     <form id="form-curso" onsubmit="submitCurso(event)">
       <div class="form-group">
         <label class="form-label">Nombre de la asignatura</label>
@@ -86,5 +103,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/cursos.js') }}"></script>
+<script src="{{ url_for('static', filename='js/asignaturas.js') }}"></script>
 {% endblock %}

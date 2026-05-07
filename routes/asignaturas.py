@@ -1,5 +1,7 @@
-from flask import Blueprint, request, render_template, abort
+import uuid
+from flask import Blueprint, request, render_template, jsonify, abort
 from models import OperacionesCurso, OperacionesProfesor
+from models import Cursos
 from config import PAGE_SIZE
 
 asignaturas_bp = Blueprint('asignaturas', __name__, url_prefix="/asignaturas")
@@ -57,3 +59,30 @@ def detail(curso_id):
         curso=curso,
         alumnos=alumnos,
     )
+
+
+@asignaturas_bp.route('/new', methods=['POST'])
+def new():
+    nombre      = request.form.get('nombre', '').strip()
+    profesor_id = request.form.get('profesor_id', '').strip()
+
+    if not nombre:
+        return jsonify(ok=False, field='nombre', error='El nombre es obligatorio.')
+    if not profesor_id:
+        return jsonify(ok=False, field='profesor_id', error='Selecciona un profesor.')
+
+    try:
+        curso = Cursos(id=str(uuid.uuid4()), nombre=nombre, profesor_id=profesor_id)
+        OperacionesCurso().insert_one_course(curso=curso)
+        return jsonify(ok=True, message=f'Asignatura "{nombre}" creada correctamente.')
+    except Exception as e:
+        return jsonify(ok=False, error=str(e))
+
+
+@asignaturas_bp.route('/delete/<curso_id>', methods=['POST'])
+def delete(curso_id):
+    try:
+        OperacionesCurso().delete_by_id(curso_id)
+        return jsonify(ok=True, message='Asignatura eliminada correctamente.')
+    except Exception as e:
+        return jsonify(ok=False, error=str(e))

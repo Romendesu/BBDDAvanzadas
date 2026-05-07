@@ -37,7 +37,7 @@
           </thead>
           <tbody>
             {% for id, nombre, profesor, fecha in cursos %}
-            <tr onclick="location.href='/cursos/{{ id }}'">
+            <tr onclick="location.href='/asignaturas/{{ id }}'">
               <td><strong>{{ nombre }}</strong></td>
               <td class="td-muted">{{ profesor }}</td>
               <td class="td-mono td-muted">{{ fecha }}</td>

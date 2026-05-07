@@ -1,3 +1,4 @@
+import os
 from config.config import Config
 
 config = Config()
@@ -19,3 +20,7 @@ PG_PORT = postgresql_values["DATABASE_PORT"]
 
 # Importar la configuración de la aplicación
 PAGE_SIZE = app_values["PAGE_SIZE"]
+
+# Rutas de SQLite
+BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SQLITE_PATH = os.path.join(BASE_DIR, "auth.db")

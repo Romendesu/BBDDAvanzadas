@@ -18,7 +18,7 @@
     {% if rows %}
     <table>
       <thead>
-        <tr><th>#</th><th>Nombre</th><th>Cursos</th><th>Alumnos distintos</th></tr>
+        <tr><th>#</th><th>Nombre</th><th>Cursos</th><th>Alumnos distintos</th><th></th></tr>
       </thead>
       <tbody>
         {% for id, nombre, n_cursos, n_alumnos in rows %}
@@ -27,6 +27,10 @@
           <td><strong>{{ nombre }}</strong></td>
           <td><span class="badge">{{ n_cursos }} cursos</span></td>
           <td><span class="badge badge-dark">{{ n_alumnos }} alumnos</span></td>
+          <td style="width:40px;">
+            <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;"
+                    onclick="event.stopPropagation(); confirmDeleteProfesor('{{ id }}','{{ nombre }}')">✕</button>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
@@ -48,6 +52,19 @@
       No se encontraron profesores{% if q %} para "{{ q }}"{% endif %}.
     </div>
     {% endif %}
+  </div>
+</div>
+
+<!-- Modal: Confirmar eliminación -->
+<div id="modal-confirmar-eliminar" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-confirmar-eliminar')">
+  <div class="modal modal-enter">
+    <h2>Eliminar profesor</h2>
+    <p class="modal-sub">Esta acción no se puede deshacer.</p>
+    <p id="confirm-delete-msg" style="margin:16px 0;"></p>
+    <div class="form-actions">
+      <button type="button" class="btn" onclick="closeModal('modal-confirmar-eliminar')">Cancelar</button>
+      <button type="button" class="btn btn-danger" onclick="executeDeleteProfesor()">Sí, eliminar</button>
+    </div>
   </div>
 </div>
 

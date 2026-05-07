@@ -1,7 +1,8 @@
 from functools import wraps
+import sqlite3
 import psycopg2
 from config import (
-    PG_HOST, PG_NAME, PG_PASSWORD, PG_PORT, PG_USER
+    PG_HOST, PG_NAME, PG_PASSWORD, PG_PORT, PG_USER, SQLITE_PATH
 )
 
 # Operaciones de lectura
@@ -53,4 +54,20 @@ def with_transactions(f):
             if conn is not None:
                 cursor.close()
                 conn.close()
+    return wrapper
+
+def with_sqlite(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        conn = sqlite3.connect(SQLITE_PATH)
+        conn.row_factory = sqlite3.Row
+        try:
+            cursor = conn.cursor()
+            result = f(args[0], cursor, *args[1:], **kwargs)
+            return result
+        except Exception as e:
+            print("Error SQLite:", e)
+            return None
+        finally:
+            conn.close()
     return wrapper

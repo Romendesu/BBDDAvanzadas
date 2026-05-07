@@ -1,9 +1,21 @@
+let _pendingDeleteId = null;
+
+function confirmDeleteProfesor(id, nombre) {
+  _pendingDeleteId = id;
+  document.getElementById('confirm-delete-msg').textContent = `¿Seguro que deseas eliminar a "${nombre}"?`;
+  openModal('modal-confirmar-eliminar');
+}
+
+function executeDeleteProfesor() {
+  deleteProfesor(_pendingDeleteId);
+}
+
 async function deleteProfesor(id) {
   const res  = await fetch(`/profesores/delete/${id}`, { method: 'POST' });
   const json = await res.json();
   if (json.ok) {
     showToast(json.message);
-    setTimeout(() => location.href = '/profesores', 1200);
+    setTimeout(() => location.reload(), 1200);
   } else {
     showToast(json.error, true);
   }

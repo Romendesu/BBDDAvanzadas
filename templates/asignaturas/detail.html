@@ -24,6 +24,8 @@
           </div>
           <span class="detail-profesor-name">{{ curso[3] }}</span>
         </a>
+        <button class="btn btn-danger" style="width:100%;margin-top:20px;"
+                onclick="openModal('modal-confirmar-eliminar')">Eliminar asignatura</button>
       </div>
     </div>
 
@@ -60,4 +62,21 @@
     </div>
   </div>
 </div>
+
+<!-- Modal: Confirmar eliminación -->
+<div id="modal-confirmar-eliminar" class="modal-overlay hidden" onclick="if(event.target===this) closeModal('modal-confirmar-eliminar')">
+  <div class="modal modal-enter">
+    <h2>Eliminar asignatura</h2>
+    <p class="modal-sub">Esta acción no se puede deshacer.</p>
+    <p style="margin:16px 0;">¿Seguro que deseas eliminar <strong>{{ curso[1] }}</strong>?</p>
+    <div class="form-actions">
+      <button type="button" class="btn" onclick="closeModal('modal-confirmar-eliminar')">Cancelar</button>
+      <button type="button" class="btn btn-danger" onclick="deleteCurso('{{ curso[0] }}')">Sí, eliminar</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/asignaturas.js') }}"></script>
 {% endblock %}
