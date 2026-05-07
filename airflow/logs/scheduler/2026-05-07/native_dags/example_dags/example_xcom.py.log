@@ -1,0 +1,127 @@
+[2026-05-07T19:31:44.367+0200] {processor.py:186} INFO - Started process (PID=14256) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:31:44.368+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:31:44.370+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.369+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:31:44.378+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:31:44.472+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.471+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG:example_xcom
+[2026-05-07T19:31:44.483+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.483+0200] {override.py:1930} INFO - Created Permission View: can edit on DAG:example_xcom
+[2026-05-07T19:31:44.492+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.492+0200] {override.py:1930} INFO - Created Permission View: can read on DAG:example_xcom
+[2026-05-07T19:31:44.506+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.506+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG Run:example_xcom
+[2026-05-07T19:31:44.516+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.515+0200] {override.py:1930} INFO - Created Permission View: can create on DAG Run:example_xcom
+[2026-05-07T19:31:44.525+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.525+0200] {override.py:1930} INFO - Created Permission View: menu access on DAG Run:example_xcom
+[2026-05-07T19:31:44.534+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.534+0200] {override.py:1930} INFO - Created Permission View: can read on DAG Run:example_xcom
+[2026-05-07T19:31:44.535+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.535+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:31:44.544+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.544+0200] {dag.py:3262} INFO - Creating ORM DAG for example_xcom
+[2026-05-07T19:31:44.549+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:44.548+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:31:44.565+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.204 seconds
+[2026-05-07T19:32:17.358+0200] {processor.py:186} INFO - Started process (PID=14323) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:32:17.359+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:32:17.361+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:17.361+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:32:17.370+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:32:17.388+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:17.388+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:32:17.402+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:17.402+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:32:17.420+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.066 seconds
+[2026-05-07T19:35:20.787+0200] {processor.py:186} INFO - Started process (PID=14704) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:35:20.789+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:35:20.791+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:20.790+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:35:20.808+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:35:20.831+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:20.831+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:35:20.870+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:20.870+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:35:20.899+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.119 seconds
+[2026-05-07T19:37:12.554+0200] {processor.py:186} INFO - Started process (PID=14828) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:37:12.556+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:37:12.558+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:12.558+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:37:12.572+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:37:12.649+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:12.649+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:37:12.694+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:12.694+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:37:12.715+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.191 seconds
+[2026-05-07T19:38:15.916+0200] {processor.py:186} INFO - Started process (PID=14957) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:38:15.923+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:38:15.926+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:15.926+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:38:15.951+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:38:15.969+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:15.969+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:38:15.985+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:15.985+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:38:16.051+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.139 seconds
+[2026-05-07T19:39:39.361+0200] {processor.py:186} INFO - Started process (PID=15055) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:39:39.365+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:39:39.371+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:39.370+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:39:39.379+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:39:39.398+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:39.398+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:39:39.413+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:39.412+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:39:39.455+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.099 seconds
+[2026-05-07T19:41:08.467+0200] {processor.py:186} INFO - Started process (PID=15173) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:41:08.471+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:41:08.475+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:08.473+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:41:08.500+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:41:08.522+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:08.522+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:41:08.536+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:08.536+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:41:08.618+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.163 seconds
+[2026-05-07T19:41:55.474+0200] {processor.py:186} INFO - Started process (PID=15264) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:41:55.475+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:41:55.477+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:55.477+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:41:55.484+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:41:55.514+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:55.514+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:41:55.539+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:55.538+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:41:55.584+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.121 seconds
+[2026-05-07T19:43:10.749+0200] {processor.py:186} INFO - Started process (PID=15539) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:43:10.751+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:43:10.752+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:10.752+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:43:10.760+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:43:10.771+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:10.771+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:43:10.784+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:10.784+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:43:10.798+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.055 seconds
+[2026-05-07T19:44:28.993+0200] {processor.py:186} INFO - Started process (PID=15698) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:44:28.994+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:44:28.995+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:28.995+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:44:29.004+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:44:29.017+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:29.017+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:44:29.054+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:29.053+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:44:29.074+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.086 seconds
+[2026-05-07T19:45:21.526+0200] {processor.py:186} INFO - Started process (PID=15880) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:45:21.528+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:45:21.530+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:21.530+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:45:21.539+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:45:21.552+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:21.552+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:45:21.566+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:21.566+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:45:21.583+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.062 seconds
+[2026-05-07T19:46:12.068+0200] {processor.py:186} INFO - Started process (PID=15924) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:46:12.069+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:46:12.071+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:12.071+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:46:12.079+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:46:12.092+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:12.092+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:46:12.105+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:12.104+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:46:12.121+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.057 seconds
+[2026-05-07T19:46:58.950+0200] {processor.py:186} INFO - Started process (PID=16016) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:46:58.951+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:46:58.953+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:58.952+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:46:58.962+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:46:58.978+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:58.978+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:46:58.992+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:58.991+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:46:59.007+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.062 seconds
+[2026-05-07T19:48:04.027+0200] {processor.py:186} INFO - Started process (PID=16165) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:48:04.034+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:48:04.048+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:04.047+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:48:04.079+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:48:04.148+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:04.148+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:48:04.178+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:04.178+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:48:04.236+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.221 seconds
+[2026-05-07T19:48:56.064+0200] {processor.py:186} INFO - Started process (PID=16228) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:48:56.066+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:48:56.067+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:56.067+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:48:56.074+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:48:56.085+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:56.085+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:48:56.097+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:56.097+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:48:56.114+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.053 seconds
+[2026-05-07T19:49:49.683+0200] {processor.py:186} INFO - Started process (PID=16294) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:49:49.684+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:49:49.685+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:49.685+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:49:49.692+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:49:49.703+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:49.703+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:49:49.716+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:49.716+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:49:49.734+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.057 seconds
+[2026-05-07T19:51:28.630+0200] {processor.py:186} INFO - Started process (PID=16390) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:51:28.631+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py for tasks to queue
+[2026-05-07T19:51:28.632+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:28.632+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:51:28.640+0200] {processor.py:925} INFO - DAG(s) 'example_xcom' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py
+[2026-05-07T19:51:28.651+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:28.651+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:51:28.664+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:28.664+0200] {dag.py:4180} INFO - Setting next_dagrun for example_xcom to 2021-01-01 00:00:00+00:00, run_after=2021-01-01 00:00:00+00:00
+[2026-05-07T19:51:28.681+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_xcom.py took 0.057 seconds

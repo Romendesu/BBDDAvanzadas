@@ -1,0 +1,190 @@
+[2026-05-07T19:31:24.323+0200] {processor.py:186} INFO - Started process (PID=14198) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:31:24.328+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:31:24.332+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:24.332+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:31:24.370+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:31:24.618+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:24.612+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG:dag_usuarios_sqlite
+[2026-05-07T19:31:24.716+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:24.715+0200] {override.py:1930} INFO - Created Permission View: can edit on DAG:dag_usuarios_sqlite
+[2026-05-07T19:31:24.797+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:24.797+0200] {override.py:1930} INFO - Created Permission View: can read on DAG:dag_usuarios_sqlite
+[2026-05-07T19:31:24.948+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:24.941+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG Run:dag_usuarios_sqlite
+[2026-05-07T19:31:25.006+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:25.006+0200] {override.py:1930} INFO - Created Permission View: can create on DAG Run:dag_usuarios_sqlite
+[2026-05-07T19:31:25.063+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:25.062+0200] {override.py:1930} INFO - Created Permission View: menu access on DAG Run:dag_usuarios_sqlite
+[2026-05-07T19:31:25.132+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:25.132+0200] {override.py:1930} INFO - Created Permission View: can read on DAG Run:dag_usuarios_sqlite
+[2026-05-07T19:31:25.134+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:25.134+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:31:25.170+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:25.170+0200] {dag.py:3262} INFO - Creating ORM DAG for dag_usuarios_sqlite
+[2026-05-07T19:31:25.173+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:25.171+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:31:25.193+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.890 seconds
+[2026-05-07T19:31:30.808+0200] {processor.py:186} INFO - Started process (PID=14217) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:31:30.808+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:31:30.809+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:30.809+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:31:30.823+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:31:30.830+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:30.830+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:31:30.839+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:30.838+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:31:30.872+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.069 seconds
+[2026-05-07T19:32:02.190+0200] {processor.py:186} INFO - Started process (PID=14295) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:32:02.191+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:32:02.193+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:02.192+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:32:02.214+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:32:02.235+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:02.235+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:32:02.260+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:02.260+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:32:02.279+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.095 seconds
+[2026-05-07T19:33:20.376+0200] {processor.py:186} INFO - Started process (PID=14502) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:33:20.381+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:33:20.383+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:20.382+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:33:20.397+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:33:20.420+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:20.420+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:33:20.433+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:20.433+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:33:20.457+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.095 seconds
+[2026-05-07T19:35:04.395+0200] {processor.py:186} INFO - Started process (PID=14675) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:35:04.396+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:35:04.397+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:04.397+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:35:04.409+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:35:04.424+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:04.424+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:35:04.433+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:04.433+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:35:04.449+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.058 seconds
+[2026-05-07T19:35:27.683+0200] {processor.py:186} INFO - Started process (PID=14713) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:35:27.683+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:35:27.684+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:27.684+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:35:27.695+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:35:27.709+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:27.708+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:35:27.717+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:27.717+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:35:27.733+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.054 seconds
+[2026-05-07T19:36:57.541+0200] {processor.py:186} INFO - Started process (PID=14782) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:36:57.543+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:36:57.545+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:36:57.545+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:36:57.557+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:36:57.575+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:36:57.574+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:36:57.584+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:36:57.584+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:36:57.602+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.065 seconds
+[2026-05-07T19:37:59.602+0200] {processor.py:186} INFO - Started process (PID=14938) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:37:59.614+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:37:59.623+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:59.619+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:37:59.675+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:37:59.700+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:59.699+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:37:59.725+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:59.723+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:37:59.811+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.223 seconds
+[2026-05-07T19:38:34.699+0200] {processor.py:186} INFO - Started process (PID=14980) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:38:34.704+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:38:34.705+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:34.705+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:38:34.720+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:38:34.753+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:34.753+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:38:34.764+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:34.764+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:38:34.816+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.125 seconds
+[2026-05-07T19:39:18.548+0200] {processor.py:186} INFO - Started process (PID=15033) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:39:18.551+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:39:18.568+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:18.567+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:39:18.595+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:39:18.660+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:18.659+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:39:18.677+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:18.677+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:39:18.746+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.211 seconds
+[2026-05-07T19:40:05.615+0200] {processor.py:186} INFO - Started process (PID=15086) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:40:05.619+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:40:05.621+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:05.621+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:40:05.631+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:40:05.644+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:05.644+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:40:05.669+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:05.665+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:40:05.720+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.110 seconds
+[2026-05-07T19:40:54.277+0200] {processor.py:186} INFO - Started process (PID=15159) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:40:54.281+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:40:54.283+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:54.283+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:40:54.311+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:40:54.323+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:54.323+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:40:54.335+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:54.334+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:40:54.390+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.119 seconds
+[2026-05-07T19:41:40.738+0200] {processor.py:186} INFO - Started process (PID=15238) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:41:40.748+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:41:40.753+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:40.750+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:41:40.763+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:41:40.777+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:40.777+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:41:40.803+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:40.803+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:41:40.867+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.135 seconds
+[2026-05-07T19:42:17.500+0200] {processor.py:186} INFO - Started process (PID=15417) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:42:17.501+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:42:17.502+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:17.502+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:42:17.511+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:42:17.521+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:17.521+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:42:17.530+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:17.529+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:42:17.551+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.054 seconds
+[2026-05-07T19:42:58.125+0200] {processor.py:186} INFO - Started process (PID=15481) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:42:58.126+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:42:58.128+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:58.127+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:42:58.140+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:42:58.153+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:58.153+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:42:58.162+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:58.162+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:42:58.237+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.117 seconds
+[2026-05-07T19:43:32.798+0200] {processor.py:186} INFO - Started process (PID=15600) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:43:32.799+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:43:32.801+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:32.800+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:43:32.812+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:43:32.823+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:32.822+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:43:32.928+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:32.927+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:43:32.942+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.153 seconds
+[2026-05-07T19:44:13.352+0200] {processor.py:186} INFO - Started process (PID=15678) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:44:13.353+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:44:13.355+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:13.355+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:44:13.490+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:44:13.501+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:13.501+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:44:13.509+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:13.509+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:44:13.529+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.180 seconds
+[2026-05-07T19:45:01.170+0200] {processor.py:186} INFO - Started process (PID=15858) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:45:01.172+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:45:01.173+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:01.173+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:45:01.182+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:45:01.194+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:01.194+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:45:01.203+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:01.203+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:45:01.225+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.060 seconds
+[2026-05-07T19:45:54.902+0200] {processor.py:186} INFO - Started process (PID=15909) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:45:54.903+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:45:54.904+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:54.904+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:45:54.914+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:45:54.927+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:54.927+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:45:54.937+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:54.937+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:45:54.955+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.058 seconds
+[2026-05-07T19:46:46.215+0200] {processor.py:186} INFO - Started process (PID=15966) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:46:46.216+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:46:46.221+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:46.221+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:46:46.238+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:46:46.263+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:46.261+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:46:46.289+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:46.289+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:46:46.357+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.148 seconds
+[2026-05-07T19:47:25.246+0200] {processor.py:186} INFO - Started process (PID=16070) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:47:25.253+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:47:25.259+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:25.258+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:47:25.285+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:47:25.322+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:25.322+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:47:25.332+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:25.332+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:47:25.360+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.143 seconds
+[2026-05-07T19:47:57.195+0200] {processor.py:186} INFO - Started process (PID=16149) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:47:57.195+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:47:57.197+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:57.197+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:47:57.208+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:47:57.220+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:57.220+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:47:57.231+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:57.231+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:47:57.253+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.063 seconds
+[2026-05-07T19:48:36.478+0200] {processor.py:186} INFO - Started process (PID=16201) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:48:36.480+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:48:36.481+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:36.481+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:48:36.492+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:48:36.503+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:36.503+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:48:36.512+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:36.512+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:48:36.531+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.058 seconds
+[2026-05-07T19:49:27.442+0200] {processor.py:186} INFO - Started process (PID=16263) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:49:27.443+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:49:27.445+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:27.444+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:49:27.454+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:49:27.464+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:27.464+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:49:27.472+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:27.472+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:49:27.491+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.052 seconds
+[2026-05-07T19:50:15.813+0200] {processor.py:186} INFO - Started process (PID=16327) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:50:15.820+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:50:15.822+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:15.822+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:50:15.833+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:50:15.851+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:15.851+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:50:15.873+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:15.872+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:50:15.979+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.170 seconds
+[2026-05-07T19:51:10.721+0200] {processor.py:186} INFO - Started process (PID=16372) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:51:10.722+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py for tasks to queue
+[2026-05-07T19:51:10.723+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:10.723+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:51:10.732+0200] {processor.py:925} INFO - DAG(s) 'dag_usuarios_sqlite' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py
+[2026-05-07T19:51:10.742+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:10.742+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:51:10.750+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:10.750+0200] {dag.py:4180} INFO - Setting next_dagrun for dag_usuarios_sqlite to None, run_after=None
+[2026-05-07T19:51:10.766+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/models/dag/dag_sqlite.py took 0.049 seconds

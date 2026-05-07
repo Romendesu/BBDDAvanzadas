@@ -1,0 +1,30 @@
+[2026-05-07T19:39:21.741+0200] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-05-07T19:39:21.788+0200] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_academico_postgresql.insertar_datos manual__2026-05-07T17:39:08.255361+00:00 [queued]>
+[2026-05-07T19:39:21.801+0200] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_academico_postgresql.insertar_datos manual__2026-05-07T17:39:08.255361+00:00 [queued]>
+[2026-05-07T19:39:21.801+0200] {taskinstance.py:2884} INFO - Starting attempt 1 of 2
+[2026-05-07T19:39:21.854+0200] {taskinstance.py:2907} INFO - Executing <Task(PythonOperator): insertar_datos> on 2026-05-07 17:39:08.255361+00:00
+[2026-05-07T19:39:21.860+0200] {standard_task_runner.py:72} INFO - Started process 15036 to run task
+[2026-05-07T19:39:21.878+0200] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dag_academico_postgresql', 'insertar_datos', 'manual__2026-05-07T17:39:08.255361+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/dag_psql.py', '--cfg-path', '/tmp/tmp47qkkqf1']
+[2026-05-07T19:39:21.879+0200] {standard_task_runner.py:105} INFO - Job 9: Subtask insertar_datos
+[2026-05-07T19:39:21.970+0200] {task_command.py:467} INFO - Running <TaskInstance: dag_academico_postgresql.insertar_datos manual__2026-05-07T17:39:08.255361+00:00 [running]> on host rodrigo-VirtualBox
+[2026-05-07T19:39:22.149+0200] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='academico' AIRFLOW_CTX_DAG_ID='dag_academico_postgresql' AIRFLOW_CTX_TASK_ID='insertar_datos' AIRFLOW_CTX_EXECUTION_DATE='2026-05-07T17:39:08.255361+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-07T17:39:08.255361+00:00'
+[2026-05-07T19:39:22.153+0200] {logging_mixin.py:190} INFO - Task instance is in running state
+[2026-05-07T19:39:22.153+0200] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2026-05-07T19:39:22.153+0200] {logging_mixin.py:190} INFO - Current task name:insertar_datos state:running start_date:2026-05-07 17:39:21.788594+00:00
+[2026-05-07T19:39:22.153+0200] {logging_mixin.py:190} INFO - Dag name:dag_academico_postgresql and current dag run status:running
+[2026-05-07T19:39:22.154+0200] {taskinstance.py:740} INFO - ::endgroup::
+[2026-05-07T19:39:22.233+0200] {logging_mixin.py:190} INFO - [OK] 10 profesores insertados.
+[2026-05-07T19:39:22.402+0200] {logging_mixin.py:190} INFO - [OK] 100 alumnos insertados.
+[2026-05-07T19:39:22.433+0200] {logging_mixin.py:190} INFO - [OK] 20 cursos insertados.
+[2026-05-07T19:39:22.646+0200] {logging_mixin.py:190} INFO - [OK] 200 matrículas insertadas.
+[2026-05-07T19:39:22.680+0200] {logging_mixin.py:190} INFO - [OK] Dataset mínimo cargado correctamente.
+[2026-05-07T19:39:22.681+0200] {python.py:240} INFO - Done. Returned value was: None
+[2026-05-07T19:39:22.689+0200] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2026-05-07T19:39:22.691+0200] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=dag_academico_postgresql, task_id=insertar_datos, run_id=manual__2026-05-07T17:39:08.255361+00:00, execution_date=20260507T173908, start_date=20260507T173921, end_date=20260507T173922
+[2026-05-07T19:39:22.848+0200] {logging_mixin.py:190} INFO - Task instance in success state
+[2026-05-07T19:39:22.848+0200] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2026-05-07T19:39:22.848+0200] {logging_mixin.py:190} INFO - Dag name:dag_academico_postgresql queued_at:2026-05-07 17:39:08.286287+00:00
+[2026-05-07T19:39:22.848+0200] {logging_mixin.py:190} INFO - Task hostname:rodrigo-VirtualBox operator:PythonOperator
+[2026-05-07T19:39:22.889+0200] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-05-07T19:39:22.917+0200] {taskinstance.py:3924} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-07T19:39:22.917+0200] {local_task_job_runner.py:245} INFO - ::endgroup::

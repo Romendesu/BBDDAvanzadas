@@ -1,0 +1,85 @@
+[2026-05-07T19:33:08.114+0200] {processor.py:186} INFO - Started process (PID=14437) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:33:08.115+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:33:08.119+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.119+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:33:08.131+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:33:08.228+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.228+0200] {override.py:1930} INFO - Created Permission View: can read on DAG:example_complex
+[2026-05-07T19:33:08.241+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.241+0200] {override.py:1930} INFO - Created Permission View: can edit on DAG:example_complex
+[2026-05-07T19:33:08.250+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.250+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG:example_complex
+[2026-05-07T19:33:08.264+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.264+0200] {override.py:1930} INFO - Created Permission View: can create on DAG Run:example_complex
+[2026-05-07T19:33:08.274+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.274+0200] {override.py:1930} INFO - Created Permission View: can read on DAG Run:example_complex
+[2026-05-07T19:33:08.283+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.282+0200] {override.py:1930} INFO - Created Permission View: menu access on DAG Run:example_complex
+[2026-05-07T19:33:08.291+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.291+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG Run:example_complex
+[2026-05-07T19:33:08.292+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.291+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:33:08.300+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.299+0200] {dag.py:3262} INFO - Creating ORM DAG for example_complex
+[2026-05-07T19:33:08.300+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:33:08.300+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:33:08.321+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.213 seconds
+[2026-05-07T19:37:50.813+0200] {processor.py:186} INFO - Started process (PID=14929) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:37:50.815+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:37:50.816+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:50.816+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:37:50.826+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:37:50.843+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:50.843+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:37:50.852+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:50.851+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:37:50.878+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.069 seconds
+[2026-05-07T19:39:01.655+0200] {processor.py:186} INFO - Started process (PID=15006) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:39:01.670+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:39:01.679+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:01.674+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:39:01.707+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:39:01.732+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:01.732+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:39:01.740+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:01.740+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:39:01.797+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.168 seconds
+[2026-05-07T19:40:39.978+0200] {processor.py:186} INFO - Started process (PID=15143) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:40:39.981+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:40:39.987+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:39.985+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:40:40.006+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:40:40.042+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:40.042+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:40:40.064+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:40:40.064+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:40:40.119+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.146 seconds
+[2026-05-07T19:42:06.286+0200] {processor.py:186} INFO - Started process (PID=15406) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:42:06.288+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:42:06.290+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:06.289+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:42:06.298+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:42:06.314+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:06.313+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:42:06.322+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:42:06.322+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:42:06.339+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.057 seconds
+[2026-05-07T19:43:22.925+0200] {processor.py:186} INFO - Started process (PID=15578) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:43:22.926+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:43:22.933+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:22.931+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:43:22.948+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:43:22.973+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:22.972+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:43:22.993+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:22.993+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:43:23.018+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.100 seconds
+[2026-05-07T19:44:50.036+0200] {processor.py:186} INFO - Started process (PID=15846) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:44:50.036+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:44:50.038+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:50.038+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:44:50.047+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:44:50.067+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:50.067+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:44:50.076+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:50.076+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:44:50.095+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.065 seconds
+[2026-05-07T19:46:35.059+0200] {processor.py:186} INFO - Started process (PID=15944) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:46:35.060+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:46:35.062+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:35.061+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:46:35.070+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:46:35.088+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:35.087+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:46:35.097+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:35.097+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:46:35.117+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.063 seconds
+[2026-05-07T19:47:49.121+0200] {processor.py:186} INFO - Started process (PID=16123) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:47:49.123+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:47:49.125+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:49.125+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:47:49.142+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:47:49.195+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:49.194+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:47:49.214+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:47:49.214+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:47:49.242+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.126 seconds
+[2026-05-07T19:49:16.012+0200] {processor.py:186} INFO - Started process (PID=16252) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:49:16.015+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:49:16.020+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:16.019+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:49:16.046+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:49:16.101+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:16.099+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:49:16.116+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:16.115+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:49:16.146+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.145 seconds
+[2026-05-07T19:51:00.386+0200] {processor.py:186} INFO - Started process (PID=16363) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:51:00.387+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py for tasks to queue
+[2026-05-07T19:51:00.389+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:00.388+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:51:00.396+0200] {processor.py:925} INFO - DAG(s) 'example_complex' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py
+[2026-05-07T19:51:00.413+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:00.413+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:51:00.421+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:00.421+0200] {dag.py:4180} INFO - Setting next_dagrun for example_complex to None, run_after=None
+[2026-05-07T19:51:00.436+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/example_complex.py took 0.055 seconds

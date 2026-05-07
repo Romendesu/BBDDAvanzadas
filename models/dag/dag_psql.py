@@ -12,6 +12,10 @@ Dataset mínimo:
 
 from __future__ import annotations
 
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+
 import uuid
 import random
 from datetime import datetime, timezone, timedelta

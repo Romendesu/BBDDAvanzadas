@@ -11,6 +11,10 @@ Usuarios insertados:
 
 from __future__ import annotations
 
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+
 import sqlite3
 from datetime import datetime, timedelta
 

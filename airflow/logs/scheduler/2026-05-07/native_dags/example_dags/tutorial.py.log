@@ -1,0 +1,134 @@
+[2026-05-07T19:31:41.358+0200] {processor.py:186} INFO - Started process (PID=14252) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:31:41.360+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:31:41.362+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.362+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:31:41.374+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:31:41.618+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.617+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG:tutorial
+[2026-05-07T19:31:41.641+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.639+0200] {override.py:1930} INFO - Created Permission View: can edit on DAG:tutorial
+[2026-05-07T19:31:41.667+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.667+0200] {override.py:1930} INFO - Created Permission View: can read on DAG:tutorial
+[2026-05-07T19:31:41.724+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.724+0200] {override.py:1930} INFO - Created Permission View: can delete on DAG Run:tutorial
+[2026-05-07T19:31:41.797+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.791+0200] {override.py:1930} INFO - Created Permission View: can create on DAG Run:tutorial
+[2026-05-07T19:31:41.813+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.812+0200] {override.py:1930} INFO - Created Permission View: menu access on DAG Run:tutorial
+[2026-05-07T19:31:41.859+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.858+0200] {override.py:1930} INFO - Created Permission View: can read on DAG Run:tutorial
+[2026-05-07T19:31:41.862+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.860+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:31:41.883+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.882+0200] {dag.py:3262} INFO - Creating ORM DAG for tutorial
+[2026-05-07T19:31:41.892+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:31:41.892+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:31:42.003+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.653 seconds
+[2026-05-07T19:32:16.181+0200] {processor.py:186} INFO - Started process (PID=14321) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:32:16.182+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:32:16.184+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:16.183+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:32:16.190+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:32:16.208+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:16.208+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:32:16.222+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:32:16.222+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:32:16.240+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.065 seconds
+[2026-05-07T19:35:18.492+0200] {processor.py:186} INFO - Started process (PID=14697) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:35:18.500+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:35:18.505+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:18.504+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:35:18.520+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:35:18.548+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:18.548+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:35:18.563+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:35:18.562+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:35:18.588+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.105 seconds
+[2026-05-07T19:37:10.097+0200] {processor.py:186} INFO - Started process (PID=14822) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:37:10.104+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:37:10.113+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:10.108+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:37:10.140+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:37:10.199+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:10.197+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:37:10.259+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:37:10.259+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:37:10.367+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.283 seconds
+[2026-05-07T19:38:13.481+0200] {processor.py:186} INFO - Started process (PID=14955) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:38:13.482+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:38:13.484+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:13.483+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:38:13.490+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:38:13.500+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:13.500+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:38:13.513+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:38:13.512+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:38:13.529+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.052 seconds
+[2026-05-07T19:39:36.785+0200] {processor.py:186} INFO - Started process (PID=15053) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:39:36.793+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:39:36.795+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:36.795+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:39:36.806+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:39:36.835+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:36.834+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:39:36.852+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:39:36.852+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:39:36.907+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.128 seconds
+[2026-05-07T19:41:05.869+0200] {processor.py:186} INFO - Started process (PID=15171) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:41:05.874+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:41:05.877+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:05.877+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:41:05.888+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:41:05.902+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:05.902+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:41:05.942+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:05.941+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:41:05.992+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.129 seconds
+[2026-05-07T19:41:53.033+0200] {processor.py:186} INFO - Started process (PID=15260) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:41:53.034+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:41:53.036+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:53.036+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:41:53.043+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:41:53.055+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:53.055+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:41:53.087+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:41:53.087+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:41:53.123+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.097 seconds
+[2026-05-07T19:43:09.050+0200] {processor.py:186} INFO - Started process (PID=15531) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:43:09.058+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:43:09.059+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:09.059+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:43:09.083+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:43:09.118+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:09.118+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:43:09.155+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:43:09.154+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:43:09.189+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.143 seconds
+[2026-05-07T19:44:26.976+0200] {processor.py:186} INFO - Started process (PID=15692) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:44:26.978+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:44:26.980+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:26.979+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:44:26.986+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:44:26.997+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:26.996+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:44:27.010+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:44:27.009+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:44:27.027+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.055 seconds
+[2026-05-07T19:45:19.462+0200] {processor.py:186} INFO - Started process (PID=15878) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:45:19.465+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:45:19.466+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:19.466+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:45:19.474+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:45:19.486+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:19.485+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:45:19.499+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:45:19.499+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:45:19.515+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.058 seconds
+[2026-05-07T19:46:09.225+0200] {processor.py:186} INFO - Started process (PID=15921) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:46:09.226+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:46:09.227+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:09.227+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:46:09.234+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:46:09.245+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:09.245+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:46:09.259+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:09.258+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:46:09.279+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.058 seconds
+[2026-05-07T19:46:57.562+0200] {processor.py:186} INFO - Started process (PID=16014) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:46:57.563+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:46:57.564+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:57.564+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:46:57.572+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:46:57.583+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:57.583+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:46:57.596+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:46:57.596+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:46:57.612+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.055 seconds
+[2026-05-07T19:48:02.353+0200] {processor.py:186} INFO - Started process (PID=16155) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:48:02.355+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:48:02.357+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:02.356+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:48:02.365+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:48:02.377+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:02.377+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:48:02.396+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:02.396+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:48:02.414+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.067 seconds
+[2026-05-07T19:48:53.951+0200] {processor.py:186} INFO - Started process (PID=16226) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:48:53.961+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:48:53.963+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:53.963+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:48:53.971+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:48:53.983+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:53.983+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:48:54.011+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:48:54.011+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:48:54.078+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.132 seconds
+[2026-05-07T19:49:44.678+0200] {processor.py:186} INFO - Started process (PID=16289) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:49:44.680+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:49:44.681+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:44.681+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:49:44.694+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:49:44.707+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:44.706+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:49:44.719+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:49:44.719+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:49:44.735+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.061 seconds
+[2026-05-07T19:50:38.188+0200] {processor.py:186} INFO - Started process (PID=16345) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:50:38.189+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:50:38.190+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:38.190+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:50:38.197+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:50:38.210+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:38.210+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:50:38.224+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:50:38.224+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:50:38.242+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.059 seconds
+[2026-05-07T19:51:25.626+0200] {processor.py:186} INFO - Started process (PID=16388) to work on /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:51:25.627+0200] {processor.py:914} INFO - Processing file /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py for tasks to queue
+[2026-05-07T19:51:25.629+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:25.629+0200] {dagbag.py:588} INFO - Filling up the DagBag from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:51:25.635+0200] {processor.py:925} INFO - DAG(s) 'tutorial' retrieved from /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py
+[2026-05-07T19:51:25.646+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:25.646+0200] {dag.py:3239} INFO - Sync 1 DAGs
+[2026-05-07T19:51:25.658+0200] {logging_mixin.py:190} INFO - [2026-05-07T19:51:25.658+0200] {dag.py:4180} INFO - Setting next_dagrun for tutorial to 2026-05-06 00:00:00+00:00, run_after=2026-05-07 00:00:00+00:00
+[2026-05-07T19:51:25.673+0200] {processor.py:208} INFO - Processing /home/rodrigo/Escritorio/BBDDAvanzadas/.venv/lib/python3.12/site-packages/airflow/example_dags/tutorial.py took 0.051 seconds

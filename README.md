@@ -11,7 +11,7 @@ Sistema de gestión académica construido con arquitectura MVC sobre Flask y Pos
 | Python | 3.10+ |
 | PostgreSQL | 14+ |
 | pip / venv | incluido en Python |
-| Apache Airflow | 2.9+ (opcional, solo para los DAGs) |
+| Apache Airflow | 2.11.0 (opcional, solo para los DAGs) |
 
 Dependencias Python (`requirements.txt`):
 
@@ -19,7 +19,7 @@ Dependencias Python (`requirements.txt`):
 Flask>=3.0.0
 psycopg2-binary>=2.9.9
 faker>=24.0.0
-apache-airflow>=2.9.0
+apache-airflow==2.11.0
 ```
 
 ---
