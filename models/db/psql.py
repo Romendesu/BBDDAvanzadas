@@ -19,6 +19,7 @@ from .querys import (
     ALTER_ALUMNOS_SALDO, ALTER_CURSOS_PRECIO, ALTER_CURSOS_MAX_ALUMNOS,
     SELECT_ALUMNO_FOR_ENROLL, SELECT_CURSO_FOR_ENROLL,
     UPDATE_ALUMNO_SALDO, UPDATE_CURSO_SETTINGS, UPDATE_ALUMNO_RECHARGE,
+    CREATE_VISTA_MATRICULAS, SELECT_VISTA_MATRICULAS, COUNT_VISTA_MATRICULAS,
 )
 from ..entities import Alumnos, Profesores, Cursos, Matriculas
 from psycopg2 import Error
@@ -54,6 +55,8 @@ class PostgreSQL():
         cursor.execute(ALTER_ALUMNOS_SALDO)
         cursor.execute(ALTER_CURSOS_PRECIO)
         cursor.execute(ALTER_CURSOS_MAX_ALUMNOS)
+        # Vista: alumno / profesor / asignatura
+        cursor.execute(CREATE_VISTA_MATRICULAS)
 
 # Operaciones del profesor
 class OperacionesProfesor():
@@ -391,4 +394,23 @@ class OperacionesAuditoria():
     def create_table(self, cursor):
         cursor.execute(CREATE_AUDITORIA)
         cursor.execute(CREATE_INDEX_AUDITORIA_ENTIDAD)
+
+
+# Vista: alumno / profesor / asignatura
+class OperacionesVista():
+
+    @with_cursor
+    def get_all(self, cursor):
+        try:
+            cursor.execute(SELECT_VISTA_MATRICULAS)
+            return cursor.fetchall()
+        except (Exception, Error) as e:
+            print("Error al consultar la vista:", e)
+            return []
+
+    @with_cursor
+    def get_count(self, cursor):
+        cursor.execute(COUNT_VISTA_MATRICULAS)
+        result = cursor.fetchone()
+        return result[0] if result else 0
 

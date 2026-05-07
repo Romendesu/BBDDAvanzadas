@@ -16,6 +16,7 @@ def create_app() -> Flask:
     app.register_blueprint(matriculas_bp,   name="matriculas")
     app.register_blueprint(profesores_bp,   name="profesores")
     app.register_blueprint(transacciones_bp,name="transacciones")
+    app.register_blueprint(vista_bp,        name="vista")
 
     # Redireccionamiento
     @app.route("/")

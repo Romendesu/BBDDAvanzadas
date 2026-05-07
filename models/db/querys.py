@@ -354,3 +354,31 @@ UPDATE_CURSO_SETTINGS = """
 UPDATE_ALUMNO_RECHARGE = """
     UPDATE alumnos SET saldo = saldo + %s WHERE id = %s;
 """
+
+"""
+VISTA: vista_matriculas_detalle
+    Muestra alumno, profesor y asignatura de cada matrícula activa.
+"""
+
+CREATE_VISTA_MATRICULAS = """
+    CREATE OR REPLACE VIEW vista_matriculas_detalle AS
+    SELECT
+        a.nombre  AS alumno,
+        p.nombre  AS profesor,
+        c.nombre  AS asignatura,
+        m.created_at
+    FROM matriculas m
+    JOIN alumnos    a ON m.alumno_id   = a.id
+    JOIN cursos     c ON m.curso_id    = c.id
+    JOIN profesores p ON c.profesor_id = p.id;
+"""
+
+SELECT_VISTA_MATRICULAS = """
+    SELECT alumno, profesor, asignatura, created_at
+    FROM vista_matriculas_detalle
+    ORDER BY created_at DESC;
+"""
+
+COUNT_VISTA_MATRICULAS = """
+    SELECT COUNT(*) FROM vista_matriculas_detalle;
+"""
