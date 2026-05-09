@@ -1,4 +1,5 @@
 
+from routes.analitica import analitica_bp
 from routes.alumnos import alumnos_bp
 from routes.asignaturas import asignaturas_bp
 from routes.auditoria import auditoria_bp

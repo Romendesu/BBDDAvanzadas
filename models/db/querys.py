@@ -472,6 +472,80 @@ SELECT_MATRICULAS_FILTER_TAIL = "    ORDER BY m.created_at DESC"
 SELECT_VISTA_FILTER_BASE = "    SELECT alumno, profesor, asignatura, created_at FROM vista_matriculas_detalle"
 SELECT_VISTA_FILTER_TAIL = "    ORDER BY created_at DESC"
 
+"""
+ANALÍTICA — TEMA 13
+    Consultas avanzadas con ROW_NUMBER, GROUPING SETS, ROLLUP y FILTER
+    adaptadas al modelo académico (matriculas, cursos, alumnos).
+"""
+
+# Caso 1 — FILTER: matrículas por trimestre (pivote) para cada asignatura
+SELECT_ANALITICA_FILTER = """
+    SELECT
+        c.nombre                                                               AS asignatura,
+        COUNT(*) FILTER (WHERE EXTRACT(quarter FROM m.created_at) = 1)        AS t1,
+        COUNT(*) FILTER (WHERE EXTRACT(quarter FROM m.created_at) = 2)        AS t2,
+        COUNT(*) FILTER (WHERE EXTRACT(quarter FROM m.created_at) = 3)        AS t3,
+        COUNT(*) FILTER (WHERE EXTRACT(quarter FROM m.created_at) = 4)        AS t4,
+        COUNT(*)                                                               AS total
+    FROM matriculas m
+    JOIN cursos c ON m.curso_id = c.id
+    GROUP BY c.nombre
+    ORDER BY total DESC;
+"""
+
+# Caso 2 — ROLLUP: matrículas por (mes, alumno) con subtotales de mes y total global
+SELECT_ANALITICA_ROLLUP = """
+    SELECT
+        date_trunc('month', m.created_at)                    AS mes,
+        a.nombre                                             AS alumno,
+        COUNT(*)                                             AS n_matriculas,
+        grouping(date_trunc('month', m.created_at))          AS g_mes,
+        grouping(a.nombre)                                   AS g_alu
+    FROM matriculas m
+    JOIN alumnos a ON m.alumno_id = a.id
+    GROUP BY ROLLUP (date_trunc('month', m.created_at), a.nombre)
+    ORDER BY mes NULLS LAST, alumno NULLS LAST;
+"""
+
+# Caso 3 — GROUPING SETS: (mes, asignatura), solo mes, y total global
+SELECT_ANALITICA_GROUPING_SETS = """
+    SELECT
+        date_trunc('month', m.created_at)           AS mes,
+        c.nombre                                    AS asignatura,
+        COUNT(*)                                    AS n_matriculas,
+        grouping(date_trunc('month', m.created_at)) AS g_mes,
+        grouping(c.nombre)                          AS g_asig
+    FROM matriculas m
+    JOIN cursos c ON m.curso_id = c.id
+    GROUP BY GROUPING SETS (
+        (date_trunc('month', m.created_at), c.nombre),
+        (date_trunc('month', m.created_at)),
+        ()
+    )
+    ORDER BY mes NULLS LAST, asignatura NULLS LAST;
+"""
+
+# Caso 4 — ROW_NUMBER: top 3 asignaturas con más matrículas por mes
+SELECT_ANALITICA_ROW_NUMBER = """
+    WITH por_mes AS (
+        SELECT
+            date_trunc('month', m.created_at) AS mes,
+            c.nombre                          AS asignatura,
+            COUNT(*)                          AS n_matriculas
+        FROM matriculas m
+        JOIN cursos c ON m.curso_id = c.id
+        GROUP BY 1, 2
+    )
+    SELECT mes, asignatura, n_matriculas, posicion
+    FROM (
+        SELECT *,
+               row_number() OVER (PARTITION BY mes ORDER BY n_matriculas DESC) AS posicion
+        FROM por_mes
+    ) ranked
+    WHERE posicion <= 3
+    ORDER BY mes, posicion;
+"""
+
 # Auditoría — filtros: usuario/detalle (ILIKE), accion/entidad (=), fecha (>=,<=)
 SELECT_AUDITORIA_FILTER_BASE = """
     SELECT id, usuario, accion, entidad, entidad_id, detalle, created_at

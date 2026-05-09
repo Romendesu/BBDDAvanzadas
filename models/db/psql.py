@@ -35,6 +35,8 @@ from .querys import (
     SELECT_MATRICULAS_FILTER_BASE, SELECT_MATRICULAS_FILTER_TAIL,
     SELECT_VISTA_FILTER_BASE, SELECT_VISTA_FILTER_TAIL,
     SELECT_AUDITORIA_FILTER_BASE, SELECT_AUDITORIA_FILTER_TAIL,
+    SELECT_ANALITICA_FILTER, SELECT_ANALITICA_ROLLUP,
+    SELECT_ANALITICA_GROUPING_SETS, SELECT_ANALITICA_ROW_NUMBER,
 )
 from .filters import FilterBuilder
 from ..entities import Alumnos, Profesores, Cursos, Matriculas
@@ -627,3 +629,25 @@ class OperacionesVista():
         row = cursor.fetchone()
         return row[0] if row else 0
 
+
+
+class OperacionesAnalitica():
+    @with_cursor
+    def get_filter(self, cursor):
+        cursor.execute(SELECT_ANALITICA_FILTER)
+        return cursor.fetchall()
+
+    @with_cursor
+    def get_rollup(self, cursor):
+        cursor.execute(SELECT_ANALITICA_ROLLUP)
+        return cursor.fetchall()
+
+    @with_cursor
+    def get_grouping_sets(self, cursor):
+        cursor.execute(SELECT_ANALITICA_GROUPING_SETS)
+        return cursor.fetchall()
+
+    @with_cursor
+    def get_row_number(self, cursor):
+        cursor.execute(SELECT_ANALITICA_ROW_NUMBER)
+        return cursor.fetchall()
