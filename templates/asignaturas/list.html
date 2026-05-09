@@ -21,7 +21,7 @@
       </div>
       <div class="filter-sep"></div>
       <div class="filter-group">
-        <label class="filter-label">Plazas</label>
+        <label class="filter-label">Plazas libres</label>
         <input class="filter-input filter-input-short" name="max_min" type="number" min="0" value="{{ max_min or '' }}" placeholder="Mín." />
         <span class="filter-sep">–</span>
         <input class="filter-input filter-input-short" name="max_max" type="number" min="0" value="{{ max_max or '' }}" placeholder="Máx." />
@@ -42,11 +42,14 @@
         <tr><th>#</th><th>Nombre</th><th>Profesor</th><th>Precio</th><th>Plazas</th><th>Alumnos</th><th></th></tr>
       </thead>
       <tbody>
-        {% for id, nombre, profesor, n_alumnos, precio, max_alumnos in rows %}
+        {% for id, nombre, nombre_en, profesor, n_alumnos, precio, max_alumnos in rows %}
         {% set libres = max_alumnos - n_alumnos %}
         <tr onclick="location.href='/asignaturas/{{ id }}'">
           <td class="td-muted td-mono">{{ id[:8] }}…</td>
-          <td><strong>{{ nombre }}</strong></td>
+          <td>
+            <strong>{{ nombre }}</strong>
+            {% if nombre_en %}<div style="font-size:11px;color:var(--fg-muted);margin-top:2px;">{{ nombre_en }}</div>{% endif %}
+          </td>
           <td class="td-muted">{{ profesor }}</td>
           <td class="td-mono"><span class="badge">{{ "%.2f"|format(precio) }} €</span></td>
           <td>
@@ -58,7 +61,7 @@
           <td style="width:80px; white-space:nowrap;">
             <button class="btn" style="padding:4px 8px;font-size:11px;margin-right:4px;"
                     title="Editar precio y capacidad"
-                    onclick="event.stopPropagation(); openEditCurso('{{ id }}','{{ nombre }}','{{ '%.2f'|format(precio) }}','{{ max_alumnos }}')">✎</button>
+                    onclick="event.stopPropagation(); openEditCurso('{{ id }}','{{ nombre }}','{{ '%.2f'|format(precio) }}','{{ max_alumnos }}','{{ nombre_en }}')">✎</button>
             <button class="btn btn-danger" style="padding:4px 10px;font-size:12px;"
                     onclick="event.stopPropagation(); confirmDeleteCurso('{{ id }}','{{ nombre }}')">✕</button>
           </td>
@@ -111,8 +114,8 @@
     <form id="form-edit-curso" onsubmit="submitEditCurso(event)">
       <input type="hidden" id="ec-id" name="curso_id" />
       <div class="form-group">
-        <label class="form-label">Asignatura</label>
-        <p id="ec-nombre" style="font-family:var(--font-secondary);font-size:13px;color:var(--fg);margin-top:4px;"></p>
+        <label class="form-label">Nombre (EN)</label>
+        <input class="form-input" id="ec-nombre-en" name="nombre_en" placeholder="English name" />
       </div>
       <div class="form-group">
         <label class="form-label">Precio (€)</label>
@@ -138,10 +141,16 @@
     <h2>Nueva asignatura</h2>
     <p class="modal-sub">POST /asignaturas/new</p>
     <form id="form-curso" onsubmit="submitCurso(event)">
-      <div class="form-group">
-        <label class="form-label">Nombre de la asignatura</label>
-        <input class="form-input" id="c-nombre" name="nombre" placeholder="Ej: Bases de Datos II" />
-        <p class="form-error" id="c-nombre-err" style="display:none;"></p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form-group">
+          <label class="form-label">Nombre (ES)</label>
+          <input class="form-input" id="c-nombre" name="nombre" placeholder="Ej: Bases de Datos II" />
+          <p class="form-error" id="c-nombre-err" style="display:none;"></p>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nombre (EN)</label>
+          <input class="form-input" id="c-nombre-en" name="nombre_en" placeholder="Ej: Databases II" />
+        </div>
       </div>
       <div class="form-group">
         <label class="form-label">Profesor</label>

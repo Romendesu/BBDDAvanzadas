@@ -39,6 +39,17 @@ INSERT_USUARIO = """
 """
 
 """
+EXTENSIONES POSTGRESQL (Tema 12):
+    Activan funcionalidades avanzadas de búsqueda y similitud.
+"""
+
+CREATE_EXTENSION_UNACCENT      = "CREATE EXTENSION IF NOT EXISTS unaccent;"
+CREATE_EXTENSION_CITEXT        = "CREATE EXTENSION IF NOT EXISTS citext;"
+CREATE_EXTENSION_FUZZYSTRMATCH = "CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;"
+CREATE_EXTENSION_BTREE_GIN     = "CREATE EXTENSION IF NOT EXISTS btree_gin;"
+CREATE_EXTENSION_PG_TRGM       = "CREATE EXTENSION IF NOT EXISTS pg_trgm;"
+
+"""
 OPERACIONES CREATE:
     Consultas para la creación de tablas, índices e inserción de nuevos registros.
 """
@@ -60,6 +71,12 @@ ALTER_CURSOS_PRECIO = """
 """
 ALTER_CURSOS_MAX_ALUMNOS = """
     ALTER TABLE cursos ADD COLUMN IF NOT EXISTS max_alumnos INTEGER NOT NULL DEFAULT 30;
+"""
+ALTER_CURSOS_NOMBRE_EN = """
+    ALTER TABLE cursos ADD COLUMN IF NOT EXISTS nombre_en TEXT NOT NULL DEFAULT '';
+"""
+UPDATE_CURSO_NOMBRE_EN = """
+    UPDATE cursos SET nombre_en = %s WHERE nombre = %s AND nombre_en = '';
 """
 
 CREATE_PROFESORES = """
@@ -116,6 +133,12 @@ CREATE_INDEX_AUDITORIA_DATE     = "CREATE INDEX IF NOT EXISTS idx_auditoria_date
 CREATE_INDEX_AUDITORIA_ACCION   = "CREATE INDEX IF NOT EXISTS idx_auditoria_accion    ON auditoria (accion);"
 CREATE_INDEX_AUDITORIA_USUARIO  = "CREATE INDEX IF NOT EXISTS idx_auditoria_usuario   ON auditoria (usuario);"
 
+# Índices GIN para búsqueda por trigrama (pg_trgm) — aceleran ILIKE con unaccent
+CREATE_INDEX_CURSOS_NOMBRE_TRGM    = "CREATE INDEX IF NOT EXISTS idx_cursos_nombre_trgm    ON cursos USING GIN (nombre gin_trgm_ops);"
+CREATE_INDEX_CURSOS_NOMBRE_EN_TRGM = "CREATE INDEX IF NOT EXISTS idx_cursos_nombre_en_trgm ON cursos USING GIN (nombre_en gin_trgm_ops);"
+CREATE_INDEX_ALUMNOS_NOMBRE_TRGM   = "CREATE INDEX IF NOT EXISTS idx_alumnos_nombre_trgm   ON alumnos USING GIN (nombre gin_trgm_ops);"
+CREATE_INDEX_PROFESORES_NOMBRE_TRGM = "CREATE INDEX IF NOT EXISTS idx_profesores_nombre_trgm ON profesores USING GIN (nombre gin_trgm_ops);"
+
 
 INSERT_ALUMNOS = """
     INSERT INTO alumnos (id, nombre, email, saldo)
@@ -128,8 +151,8 @@ INSERT_PROFESORES = """
 """
 
 INSERT_CURSOS = """
-    INSERT INTO cursos (id, nombre, profesor_id, precio, max_alumnos)
-    VALUES (%s, %s, %s, %s, %s)
+    INSERT INTO cursos (id, nombre, nombre_en, profesor_id, precio, max_alumnos)
+    VALUES (%s, %s, %s, %s, %s, %s)
 """
 
 INSERT_MATRICULAS = """
@@ -157,7 +180,7 @@ SELECT_ALL_ALUMNOS = """
     SELECT id, nombre, email, saldo FROM alumnos;
 """
 SELECT_ALL_CURSOS = """
-    SELECT c.id, c.nombre, p.nombre AS profesor, c.precio, c.max_alumnos FROM cursos c
+    SELECT c.id, c.nombre, c.nombre_en, p.nombre AS profesor, c.precio, c.max_alumnos FROM cursos c
     JOIN profesores p ON c.profesor_id = p.id;
 """
 SELECT_ALL_MATRICULAS = """
@@ -187,12 +210,12 @@ SELECT_PROFESORES_WITH_COUNT = """
     ORDER BY p.nombre;
 """
 SELECT_CURSOS_WITH_COUNT = """
-    SELECT c.id, c.nombre, p.nombre AS profesor, COUNT(m.alumno_id) AS n_alumnos,
+    SELECT c.id, c.nombre, c.nombre_en, p.nombre AS profesor, COUNT(m.alumno_id) AS n_alumnos,
            c.precio, c.max_alumnos
     FROM cursos c
     JOIN  profesores p  ON c.profesor_id = p.id
     LEFT JOIN matriculas m ON m.curso_id = c.id
-    GROUP BY c.id, c.nombre, p.nombre, c.precio, c.max_alumnos
+    GROUP BY c.id, c.nombre, c.nombre_en, p.nombre, c.precio, c.max_alumnos
     ORDER BY c.nombre;
 """
 SELECT_MATRICULAS_FULL = """
@@ -243,12 +266,12 @@ SELECT_CURSOS_BY_ALUMNO = """
 """
 SELECT_CURSO_BY_ID = """
     SELECT c.id, c.nombre, p.id AS profesor_id, p.nombre AS profesor,
-           COUNT(m.alumno_id) AS n_alumnos, c.precio, c.max_alumnos
+           COUNT(m.alumno_id) AS n_alumnos, c.precio, c.max_alumnos, c.nombre_en
     FROM cursos c
     JOIN profesores p  ON c.profesor_id = p.id
     LEFT JOIN matriculas m ON m.curso_id = c.id
     WHERE c.id = %s
-    GROUP BY c.id, c.nombre, p.id, p.nombre, c.precio, c.max_alumnos;
+    GROUP BY c.id, c.nombre, c.nombre_en, p.id, p.nombre, c.precio, c.max_alumnos;
 """
 SELECT_ALUMNOS_BY_CURSO = """
     SELECT a.id, a.nombre, a.email, m.created_at
@@ -360,7 +383,7 @@ UPDATE_ALUMNO_SALDO = """
 """
 
 UPDATE_CURSO_SETTINGS = """
-    UPDATE cursos SET precio = %s, max_alumnos = %s WHERE id = %s;
+    UPDATE cursos SET nombre_en = %s, precio = %s, max_alumnos = %s WHERE id = %s;
 """
 
 UPDATE_ALUMNO_RECHARGE = """
@@ -410,15 +433,17 @@ SELECT_ALUMNOS_FILTER_BASE = """
 """
 SELECT_ALUMNOS_FILTER_TAIL = "    GROUP BY a.id, a.nombre, a.email, a.saldo ORDER BY a.nombre"
 
-# Asignaturas — filtros: nombre (ILIKE), precio (>=,<=), max_alumnos (>=,<=)
-SELECT_CURSOS_FILTER_BASE = """
-    SELECT c.id, c.nombre, p.nombre AS profesor,
+# Asignaturas — filtros: nombre/nombre_en (unaccent ILIKE), precio (>=,<=), plazas libres (HAVING)
+SELECT_CURSOS_FILTER_BASE  = """
+    SELECT c.id, c.nombre, c.nombre_en, p.nombre AS profesor,
            COUNT(m.alumno_id) AS n_alumnos, c.precio, c.max_alumnos
     FROM cursos c
     JOIN  profesores p    ON c.profesor_id = p.id
     LEFT JOIN matriculas m ON m.curso_id = c.id
 """
-SELECT_CURSOS_FILTER_TAIL = "    GROUP BY c.id, c.nombre, p.nombre, c.precio, c.max_alumnos ORDER BY c.nombre"
+SELECT_CURSOS_FILTER_GROUP = "    GROUP BY c.id, c.nombre, c.nombre_en, p.nombre, c.precio, c.max_alumnos"
+SELECT_CURSOS_FILTER_ORDER = "    ORDER BY c.nombre"
+SELECT_CURSOS_FILTER_TAIL  = SELECT_CURSOS_FILTER_GROUP + " " + SELECT_CURSOS_FILTER_ORDER
 
 # Profesores — filtros: nombre (ILIKE), n_cursos (HAVING >=,<=)
 SELECT_PROFESORES_FILTER_BASE = """

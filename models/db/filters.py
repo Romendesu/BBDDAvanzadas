@@ -24,6 +24,12 @@ class FilterBuilder:
             clause = "(" + " OR ".join(f"{c} ILIKE %s" for c in columns) + ")"
             self._parts.append((clause, [f"%{value}%" for _ in columns]))
 
+    def unaccent_ilike_any(self, columns: list[str], value: str | None):
+        """unaccent(col) ILIKE unaccent(value) for any of the columns (OR) — accent-insensitive search."""
+        if value:
+            clause = "(" + " OR ".join(f"unaccent({c}) ILIKE unaccent(%s)" for c in columns) + ")"
+            self._parts.append((clause, [f"%{value}%" for _ in columns]))
+
     def eq(self, column: str, value):
         if value not in (None, ""):
             self._parts.append((f"{column} = %s", [value]))

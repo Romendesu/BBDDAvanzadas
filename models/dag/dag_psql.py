@@ -26,7 +26,7 @@ from models.db.querys import (
     CREATE_PROFESORES, CREATE_ALUMNOS, CREATE_CURSOS, CREATE_MATRICULAS,
     CREATE_INDEX_CURSOS_PROFESOR_ID, CREATE_INDEX_MATRICULAS_CURSO_ID, CREATE_INDEX_ALUMNOS_EMAIL,
 )
-from models.dag.utils import get_pg_conn, already_seeded, PROFESORES_NOMBRES, CURSOS_NOMBRES
+from models.dag.utils import get_pg_conn, already_seeded, PROFESORES_NOMBRES, CURSOS
 
 
 # Tarea 1: comprobar conexión con PostgreSQL
@@ -118,12 +118,12 @@ def insert_data():
             curso_ids = [str(r[0]) for r in cur.fetchall()]
         else:
             curso_ids = []
-            for i, nombre in enumerate(CURSOS_NOMBRES):
+            for i, (nombre, nombre_en) in enumerate(CURSOS):
                 cid = str(uuid.uuid4())
                 pid = profesor_ids[i % len(profesor_ids)]
                 cur.execute(
-                    "INSERT INTO cursos (id, nombre, profesor_id) VALUES (%s, %s, %s) ON CONFLICT DO NOTHING;",
-                    (cid, nombre, pid),
+                    "INSERT INTO cursos (id, nombre, nombre_en, profesor_id) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING;",
+                    (cid, nombre, nombre_en, pid),
                 )
                 curso_ids.append(cid)
             print(f"[OK] {len(curso_ids)} cursos insertados.")

@@ -30,18 +30,32 @@ PROFESORES_NOMBRES = [
     "Pablo Navarro Serrano",
 ]
 
-CURSOS_NOMBRES = [
-    "Álgebra Lineal",                    "Cálculo Diferencial",
-    "Bases de Datos Avanzadas",          "Estructuras de Datos",
-    "Sistemas Operativos",               "Redes de Computadores",
-    "Inteligencia Artificial",           "Programación Funcional",
-    "Arquitectura de Software",          "Seguridad Informática",
-    "Computación en la Nube",            "Machine Learning",
-    "Diseño de Interfaces",              "Ingeniería de Software",
-    "Matemáticas Discretas",             "Compiladores",
-    "Visión por Computador",             "Criptografía",
-    "Procesamiento de Lenguaje Natural", "Robótica",
+# Lista de (nombre_es, nombre_en) para cada curso
+CURSOS = [
+    ("Álgebra Lineal",                    "Linear Algebra"),
+    ("Cálculo Diferencial",               "Differential Calculus"),
+    ("Bases de Datos Avanzadas",          "Advanced Databases"),
+    ("Estructuras de Datos",              "Data Structures"),
+    ("Sistemas Operativos",               "Operating Systems"),
+    ("Redes de Computadores",             "Computer Networks"),
+    ("Inteligencia Artificial",           "Artificial Intelligence"),
+    ("Programación Funcional",            "Functional Programming"),
+    ("Arquitectura de Software",          "Software Architecture"),
+    ("Seguridad Informática",             "Computer Security"),
+    ("Computación en la Nube",            "Cloud Computing"),
+    ("Machine Learning",                  "Machine Learning"),
+    ("Diseño de Interfaces",              "Interface Design"),
+    ("Ingeniería de Software",            "Software Engineering"),
+    ("Matemáticas Discretas",             "Discrete Mathematics"),
+    ("Compiladores",                      "Compilers"),
+    ("Visión por Computador",             "Computer Vision"),
+    ("Criptografía",                      "Cryptography"),
+    ("Procesamiento de Lenguaje Natural", "Natural Language Processing"),
+    ("Robótica",                          "Robotics"),
 ]
+
+# Compatibilidad: lista de nombres en español (usada en referencias antiguas)
+CURSOS_NOMBRES = [nombre for nombre, _ in CURSOS]
 
 # Usuarios SQLite
 

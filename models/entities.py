@@ -35,6 +35,7 @@ class Cursos():
     profesor_id: str
     precio: float = 100.00
     max_alumnos: int = 30
+    nombre_en: str = ""
 
     def __str__(self):
         return f"ID: {self.id} - NOMBRE: {self.nombre} - PROFESOR_ID: {self.profesor_id}"

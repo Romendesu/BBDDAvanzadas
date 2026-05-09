@@ -63,6 +63,8 @@ def new():
     except ValueError:
         return jsonify(ok=False, error='Precio o capacidad inválidos.')
 
+    nombre_en   = request.form.get('nombre_en', '').strip()
+
     if not nombre:
         return jsonify(ok=False, field='nombre', error='El nombre es obligatorio.')
     if not profesor_id:
@@ -73,8 +75,8 @@ def new():
         return jsonify(ok=False, field='max_alumnos', error='La capacidad mínima es 1.')
 
     try:
-        curso = Cursos(id=str(uuid.uuid4()), nombre=nombre, profesor_id=profesor_id,
-                       precio=precio, max_alumnos=max_alumnos)
+        curso = Cursos(id=str(uuid.uuid4()), nombre=nombre, nombre_en=nombre_en,
+                       profesor_id=profesor_id, precio=precio, max_alumnos=max_alumnos)
         OperacionesCurso().insert_one_course(curso=curso)
         usuario = session.get('user', {}).get('username', 'anónimo')
         OperacionesAuditoria().registrar(usuario, 'CREATE', 'asignatura', curso.id, f'Creada: {nombre}')
@@ -85,6 +87,7 @@ def new():
 
 @asignaturas_bp.route('/update/<curso_id>', methods=['POST'])
 def update(curso_id):
+    nombre_en = request.form.get('nombre_en', '').strip()
     try:
         precio      = float(request.form.get('precio', '100') or '100')
         max_alumnos = int(request.form.get('max_alumnos', '30') or '30')
@@ -97,7 +100,7 @@ def update(curso_id):
         return jsonify(ok=False, error='La capacidad mínima es 1.')
 
     try:
-        OperacionesCurso().update_settings(curso_id, precio, max_alumnos)
+        OperacionesCurso().update_settings(curso_id, precio, max_alumnos, nombre_en)
         usuario = session.get('user', {}).get('username', 'anónimo')
         OperacionesAuditoria().registrar(usuario, 'UPDATE', 'asignatura', curso_id,
                                           f'Actualizada: precio={precio:.2f}€, max_alumnos={max_alumnos}')

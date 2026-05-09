@@ -169,6 +169,7 @@ def database_menu(
 
                     match content_option:
                         case 1:
+                            pg.create_extensions()
                             pg.create_tables()
                             print("Tablas creadas exitosamente.")
                             input("Presione Enter para continuar...")

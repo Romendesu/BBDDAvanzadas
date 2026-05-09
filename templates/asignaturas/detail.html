@@ -10,6 +10,7 @@
       <div class="detail-card">
         <div class="detail-avatar">{{ initials }}</div>
         <div class="detail-name">{{ curso[1] }}</div>
+        {% if curso[7] %}<div style="font-size:13px;color:var(--fg-muted);margin-top:2px;">{{ curso[7] }}</div>{% endif %}
         <div class="detail-sub">Asignatura · ID {{ curso[0][:8] }}…</div>
         <div class="detail-kpis">
           <div class="kpi">
@@ -39,7 +40,7 @@
           <span class="detail-profesor-name">{{ curso[3] }}</span>
         </a>
         <button class="btn" style="width:100%;margin-top:16px;"
-                onclick="openEditCurso('{{ curso[0] }}','{{ curso[1] }}','{{ '%.2f'|format(curso[5]) }}','{{ curso[6] }}')">✎ Editar precio / capacidad</button>
+                onclick="openEditCurso('{{ curso[0] }}','{{ curso[1] }}','{{ '%.2f'|format(curso[5]) }}','{{ curso[6] }}','{{ curso[7] }}')">✎ Editar precio / capacidad</button>
         <button class="btn btn-danger" style="width:100%;margin-top:8px;"
                 onclick="openModal('modal-confirmar-eliminar')">Eliminar asignatura</button>
       </div>

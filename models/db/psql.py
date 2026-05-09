@@ -16,9 +16,13 @@ from .querys import (
     CREATE_AUDITORIA, CREATE_INDEX_AUDITORIA_ENTIDAD,
     INSERT_AUDITORIA, SELECT_ALL_AUDITORIA, COUNT_AUDITORIA,
     DELETE_AUDITORIA, DELETE_ALL_AUDITORIA,
-    ALTER_ALUMNOS_SALDO, ALTER_CURSOS_PRECIO, ALTER_CURSOS_MAX_ALUMNOS,
+    ALTER_ALUMNOS_SALDO, ALTER_CURSOS_PRECIO, ALTER_CURSOS_MAX_ALUMNOS, ALTER_CURSOS_NOMBRE_EN,
+    CREATE_EXTENSION_UNACCENT, CREATE_EXTENSION_CITEXT, CREATE_EXTENSION_FUZZYSTRMATCH,
+    CREATE_EXTENSION_BTREE_GIN, CREATE_EXTENSION_PG_TRGM,
+    CREATE_INDEX_CURSOS_NOMBRE_TRGM, CREATE_INDEX_CURSOS_NOMBRE_EN_TRGM,
+    CREATE_INDEX_ALUMNOS_NOMBRE_TRGM, CREATE_INDEX_PROFESORES_NOMBRE_TRGM,
     SELECT_ALUMNO_FOR_ENROLL, SELECT_CURSO_FOR_ENROLL,
-    UPDATE_ALUMNO_SALDO, UPDATE_CURSO_SETTINGS, UPDATE_ALUMNO_RECHARGE,
+    UPDATE_ALUMNO_SALDO, UPDATE_CURSO_SETTINGS, UPDATE_ALUMNO_RECHARGE, UPDATE_CURSO_NOMBRE_EN,
     CREATE_VISTA_MATRICULAS, SELECT_VISTA_MATRICULAS, COUNT_VISTA_MATRICULAS,
     CREATE_INDEX_ALUMNOS_NOMBRE, CREATE_INDEX_ALUMNOS_SALDO,
     CREATE_INDEX_CURSOS_NOMBRE, CREATE_INDEX_CURSOS_PRECIO, CREATE_INDEX_CURSOS_MAX_ALUMNOS,
@@ -26,7 +30,7 @@ from .querys import (
     CREATE_INDEX_MATRICULAS_DATE,
     CREATE_INDEX_AUDITORIA_DATE, CREATE_INDEX_AUDITORIA_ACCION, CREATE_INDEX_AUDITORIA_USUARIO,
     SELECT_ALUMNOS_FILTER_BASE, SELECT_ALUMNOS_FILTER_TAIL,
-    SELECT_CURSOS_FILTER_BASE, SELECT_CURSOS_FILTER_TAIL,
+    SELECT_CURSOS_FILTER_BASE, SELECT_CURSOS_FILTER_GROUP, SELECT_CURSOS_FILTER_ORDER,
     SELECT_PROFESORES_FILTER_BASE, SELECT_PROFESORES_FILTER_GROUP, SELECT_PROFESORES_FILTER_ORDER,
     SELECT_MATRICULAS_FILTER_BASE, SELECT_MATRICULAS_FILTER_TAIL,
     SELECT_VISTA_FILTER_BASE, SELECT_VISTA_FILTER_TAIL,
@@ -51,6 +55,15 @@ class PostgreSQL():
         cursor.execute(SELECT_VERSION)
         return cursor.fetchone()
 
+    # Extensiones Tema 12 — requieren autocommit, no pueden ir dentro de una transacción
+    @with_cursor
+    def create_extensions(self, cursor):
+        cursor.execute(CREATE_EXTENSION_UNACCENT)
+        cursor.execute(CREATE_EXTENSION_CITEXT)
+        cursor.execute(CREATE_EXTENSION_FUZZYSTRMATCH)
+        cursor.execute(CREATE_EXTENSION_BTREE_GIN)
+        cursor.execute(CREATE_EXTENSION_PG_TRGM)
+
     # Creacion de todas las tablas de Postgresql
     @with_transactions
     def create_tables(self, cursor):
@@ -67,9 +80,10 @@ class PostgreSQL():
         cursor.execute(ALTER_ALUMNOS_SALDO)
         cursor.execute(ALTER_CURSOS_PRECIO)
         cursor.execute(ALTER_CURSOS_MAX_ALUMNOS)
+        cursor.execute(ALTER_CURSOS_NOMBRE_EN)
         # Vista: alumno / profesor / asignatura
         cursor.execute(CREATE_VISTA_MATRICULAS)
-        # Índices para filtros rápidos
+        # Índices B-tree para filtros de rango
         cursor.execute(CREATE_INDEX_ALUMNOS_NOMBRE)
         cursor.execute(CREATE_INDEX_ALUMNOS_SALDO)
         cursor.execute(CREATE_INDEX_CURSOS_NOMBRE)
@@ -80,6 +94,15 @@ class PostgreSQL():
         cursor.execute(CREATE_INDEX_AUDITORIA_DATE)
         cursor.execute(CREATE_INDEX_AUDITORIA_ACCION)
         cursor.execute(CREATE_INDEX_AUDITORIA_USUARIO)
+        # Índices GIN para búsqueda por trigrama (pg_trgm)
+        cursor.execute(CREATE_INDEX_CURSOS_NOMBRE_TRGM)
+        cursor.execute(CREATE_INDEX_CURSOS_NOMBRE_EN_TRGM)
+        cursor.execute(CREATE_INDEX_ALUMNOS_NOMBRE_TRGM)
+        cursor.execute(CREATE_INDEX_PROFESORES_NOMBRE_TRGM)
+        # Rellenar nombre_en en cursos existentes que aún no lo tienen
+        from models.dag.utils import CURSOS
+        for nombre_es, nombre_en in CURSOS:
+            cursor.execute(UPDATE_CURSO_NOMBRE_EN, (nombre_en, nombre_es))
 
 # Operaciones del profesor
 class OperacionesProfesor():
@@ -303,41 +326,47 @@ class OperacionesCurso():
     @with_cursor
     def get_filtered(self, cursor, q=None, precio_min=None, precio_max=None,
                      max_min=None, max_max=None, limit=20, offset=0):
-        f = FilterBuilder()
-        f.ilike("c.nombre", q)
-        f.gte("c.precio", precio_min)
-        f.lte("c.precio", precio_max)
-        f.gte("c.max_alumnos", max_min)
-        f.lte("c.max_alumnos", max_max)
-        where, params = f.where()
-        sql = SELECT_CURSOS_FILTER_BASE + where + SELECT_CURSOS_FILTER_TAIL + " LIMIT %s OFFSET %s"
-        cursor.execute(sql, params + [limit, offset])
+        f_where = FilterBuilder()
+        f_where.unaccent_ilike_any(["c.nombre", "c.nombre_en"], q)
+        f_where.gte("c.precio", precio_min)
+        f_where.lte("c.precio", precio_max)
+        where, w_params = f_where.where()
+        f_hav = FilterBuilder()
+        f_hav.gte("(c.max_alumnos - COUNT(m.alumno_id))", max_min)
+        f_hav.lte("(c.max_alumnos - COUNT(m.alumno_id))", max_max)
+        having, h_params = f_hav.having()
+        sql = (SELECT_CURSOS_FILTER_BASE + where
+               + SELECT_CURSOS_FILTER_GROUP + having
+               + SELECT_CURSOS_FILTER_ORDER + " LIMIT %s OFFSET %s")
+        cursor.execute(sql, w_params + h_params + [limit, offset])
         return cursor.fetchall()
 
     @with_cursor
     def count_filtered(self, cursor, q=None, precio_min=None, precio_max=None,
                        max_min=None, max_max=None):
-        f = FilterBuilder()
-        f.ilike("c.nombre", q)
-        f.gte("c.precio", precio_min)
-        f.lte("c.precio", precio_max)
-        f.gte("c.max_alumnos", max_min)
-        f.lte("c.max_alumnos", max_max)
-        where, params = f.where()
-        inner = "SELECT c.id FROM cursos c JOIN profesores p ON c.profesor_id=p.id LEFT JOIN matriculas m ON m.curso_id=c.id" + where + " GROUP BY c.id"
-        cursor.execute(f"SELECT COUNT(*) FROM ({inner}) sub", params)
+        f_where = FilterBuilder()
+        f_where.unaccent_ilike_any(["c.nombre", "c.nombre_en"], q)
+        f_where.gte("c.precio", precio_min)
+        f_where.lte("c.precio", precio_max)
+        where, w_params = f_where.where()
+        f_hav = FilterBuilder()
+        f_hav.gte("(c.max_alumnos - COUNT(m.alumno_id))", max_min)
+        f_hav.lte("(c.max_alumnos - COUNT(m.alumno_id))", max_max)
+        having, h_params = f_hav.having()
+        inner = SELECT_CURSOS_FILTER_BASE + where + SELECT_CURSOS_FILTER_GROUP + having
+        cursor.execute(f"SELECT COUNT(*) FROM ({inner}) sub", w_params + h_params)
         row = cursor.fetchone()
         return row[0] if row else 0
 
     @with_transactions
     def insert_one_course(self, cursor, curso: Cursos):
-        params = (curso.id, curso.nombre, curso.profesor_id, curso.precio, curso.max_alumnos)
+        params = (curso.id, curso.nombre, curso.nombre_en, curso.profesor_id, curso.precio, curso.max_alumnos)
         cursor.execute(INSERT_CURSOS, params)
         print(f"Se ha ingresado el curso: {curso} dentro de la base de datos")
 
     @with_transactions
-    def update_settings(self, cursor, curso_id: str, precio: float, max_alumnos: int):
-        cursor.execute(UPDATE_CURSO_SETTINGS, (precio, max_alumnos, curso_id))
+    def update_settings(self, cursor, curso_id: str, precio: float, max_alumnos: int, nombre_en: str = ""):
+        cursor.execute(UPDATE_CURSO_SETTINGS, (nombre_en, precio, max_alumnos, curso_id))
 
     @with_transactions
     def delete_by_id(self, cursor, curso_id: str):

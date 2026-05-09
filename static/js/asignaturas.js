@@ -41,15 +41,15 @@ async function submitCurso(e) {
   }
 }
 
-function openEditCurso(id, nombre, precio, maxAlumnos) {
-  const idEl = document.getElementById('ec-id');
-  const nombreEl = document.getElementById('ec-nombre');
-  const precioEl = document.getElementById('ec-precio');
-  const maxEl    = document.getElementById('ec-max');
-  if (idEl)     idEl.value          = id;
-  if (nombreEl) nombreEl.textContent = nombre;
-  if (precioEl) precioEl.value       = precio;
-  if (maxEl)    maxEl.value          = maxAlumnos;
+function openEditCurso(id, nombre, precio, maxAlumnos, nombreEn) {
+  const idEl      = document.getElementById('ec-id');
+  const nombreEnEl = document.getElementById('ec-nombre-en');
+  const precioEl  = document.getElementById('ec-precio');
+  const maxEl     = document.getElementById('ec-max');
+  if (idEl)       idEl.value       = id;
+  if (nombreEnEl) nombreEnEl.value = nombreEn || '';
+  if (precioEl)   precioEl.value   = precio;
+  if (maxEl)      maxEl.value      = maxAlumnos;
   openModal('modal-edit-curso');
 }
 

@@ -2,9 +2,15 @@ import os
 from flask import Flask, redirect, url_for
 from config import TEMPLATE_DIR
 from routes import *
+from models import PostgreSQL
 
 def create_app() -> Flask:
     app = Flask(__name__, template_folder=TEMPLATE_DIR)
+
+    # Aplica extensiones y migraciones al arrancar
+    pg = PostgreSQL()
+    pg.create_extensions()
+    pg.create_tables()
     app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-bda-practica3')
 
     # Registro de blueprints
